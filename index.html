@@ -1,575 +1,115 @@
-<!DOCTYPE HTML>
-<!--
-	Dimension by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>Bhavay Tyagi</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<link rel="stylesheet" href="assets/css/personal.css">
-		<link rel="icon" type="image/png" href="/bhavaytyagi.github.io/images/atom.png">
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhavay Tyagi | Theoretical Physicist</title>
+    <link rel="icon" type="image/png" href="/images/atom.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --primary: #00f0ff;
+            --secondary: #ff00f0;
+            --dark: #0a0a1a;
+            --darker: #050510;
+        }
+    </style>
+</head>
+<body class="bg-[#050510] text-white font-mono overflow-x-hidden">
+    <div id="vanta-bg" class="fixed inset-0 z-0"></div>
+    
+    <div class="relative z-10 min-h-screen flex flex-col">
+        <!-- <custom-navbar></custom-navbar> -->
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+        <main class="flex-grow container mx-auto px-4 py-16">
+            <section class="max-w-4xl mx-auto text-center mb-20">
+                <div class="glitch-wrapper">
+                    <div class="glitch" data-text="Bhavay Tyagi">Bhavay Tyagi</div>
+                </div>
+                <p class="text-2xl neon-cyan mt-6">अथातो ब्रह्म जिज्ञासा ।</p>
+                <p class="text-xl neon-pink mt-2">(Let us now be curious about the universe)</p>
+                
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-6 mt-16">
+                    <a href="about.html" class="cyber-button">
+                        <i data-feather="user" class="mr-2"></i> About
+                    </a>
+                    <a href="research.html" class="cyber-button">
+                        <i data-feather="cpu" class="mr-2"></i> Research
+                    </a>
+                    <a href="https://scholar.google.com/citations?view_op=list_works&hl=en&hl=en&user=_3_zFfsAAAAJ" class="cyber-button" target="_blank">
+                        <i data-feather="book" class="mr-2"></i> Publications
+                    </a>
+                    <a href="whatelse.html" class="cyber-button">
+                        <i data-feather="grid" class="mr-2"></i> What else?
+                    </a>
+                    <a href="contact.html" class="cyber-button">
+                        <i data-feather="mail" class="mr-2"></i> Contact
+                    </a>
+                </div>
+            </section>
 
-				<!-- Header -->
-					<header id="header">
-						<div class="logo">
-							<!-- <span class="icon fa-gem"></span> -->
-							<img class="circular_image" src="images/wslogo1.png" width="20%" height="20%">
-						</div>
-						<div class="content">
-							<div class="inner">
-								<h1>Bhavay S. Tyagi</h1>
-								 अथातो &nbsp ब्रह्म &nbsp जिज्ञासा ।
-								 <br>
-								 <span class="subtitle">(Let us now be curious about the universe.)</span>
-									<!-- <span>◆</span>  -->
-									<!-- <br> -->
-									<!-- Theoretical and Mathematical Physics | Blog -->
-								
-							</div>
-						</div>
-						<nav>
-							<ul>
-								<!-- <li><a href="#work">CV</a></li> -->
-								<li><a href="#about">About</a></li>
-								<li><a href="#research">Research</a></li>
-								<li><a href="https://scholar.google.com/citations?view_op=list_works&hl=en&hl=en&user=_3_zFfsAAAAJ">Publications</a></li>
-								<li><a href="#whatelse">What else?</a></li>
-								<li><a href="#contact">Contact</a></li>
-								<!-- <li><a href="#elements">Elements</a></li> -->
-							</ul>
-						</nav>
-					</header>
+            <!-- <section id="terminal" class="max-w-4xl mx-auto bg-black bg-opacity-70 border border-cyan-400 rounded-lg p-4 shadow-lg shadow-cyan-500/20">
+                <div class="terminal-header flex items-center mb-4">
+                    <div class="flex space-x-2 mr-4">
+                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                    </div>
+                    <div class="text-sm text-gray-400">bash: ~/Bhavay Tyagi/profile</div>
+                </div>
+                <div class="terminal-body font-mono text-green-400">
+                    <p class="mb-2">$ whoami</p>
+                    <p class="mb-4 ml-4">Bhavay_Tyagi: I'm a Theoretical Physicist from Bharat (India).</p>
+                    
+                    <p class="mb-2">$ locate --interests</p>
+                    <p class="mb-4 ml-4"> Many-Body Open Quantum Systems | Quantum Field Theory | Quantum Chaos | Quantum Gravity</p>
+                    
+                    <p class="mb-2">$ find ./current_position</p>
+                    <p class="mb-4 ml-4">PhD Candidate at University of Houston </p>
+                    
+                    <p class="mb-2">$ ping -c 3 socials</p>
+                    <div class="ml-4 mb-4">
+                        <p>64 bytes from twitter.com: @bhavaytyagi</p>
+                        <p>64 bytes from instagram.com: @bhavaystyagi</p>
+                        <p>64 bytes from linkedin.com: bhavay-tyagi</p>
+                    </div>
+                    
+                    <p class="mb-2">$ ./contact.sh</p>
+                    <p class="ml-4 flex items-center">
+                        <span class="mr-2">=></span> 
+                        <a href="#contact" class="text-cyan-400 hover:text-cyan-300">Initiate connection protocol</a>
+                    </p>
+                </div>
+            </section> -->
+        </main>
 
-				<!-- Main -->
-					<div id="main">
+        <custom-footer></custom-footer>
+    </div>
 
-						<!-- Intro -->
-							<article id="about">
-								<h2 class="major">About</h2>
-								<blockquote>He who doesn't fear death dies only once. - Giovanni Falcone</blockquote>
-								<span><img style="margin:10px;"  src="images/bhavayprofilepic.jpg" width="100%" height="" /></span>
-								
-								<p>I am a Theoretical Physicist, currently pursuing a PhD at the <a href="https://www.uh.edu/nsm/" target="_blank">College of Natural Sciences and Mathematics</a> in <a href="https://www.uh.edu/" target="_blank">University of Houston</a>.</p>
-								<p>I'm currently looking at Dynamical Open Quantum Systems and Phase Transitions. I'm interested in the intersections of mathematical physics and ultimately interested in a complete quantum theory of gravity. Dualities in physics is a gamechanging idea that fascinates me a lot. It tells us that there exist underlying connections in seemingly unrelated physical systems. I'm curious to know how and why.
-								<p>I am a musician at heart and I love to sing and play the guitar. I love performing on stage. I am also an amateur guitar mechanic/collector and vinyl collector, but one day hope to have a very unique collection.
-									Music runs through my genes and I can never see my life without it. Fun Fact: Music makes the deepest (most fundamental) neural pathways in your brain. Ever thought why you remember so many songs? </p>
-								<p>I am also a sports enthusiast and I think that at any given point in time, in life, one must always be associated with atleast one sport. The blend of psychology and the physicality is unparalleled and it helps one grow stronger both mentally and physically. 
-									I love playing and watching everything from Cricket, Football,...,Chess and even E-Sports. 
-									I'm a hardcore Cricket fan though and at one point was on the path of pursuing it professionally. 
-								</p>
-								<p>
-									I am a co-host of a monthly podcast called <a href="#TKP">The Knowmads Podcast</a> along with my girlfriend Prachi. 
-									We invite guests from various fields including but not limited to 
-									STEM, philosophy, psychology, cultural arts, music etc. 
-								</p>
-								<p> So feel free to talk to me about anything. 
-									<br>
-									P.S. I'm still exploring myself, so more about me later.<br>
-									How you doing? 
-							</p>
-							</article>
-
-						<!-- Research Open -->
-							<article id="research">
-								<blockquote>क्या हार में, क्या जीत में, किंचित नहीं भयभीत मैं। कर्तव्य पथ पर जो भी मिला, यह भी सही वो भी सही, वरदान नहीं मांगूंगा, हो कुछ पर हार नहीं मानूंगा।-अटल बिहारी वाजपेयी</blockquote>
-								<h2 class="major">Research</h2>
-								<span><img src="images/bhavaywork1.jpg" width="100%" /></span>
-								<br><br>
-								<h3><a href="/assets/CV.pdf" class="button primary">CV</a></h3>
-								<h3 class="major">Current Work</h3>
-								<p>
-									<ul>
-										<li>Dynamics of Open Quantum Systems</li>
-										<li>Theory of Phase Transitions</li>
-									</ul>
-									My interests keep changing so feel free to email me if you want to know what I'm working on or check out my arXiv/Scholar.									
-									<br><br>My ultimate goal is to understand the Quantum Nature of Gravity.
-								</p>
-								<h3 class="major">Stuff I've Worked on in the Past</h3>
-								<ol>
-									<li>SYK Model</li>
-									<li>AdS/CFT and Entanglement Entropy</li>
-									<li>SUSY and Quantum Field Theories</li>
-									<li>Strings</li>
-								</ol>
-								<h2 class="major">Resources</h2>
-								<p>Send me an email if you want the presentation/report for anything that interests you.</p>
-								<h2>Talks</h2>
-								<ol>
-									<li>Asymmetry Amplification - Global Physics Summit Anaheim, CA 2025</li>
-									<li>Noise-Induced Synchronisation - Physics Research Day 2025</li>
-									<li>Asymmetry Amplification - CNLS, Los Alamos National Lab 2024</li>
-										
-								</ol>
-								<h2>Short Reviews</h2>
-								<ol>
-									<li><p><b>Black Holes as Information Scramblers</b> by Bhavay Tyagi</p>
-									<li><p><b>A Quantum Theory of Flux Tubes</b> by Bhavay Tyagi</p>
-								</ol>
-								
-								<!-- <iframe src="/assets/CV.pdf" width="100%" height="1580px"></iframe> -->
-								
-								
-							</article>
-							<!-- Research Close -->
-
-						<!-- BLOG OPEN -->
-						<!-- <article id="blog">
-							<h2 class="major">Blog</h2>
-							<img style="margin:10px;" src="images/blog.jpg" width="97%" height="50%"  alt="Friday, May 12 2023 UOH-Home" />
-							<p>Welcome to my not so frequent blog. This and my instagram is the best way to stay updated on what I have been up to.
-								Having said that, I must also let you know that Grad school plus research plus life keeps me very busy so I'll try 
-								my best to honestly update this page monthly. Well lets see how it goes. Now I had to choose to begin the blog somewhere so I chose a special day and you'll read about it shortly.
-								Everything before that can be understood from my CV but if you're still interested feel free to drop me a message I'll be happy to chat. I hope you can get something great out of all my experiences. 
-								Happy reading folks. Cheers. <br>
-								About the picture you see above: This was taken on a Friday while coming back home from school. 
-								I couldn't believe the first year was over, it went by quicker than a blink of an eye. 
-								Here is me staring at the sun as the semester fades away, 
-								embracing the endless possibilities of summer. 
-							</p>
-							<h3>February 2024</h3>
-							<blockquote>
-								Joining a new research group comes with many benefits and challenges. I'll begin with the challenges first. The biggest one is to convince yourself that even if you wanted to something entirely different it's okay
-								this is something important too. Don't get me wrong here but when a HEP enthusiast enters the CMT world this is how you feel. But then I also know how the lines between the two are now extremely blurry and there's not really a 
-								strict demarcation. The techniques developed on both sides are efficiently being used on both sides. This made me feel a little shallow. That I was trying to put research 
-								in an Heirarchy when I should be glad that I have got the opportunity to learn about both the sides of the coin. My new advisor is a an unreal character. I dont think anyone has travelled as much as he has. 
-								He is such a well rounded person. His knowledge of science is extremely diverse and all of it has a great depth to it too. His overall knowledge includes science, history, math, music, poetry and the list can go on. 
-								I can talk to him about everything and never get bored. I aspire to become a person like him one day. I feel truly blessed getting the opportunity to work with a person like him. I also helped him build is library since he had changed his office to a new location (see above picture). Well the semester was no in full swing and 
-								I was enjoying all my courses and was trying understand the stuff that was going on in the new research group. Prachi and I also went to celebrate the Chinese New year. It's the year of the dragon I'm assuming that means something crazy is about to happen 
-								as it did in Game of Thrones. I had also picked up my guitar and set aside a daily 30 min routine to practice. My friend Tripp celebrated his birthday that month so we got a chance to hangout. 
-								It's funny how as grad students, we actively seek every possible opportunity to relax and unwind since these are rare. I mean I hardly see my friends during the week because I'm constantly in my office, working. 
-								Finally, the end of the month was a bang because I went to see Extreme and especially Nuno "The Legend" Bettencourt just do his magic on stage. I was in pure trance just being controlled by the notes coming out of his guitar. It was truly a memorable night. 
-							</blockquote>
-							<h3>January 2024</h3>
-							<blockquote>
-								If you have been reading this vlog you already know what's been going on and how traumatic was December. I was recovering from it in January. 
-								I was meeting new advisors to work with and luckily most of them were very supportive or at least pretending to be very supportive. The department was not so supportive but I am a "good" student so I was allowed to take 
-								sometime to figure out what I wanted to do and with whom. I was almost going to switch to mathematics department because I had developed a degree of hate towards the physics folks because of this unfortunate situation. 
-								That didn't work out and it was for the best, I was not thinking straight and the change would have been detrimental. One thing you realise when you're pursuing a PhD is that you are expected to be very very flexible. It is for the best 
-								because once you try out different fields you realize how interesting they are and have so many places where you can contribute as a PhD student. A balance between being pragmatic and ambitious is the most vital lesson that I have recently learnt. 
-								As a researcher you should be comfortable in collective contribution. It is only then you find yourself dealing with the hardest of problems which make a 'difference'. I went to attened a conference in Washington D.C in the end of the month to advocate for STEM and initiate policy reform. 
-								In other words I was there to convince the leaders of the country that science is really important and should be adequately funded. I was blessed with the opportunity to meet one of the greatest 
-								physicists in the world and since they're in their golden period all of the advice I got from them was pure gold. I was told that I have kill a certain stereotypical version of the scientist we all aspire to be and rise from the ashes as someone who believes in a collective contribution. 
-								Keep doing research. If you're not fortunate enough to work on stuff you find interesting, develop a meta interest. Find out why do other people find it interesting and help them achieve their goal. Learn to love physics instead of a particular problem. 
-								If you keep doing this you will find yourself doing research that will definitely become bigger than it even had the right to be and that is when you'll find yourself among the best. Just fucking keep at it. January was transformative. The picture above is with Geoff Pennington. What a guy. 
-							</blockquote>
-							<h3>December 2023</h3>
-							<blockquote>
-								One of the most amazing and stressful months of my life. 
-								Following is a detailed account of me and my colleague Prachi Garella’s experience working with our advisor:
- 
-We had intended to work with our advisor and we had already spoken to him before joining the PhD program. During the first year when we were busy with courses he would send us emails asking to look for possible funding options for the group to support ourselves. He suggested that we do this asap before officially joining the group in the 2nd year. He also asked us to look for potential options back in India and to speak to all our connections (including relatives) for possible funding options.
-We officially joined the group in summer 2023.
-Our advisor suggested that we work on the SYK Model, he said that this model has some interesting properties that have a potential overlap with his ongoing work. Instead of giving a particular problem he asked us to find our own research direction.
-A month into reviewing the model he said that he wasn’t an expert so asked us to learn and teach him this model. We decided to have bi-weekly meetings with him in order to review the model but after a couple of meetings he did not continue to show any interest and asked us to keep reviewing the model by ourselves, while also sending us different papers that were more closely related to the work he had proposed in his grant. We reviewed those papers as well, and presented them to him. Whenever we had any questions he would dodge that request by saying that he wasn’t available to answer them and would say that he’s busy with other work (conferences, writing grants etc). 3 Months into working with him he sends us an email (with a strict deadline) that he wants two “concrete” problems each since he wanted us to publish a paper as soon as possible. We had no idea how to go about this and he had no projects planned for us whatsoever. In a follow up email he said that he would do all the calculations by himself but he is just too busy. We were under a lot of pressure to find these concrete problems so we reached out to professors who are experts in this field. We found someone who was willing to collaborate provided our advisor is on board to work together. We asked our advisor to talk to this person in order to initiate a collaboration. Initially he seemed excited but eventually did not proceed with this proposal. After many such conversations we realized that he doesn’t like the idea of collaborating/ sharing ideas with anyone other than the people he already knows. We still gave it our all and found 4 potential research directions centered around the SYK model by talking to pioneers in the field and sent them to him. We had planned to explore these problems over the winter break and decided to go back to India to visit our respective families. Our advisor did not like the fact that we’re going to India for a vacation and organized a meeting just to tell us that this is not allowed. We should instead stay and keep working since we have to publish a paper as soon as possible. He also added that we should not take part in any extracurricular activities, student organization, events etc. and even on weekends we should constantly be working. We spoke to a former graduate student of the group about this situation and were told that this was typical.
-Right before Christmas, he asked us to come up with 2 more problems each by January 12th. We inquired if he actually read the report containing problems that we sent to him before the vacation and he didn’t respond to that. In an email we were told that we should stop any discussions amongst ourselves and anyone else. All our ideas and discussions should be restricted to only one person of the group (a new student who just joined) and if that student isn’t available only then we should talk to our advisor. He also mentioned that he had planned our research future in a meeting that was held with this other student and we weren’t part of that meeting. This was the threshold and we have decided to leave this group and find another advisor. The past 6 months we have only been anxious and have felt completely helpless and were filled with self-doubt. We were put through mental torture.
-							</blockquote>
-							<h3>November 2023</h3>
-							<blockquote>
-								I had planned to suprise our parents back in India and I managed to pull off the surprise with precision. 
-								On the 20th we flew to back to India. It was a much needed vacation for us. The semester was supposed to end in a few weeks but 
-								we fortuately didn't have exams for the courses in this semester so we could submit our assignments online. 
-								Meeting my family and friends back in India was so rejuvinating. Being in Delhi was a breath of 'fresh air'. Well at the time it was extremely polluted.
-								But still if you're from Delhi you'll know what I'm talking about. I successfully completed all my assignments and projects before the end of the semester. 
-								Attended a shit ton of weddings and ate a hell lotta food. I played golf after a very long time and played seriously this time. I think I have the ability to be a good golf player haha. The red flags I mentioned in the previous month, had intensified and it was becoming extremely stressful working with my advisor. 
-								As a result Prachi and I decided to cut short our trip by a few weeks and decided to go back to Houston around Christmas. 
-							</blockquote>
-							<h3>October 2023</h3>
-							<blockquote>
-								October was eventful. I made dumplings for the first time for a dumpling making competition organized by my department. 
-								I also got the opportunity to perform on stage after a very very long time. I was missing that feeling of being on stage. 
-								The research had taken a few drastic turns. But most importantly working on strongly correlated systems gives you so many insights about how the world around us 
-								depends so much 'scale'. I was enoying every bit of it. However my advisor was feeling a bit lost and I could see some red flags with the way he was 
-								conducting research in his group. I went to a crazy, and extremely fancy Halloween party. The curated cocktails were the hightlight. 
-								The theme was Alice in Wonderland and I dressed as tweedledum #iykyk. 
-							</blockquote>
-							<h3>September 2023</h3>
-							<blockquote>
-								September was a great month because I had been focusing greatly on my 
-								fitness which I had been ingoring for the past one year. 
-								I did not miss a single workout and finally I could see some changes in my body. 
-								I was moving towards a healthy me. Health is extremely important, no matter what and one must 
-								learn to prioritise it. Especially when you're at school for a long program. 
-								As they say a healthy body bears a healthy mind. You only realize that when you experience that not being physically healthy 
-								does have a major impact on your mind. As soon as I got back into discipline I could see my productivity increase
-								in all aspects of life. One important thing only discipline and focusing on self can teach is to say no to things 
-								that dont align with you. I have a people pleasing personality and I'm sure people around me would immediately agree with this and 
-								saying NO comes very hard to me. But it is important to learn to say no, otherwise you get exploited. 
-								I also went to a GnR concert which was exceptional. The highlight was that they were playing with a line up that was closest to the original 
-								founding line up. So it was a must. Btw seeing an American band play in America is another experience altogether. The support, 
-								the atmosphere, the energy is simply surreal. The opening act was Alice in Chains and they were equally great. 
-
-							</blockquote>
-							<h3>August 2023</h3>
-							<blockquote>
-								One of our "party head" friend threw his birthday party in the beginning of the month. As you can see in the photograph we had hopped 4 bars by now and my hair explain everything else.  
-								Little did I know that this event in the beginning of the month will end up dictating how the month will turn out to be.
-								Prachi's knee injury bounced back this night. It wasn't due to drinking or dancing in fact we came back to our partment around 
-								12 midnight. Suddenly while getting into bed and calling it a night, her injury cam back. 
-								We had to call the emergency services and it was a whole mess. The emergency night service in the US has not set a nice example since we had to stay up all night at the hospital for a 
-								god damn painkiller and a kneee immobalizer. THe X-ray turned out to be fine. After a week of rest and rehab Prachis was fine. The month was pretty straight forward after that.
-								I mostly focused on my coursework and finding a problem to work on for my research. The end of the month we went to our first ever 
-								'Philosophically Drinking' night. It was great meeting all these fresh faces in town. Especially a group that was so interested in Philisophy. 
-								The topic was about 'The Philosophy and concept of Freedom'. It was truly an insightful talk. 
-							</blockquote>
-							<h3>July 2023</h3>
-							<blockquote>
-								Well the above photo speaks for itself it was Summer 2023. July started off with finishing up
-								of some of my research commitments before my advisor was travelling for a conference. 
-								It was the first 4th of July in the country so Prachi and I went to see Texas-Sized fireworks (as it was advertised) and they
-								lived up to their name. It was then time for Prachi's birthday on the 12th of July. I planned a trip to Galveston bay. We spent 
-								the night by the beach and we cut the cake on her birthday eve. The weeks were filled with my TA assignments and the weekends were for 
-								parties by the pool. I learnt a lot from this TA assignment since I was not just taking a lab this time. 
-								I got to teach a full blown class of 80 students and made one of their midterm exams. It was a steep learning curve and I enjoyed every bit. 
-								The following are a few things what teaching taught me and I wish me teachers knew in the past:
-								<br>
-								<ol>
-									<li>The best way to teach something is your own damn way. Do not learn how to teach a concept. Spend time with yourself, internalize the concept and then teach the exact way you learnt. </li>
-
-									<li> The right amount of preparation is key. Understand the balance between not preparing and preparing the right amount. When you’re adequately prepared you feel more confident and comfortable. </li>
-										
-									<li> Always keep an open mind. There are some exceptional brains in the audience and can have extremely useful feedback and unique ways of finding the solution. </li>
-										
-									<li> Work on your interaction skills. Students love a teacher who can make them feel comfortable around themselves. It is important to make them feel included, to make them feel that they’re a part of the process as much as you are. One needs to empathize with them, accommodate their opinions and push them towards a greater understanding. </li>
-										
-									<li> Don’t forget to experiment. The art of teaching is not set in stone. There however exists the responsibility of passing down the knowledge. Always remember education is collaborative and collective. Try different ways. Fail. Make yourself vulnerable and surprise your students as much as you can. Think of it as a performance, you prepare, you’re nervous but you love being on stage and you love to deliver. One can only do justice if they feel passionate about and if they’ve internalized it and have striken a perfect balance between being focused, aggressive and calm all at the same time. </li>
-								</ol>
-								I also took part in the IBM Qiskit Global Summer School 2023 which focused on the theory to implementation of Quantum Computation. The school finishes in august so more about the school then.
-								
-							</blockquote>
-							<h3>June 2023</h3>		
-							<blockquote>
-								June was amazing. I had a wonderful teaching summer experience. The summer semester is shorter so I was basically teaching all week but I managed my 
-								time pretty well. I finished a lecture series on <a href="https://youtube.com/playlist?list=PLDfPUNusx1Ep5g1jIKXqpNX_t_Zz-kAlQ">Conformal Field Theory</a> by Tobias Osborne and <a href="https://youtube.com/playlist?list=PL_kQfq_5BKqq1xPQe3LHeAuAoLyCMZx4Y">Advanced Quantum Field Theory</a> by Nabil Iqbal. 
-								I highly recommed both of them. On top of that I also squeezed in my research on the SYK model and made some decent progress. I saw the first ever installation of 
-								'Dreamsonic 2023' a prog rock tour with Animals as Leaders, Devin Townsend and Dream Theater. WHat a show! 
-								I also began my weightloss journey after finally finding time in the summer. The goal is to go below 80kg this time and I have already lost 7kg. Current weight is 
-								98kg so >18kg more to lose. I feel focused and I'm also working out. Summer is all about getting back in shape isn't it?
-								We had many interesting guests over the first month of summer and we're learning so much about podcasting and gaining so much knowledge along the way. 
-								Go check out the podcast if you haven't already. We're also on Patron and your support is invaluable. 
-
-
-
-							</blockquote>
-							<h3>May 2023</h3>
-									<blockquote>
-										Well honestly May...was stressfull. I had my final set of exams in the first week which weren't well spaced but
-										nothing could be done about it. So I gave all my exams did very well on all of them except EM (just passed).
-										But it was done and exams were over and so was the 2nd semester. The picture you see about is right after attending a 
-										colloquium by a former group member who is now a post doc at IQC waterloo. 
-										What followed were a series of end sem parties just to celebrate the end of first year and get rid of all the stress. 
-										Prachi and I along with a bunch of friends went to so many concerts we saw RHCP, Ed Sheeran and many more. 
-										May 2023 has a special place in my heart because this was when Prachi and I gave birth to our brainchild <a href="#TKP">"The Knowmads Podcast"</a>.
-										We had been planning to start a podcast for a year now and this was the right time and place. 
-										We are looking forward to have enlightening conversations about STEM, culture, philosophy, psychology and primarily 
-										we will focus on the reality of graduate life. Looking forward to see y'all there and your suggestions for guests. 
-										I will also be TAing this summer semester and will be teaching Physics 1 (Mechanics) Lab. 
-										While may was going great the end of the month sucked - Prachi's phone was stolen at a Target, the police obviously did not help at all 
-										and we had to deal with most of it ourselves. We literally tracked the phone down using find my Iphone and still the police could not 
-										retrieve it. Well if you want more details about the entire incident feel free to chat. 
-
-									</blockquote>
-									<h3>Week 5: April 20 - May 4, 2023</h3>
-									<blockquote> As the Public Relations manager of APS Chapter at UH, I along with my team mates organized a movie night for fellow grad students and we saw Primer, and not single person in the audience got it. 
-										Mind you, this was an audience comprised of physicists and physicists only. <br>
-										All the midterms were over and there were many events going in the college as it was the beginning of final exam week. 
-										It was stressful but Prachi and I really support each other and we don't let either of us stress a lot. 
-
-									</blockquote>
-									<h3>Week 3: April 6 - April 20, 2023</h3>
-								
-									<blockquote> <img style="margin: auto;" src="images/blogweek3.jpg" width="97%" height="10%"/>
-										On the 14th of April, many student from my department defended their thesis and I got the opportunity to attend some of them. 
-										One of the first thing I noticed that your defence will only go well if you get good food for your thesis committee. Its true. 
-										I saw it happen. But anyway it was my first time sitting in on a thesis defence and I got to learn a lot and managed to ask 
-										great questions to the then PhD students and now Doctorsl. In the night we went to celebrate, laughed, got drunk. <br>
-										It was then time for the 2nd round of Midterms. Now Quantum and Stat Mech was fine since they're my strengths but EM...well not so much. 
-										I was terrified that I'll fail this time too but I did pretty well and was above the average of the class. 
-										<br>
-										This is me feeding a squirrel after a successful presentation: 
-										<span><img src="/images/mensquirrel.jpg" width="100%" /></span>
-									</blockquote>
-									<h3>Week 1: March 23 - April 6, 2023</h3>
-								<blockquote>The reason I chose to start from this week is because this week was extremely special and what's better
-									than a special beginning to my blog. It was the end of March and my second semester was in full flow. The first round 
-									of midterm exams were over. I still remember I'd failed my Electrodynamics midterm. I had failed an exam for the first time 
-									in my life. My love for physics is beyond any failiure and it didn't stop me from continuing my reseaech. Now my advisor comes to 
-									school only on Tuesdays and Thursday. This thursday was my first ever research presentation and I was talking about the universality of the 
-									Schwarzian action. 
-									<img style="margin: auto;" src="images/blogweek1.png" width="97%" height="50%"/>
-									The universality arises from the underlying SL(2,R) symmetry group. The presentation went so well and my advisor was very happy. 
-									My summer project had been decided. I was content and satisfied and was looking forward to work this project. <br>
-								I spent the next two weeks taking apart both my electric guitars. I seem to have developed a liking towards guitar design and mechanics. 
-										Both my guitars had missing parts, some of them broke because of my lack of experience as a guitar mechanic so I had to wait for the parts to come before I fixed my guitars. 
-										I also celebrated one of my close friends's birthday on the 2nd of April. I also applied for the TPEG scholarship. Which I will let you know if I got or not.
-								</blockquote>
-								
-							</article> -->
-						
-						<!-- BLOG CLOSE -->
-					<!-- WHAT ELSE OPEN -->
-							<article id="whatelse">
-								<h2 class="major">Everything Else</h2>
-								<ol>
-									<li><a href="#Geneology"><h3>Geneology</h3></a></li>
-									<li><a href="#outreach"><h3>Outreach</h3></a></li>
-									<li><a href="#TKP"><h3>The Knowmads Podcast</h3></a></li>
-									<li><a href="#music"><h3>Music</h3></a></li>
-									<li><a href="#aps"><h3>APS UH Chapter</h3></a></li>
-									
-								</ol>
-										</article>
-										<article id="Geneology">
-											<a href="https://academictree.org/physics/tree.php?pid=936509" target="_blank"><img align="right" style="margin:10px;" src="images/geo.png" width="40%" height="10%" alt="" />
-											<h2 class="major">Geneology</h2>
-										</a>
-													<p>My Ph.D advisor is <a href="https://en.wikipedia.org/wiki/Eric_R._Bittner">Prof. Eric R. Bittner</a>. 
-														He worked with John C. Light at the University of Chicago and obtained his Ph.D. 
-														He is currently the Hugh Roy and Lillie Cranz Cullen Distinguished Professor at Department of Physics at University of Houston.  
-														In the summer of 2001, he worked as visiting faculty at the Center for Non-Linear Studies at Los Alamos National Lab and in 2023 he served as the Ulam Distinguished Scholar at the CNLS.
-													</p>
-														<a href="#whatelse" class="button primary">Go Back</a>
-										</article>
-										<article id="outreach">
-											<h2 class="major">Outreach</h2>
-											<img style="margin:10px;" src="images/beyond portals3.png" width="100%" height="" alt="" />
-											<p>I am an active and passionate science communicator. I Co-founded Beyond Portals, to promote and popularize research in fundamental sciences. 
-												We also support minorities in STEM and provide them with a platform to learn, grow and guide them to pursue a career in fields they are passionate about. 
-												According to my experiences I strongly feel that the education system of the world needs a major fix and that is what keeps me motivated towards building a community of people 
-												sharing revolutionay ideas and are equally passionate and willing to collectively build a platform that has the potential to transform education, academics, research as well as industry across the globe.</p>
-												<p>We organize public talks, workshops and seminars online as well as offline. Our members are actively working on tapping into areas like social media, e-schooling etc. and are constantly coming up with new ideas 
-													and approaches to efficiently propagate our ideas. I hope those sharing similar ideas will join hands with us and make this dream come true. Stay tuned. </p>
-													<a href="#whatelse" class="button primary">Go Back</a>
-									</article>
-										<article id="TKP">
-											<h2 class="major">The Knowmads Podcast</h2>
-											<img src="images/tkp.PNG" width="100%" height=""/>
-											<br>
-											I'm a cohost of The Knowmads Podcast. Our guests come from all areas of STEM, philosophy, psychology, different cultural backgrounds and ethnicities. You can find us on all major podcast streaming platforms. 
-											<br><br>
-											<ul class="actions stacked">
-												<li><a href="https://www.youtube.com/channel/UCHXJ97wNz1clBglDqPmFBYA" class="button" target="_blank">YouTube</a></li>
-												<li><a href="https://open.spotify.com/show/0Yhg8PHkNsuMvAs8auY3BB?si=ee25977b7c4b48fa" class="button" target="_blank">Spotify</a></li>
-												<li><a href="https://podcasts.apple.com/us/podcast/the-knowmads-podcast/id1688828370" class="button" target="_blank">Apple Podcasts</a></li>
-											</ul>
-											<!-- <h3>Your support is invaluable, you can support us on patreon.</h3> -->
-											<br>
-											<!-- <a href="https://www.patreon.com/TheKnowmads" class="button primary">Patreon</a> -->
-												<a href="#whatelse" class="button primary">Go Back</a>
-										</article>
-										<article id="music">
-											<h2 class="major">Music</h2>
-											<blockquote>
-												If Music be the Food of Love, Play On. - William Shakespeare
-											</blockquote>
-											<img src="/images/music.png" width="100%"/>
-											<p>I have always been a musician at heart. If not a physicist I would pursue music as my career.
-											My journey as a musician was very organic. Although it is important to say that I'm the son of the greatest musician in the world "Mr. Rajieve Saarang". My father never forced me to do music but he made sure that Music was always there during my grooming stages. 
-											I have seen Jam sessions as a very small kid without ear plugs. So the damage has been done. Music has been engrained in me. 
-											I had met with an accident when I was in the 5th grade and I designate that incident to be life changing, a canon event if you would like that. I started loving physics and picked up the guitar.
-											I have never stopped since then. I was in the school band during high school. I was the front man in my undergraduate band. Music is my expression and 
-											it has helped me grow, it has shaped my personality and through music I explored the various cultures of the world. 
-											I have a <a href="https://www.youtube.com/@BhavaySaarangTyagi">youtube channel</a> that goes way back, I'm not super active but you surely see me hit puberty to a fully grown adult on that channel while enjoying the music I have to share.
-										</p>
-											<a href="#whatelse" class="button primary">Go Back</a>
-										</article>
-										<article id="aps">
-											<h2 class="major">APS UH Chapter</h2>
-											<blockquote>
-												to advance and diffuse the knowledge of physics - First APS Meeting May 20 1899
-											</blockquote>
-											<p> I'm currently the Chair of the University of Houston APS Chapter.
-												I was fortunate to get the opportunity to attend the APS Annual Leadership Meeting 2023,24 and 25 at Washington DC where
-												I met many incredible researchers and APS officers who have curated this amazing network that has collaboration at its heart. 
-												If you want to learn more, visit
-												<br>
-												<a href="https://aps.org" class="button">APS WEBSITE</a>
-												</p>
-												
-												<a href="#whatelse" class="button primary">Go Back</a>
-
-												
-												
-											</p>
-
-										</article>
-<!-- WHAT ELSE CLOSE -->
-						<!-- Contact OPEN -->
-							<article id="contact">
-								<h2 class="major">Contact</h2>
-								<p>Use the form or email me at 
-									<br>
-									btyagi[at]uh[dot]edu</p>
-								<!-- <form method="post" action="#"> -->
-									<form method="post">
-									<div class="fields">
-										<div class="field half">
-											<label for="name">Name</label>
-											<input type="text" name="name" id="name" />
-										</div>
-										<div class="field half">
-											<label for="email">Email</label>
-											<input type="text" name="email" id="email" />
-										</div>
-										<div class="field">
-											<label for="message">Message</label>
-											<textarea name="message" id="message" rows="4"></textarea>
-										</div>
-									</div>
-									<ul class="actions">
-										<li><input type="submit" value="Send Message" id="btn" /></li>
-										<li><input type="reset" value="Reset" /></li>
-									</ul>
-								</form>
-								<script src="https://smtpjs.com/v3/smtp.js"></script>
-								<script>
-									var btn = document.getElementById('btn');
-									btn.addEventListener('click', function(sendEmail){
-										sendEmail.preventDefault()
-										var name = document.getElementById('name').value;
-										var email = document.getElementById('email').value;
-										var message = document.getElementById('message').value;
-										var body = 'Name: ' +name + '<br/> Email: ' +email + '<br/> Message: '+ message;
-										Email.send({
-											Host : "smtp.gmail.com",
-											Username : "bhavaysaarangtyagi@gmail.com",
-											Password : "ipqmghfhmtgavthf",
-											To : 'bhavaysaarangtyagi@gmail.com',
-											From : email,
-											Subject : "New Inquiry",
-											Body : body
-}).then(
-  message => alert("Message Sent Succesfully")
-);
-
-									})
-								</script>
-								<!-- <ul class="icons"> -->
-									<!-- <li><a href="https://twitter.com/BhavaySTyagi" class="icon brands fa-twitter" target="_blank"><span class="label">Twitter</span></a></li> -->
-									<!-- <li><a href="https://www.facebook.com/bhavaysaarangtyagi" class="icon brands fa-facebook-f" target="_blank"><span class="label">Facebook</span></a></li> -->
-									<!-- <li><a href="https://www.instagram.com/bhavaystyagi" class="icon brands fa-instagram" target="_blank"><span class="label">Instagram</span></a></li> -->
-									<!-- <li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li> -->
-								<!-- </ul> -->
-							</article>
-
-						<!-- Elements -->
-							<article id="elements">
-								<h2 class="major">Elements</h2>
-
-								<section>
-									<h3 class="major">Text</h3>
-									<p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
-									This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
-									This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, <a href="#">this is a link</a>.</p>
-									<hr />
-									<h2>Heading Level 2</h2>
-									<h3>Heading Level 3</h3>
-									<h4>Heading Level 4</h4>
-									<h5>Heading Level 5</h5>
-									<h6>Heading Level 6</h6>
-									<hr />
-									<h4>Blockquote</h4>
-									<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum dolor sit amet nullam adipiscing eu felis.</blockquote>
-									<h4>Preformatted</h4>
-									<pre><code>i = 0;
-
-while (!deck.isInOrder()) {
-    print 'Iteration ' + i;
-    deck.shuffle();
-    i++;
-}
-
-print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
-								</section>
-
-								<section>
-									<h3 class="major">Lists</h3>
-
-									<h4>Unordered</h4>
-									<ul>
-										<li>Dolor pulvinar etiam.</li>
-										<li>Sagittis adipiscing.</li>
-										<li>Felis enim feugiat.</li>
-									</ul>
-
-									<h4>Alternate</h4>
-									<ul class="alt">
-										<li>Dolor pulvinar etiam.</li>
-										<li>Sagittis adipiscing.</li>
-										<li>Felis enim feugiat.</li>
-									</ul>
-
-									<h4>Ordered</h4>
-									<ol>
-										<li>Dolor pulvinar etiam.</li>
-										<li>Etiam vel felis viverra.</li>
-										<li>Felis enim feugiat.</li>
-										<li>Dolor pulvinar etiam.</li>
-										<li>Etiam vel felis lorem.</li>
-										<li>Felis enim et feugiat.</li>
-									</ol>
-									<h4>Icons</h4>
-									<ul class="icons">
-										<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-										<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-										<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
-									</ul>
-
-									<h4>Actions</h4>
-									<ul class="actions">
-										<li><a href="#" class="button primary">Default</a></li>
-										<li><a href="#" class="button">Default</a></li>
-									</ul>
-									<ul class="actions stacked">
-										<li><a href="#" class="button primary">Default</a></li>
-										<li><a href="#" class="button">Default</a></li>
-									</ul>
-								</section>
-							</article>
-							
-
-					</div>
-						
-				<!-- Footer -->
-				
-					<footer id="footer">
-						<br>
-						<ul class="icons">
-							<li><a href="https://x.com/bhavaytyagi" class="icon brands fa-twitter" target="_blank"><span class="label">Twitter</span></a></li>
-							<li><a href="https://www.facebook.com/bhavaysaarangtyagi" class="icon brands fa-facebook-f" target="_blank"><span class="label">Facebook</span></a></li>
-							<li><a href="https://www.instagram.com/bhavaystyagi" class="icon brands fa-instagram" target="_blank"><span class="label">Instagram</span></a></li>
-							<li><a href="https://www.linkedin.com/in/bhavay-tyagi-450862168/" class="icon brands fa-linkedin" target="_blank"><span class="label">Linkedin</span></a></li>
-
-						</ul>
-						<p class="copyright">&copy; 2025 Bhavay S. Tyagi</p>
-						
-					</footer>
-					
-					
-			</div>
-
-		<!-- BG -->
-			<div id="bg">
-				<!-- <img src="images/bgnew.jpg" /> -->
-			</div>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
-	</body>
+    <script src="components/navbar.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="script.js"></script>
+    <script>
+        feather.replace();
+        VANTA.NET({
+            el: "#vanta-bg",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color: 0x00f0ff,
+            backgroundColor: 0x050510,
+            points: 10.00,
+            maxDistance: 22.00,
+            spacing: 18.00
+        });
+    </script>
+<!-- <script src="https://huggingface.co/deepsite/deepsite-badge.js"></script> -->
+</body>
 </html>

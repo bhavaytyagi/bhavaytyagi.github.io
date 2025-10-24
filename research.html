@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research | Bhavay Tyagi</title>
+    <link rel="icon" type="image/png" href="/images/atom.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-[#050510] text-white font-mono overflow-x-hidden">
+    <div id="vanta-bg" class="fixed inset-0 z-0"></div>
+    
+    <div class="relative z-10 min-h-screen flex flex-col">
+        <custom-navbar></custom-navbar>
+
+        <main class="flex-grow container mx-auto px-4 py-16">
+            <article id="research" class="max-w-4xl mx-auto bg-black bg-opacity-70 border border-cyan-400 rounded-lg p-8 shadow-lg shadow-cyan-500/20">
+                <blockquote class="border-l-4 border-pink-500 pl-4 mb-8 italic neon-pink">
+                    क्या हार में, क्या जीत में, किंचित नहीं भयभीत मैं। कर्तव्य पथ पर जो भी मिला, यह भी सही वो भी सही, वरदान नहीं मांगूंगा, हो कुछ पर हार नहीं मानूंगा। - अटल बिहारी वाजपेयी
+                </blockquote>
+                
+                <h2 class="text-3xl font-bold mb-6 neon-cyan">Research</h2>
+                
+                <img src="images/bhavaywork1.jpg" alt="Research Work" class="w-full h-auto rounded-lg border border-cyan-400 shadow-lg shadow-cyan-500/20 mb-8">
+                
+                <a href="CV.pdf" class="cyber-button inline-flex items-center mb-8">
+                    <i data-feather="file-text" class="mr-2"></i> CV
+                </a>
+                
+                <section class="mb-10">
+                    <h3 class="text-xl font-bold mb-3 neon-pink">Current Work</h3>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Dynamics of Open Quantum Systems</li>
+                        <li>Theory of Phase Transitions</li>
+                    </ul>
+                    <p class="mt-4">
+                        My interests keep changing so feel free to email me if you want to know what I'm working on or check out my arXiv/Scholar.
+                        <br><br>My ultimate goal is to understand the Quantum Nature of Gravity.
+                    </p>
+                </section>
+                
+                <section class="mb-10">
+                    <h3 class="text-xl font-bold mb-3 neon-pink">Past Research</h3>
+                    <ol class="list-decimal pl-6 space-y-2">
+                        <li>SYK Model</li>
+                        <li>AdS/CFT and Entanglement Entropy</li>
+                        <li>SUSY and Quantum Field Theories</li>
+                        <li>Strings</li>
+                    </ol>
+                </section>
+                
+                <section class="mb-10">
+                    <h2 class="text-2xl font-bold mb-4 neon-cyan">Resources</h2>
+                    <p>Send me an email if you want the presentation/report for anything that interests you.</p>
+                </section>
+                
+                <section class="mb-10">
+                    <h2 class="text-2xl font-bold mb-4 neon-cyan">Talks</h2>
+                    <ol class="list-decimal pl-6 space-y-2">
+                        <li>Asymmetry Amplification - Global Physics Summit Anaheim, CA 2025</li>
+                        <li>Noise-Induced Synchronisation - Physics Research Day 2025</li>
+                        <li>Asymmetry Amplification - CNLS, Los Alamos National Lab 2024</li>
+                    </ol>
+                </section>
+                
+                <section>
+                    <h2 class="text-2xl font-bold mb-4 neon-cyan">Short Reviews</h2>
+                    <ol class="list-decimal pl-6 space-y-2">
+                        <li><b>Black Holes as Information Scramblers</b> by Bhavay Tyagi</li>
+                        <li><b>A Quantum Theory of Flux Tubes</b> by Bhavay Tyagi</li>
+                    </ol>
+                </section>
+            </article>
+        </main>
+
+        <custom-footer></custom-footer>
+    </div>
+
+    <script src="components/navbar.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="script.js"></script>
+    <script>
+        feather.replace();
+        VANTA.NET({
+            el: "#vanta-bg",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color: 0x00f0ff,
+            backgroundColor: 0x050510,
+            points: 10.00,
+            maxDistance: 22.00,
+            spacing: 18.00
+        });
+    </script>
+</body>
+</html>

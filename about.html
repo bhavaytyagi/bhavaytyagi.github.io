@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Bhavay Tyagi</title>
+    <link rel="icon" type="image/png" href="/images/atom.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-[#050510] text-white font-mono overflow-x-hidden">
+    <div id="vanta-bg" class="fixed inset-0 z-0"></div>
+    
+    <div class="relative z-10 min-h-screen flex flex-col">
+        <custom-navbar></custom-navbar>
+
+        <main class="flex-grow container mx-auto px-4 py-16">
+            <article class="max-w-4xl mx-auto bg-black bg-opacity-70 border border-cyan-400 rounded-lg p-8 shadow-lg shadow-cyan-500/20">
+                <h2 class="text-3xl font-bold mb-6 neon-cyan">About</h2>
+                
+                <blockquote class="border-l-4 border-pink-500 pl-4 mb-8 italic neon-pink">
+                    He who doesn't fear death dies only once. - Giovanni Falcone
+                </blockquote>
+                
+                <div class="grid md:grid-cols-2 gap-8 mb-10">
+                    <div>
+                        <img src="images/bhavayprofilepic.jpg" alt="Bhavay Tyagi" class="w-full h-auto rounded-lg border border-cyan-400 shadow-lg shadow-cyan-500/20">
+                    </div>
+                    <div>
+                        <p class="mb-4">I am a Theoretical Physicist, currently pursuing a PhD at the <a href="https://www.uh.edu/nsm/" target="_blank" class="text-cyan-400 hover:underline">College of Natural Sciences and Mathematics</a> in <a href="https://www.uh.edu/" target="_blank" class="text-cyan-400 hover:underline">University of Houston</a>.</p>
+                        <p class="mb-4">I'm currently looking at Dynamical Open Quantum Systems and Phase Transitions. I'm interested in the intersections of mathematical physics and ultimately interested in a complete quantum theory of gravity.</p>
+                    </div>
+                </div>
+                
+                <div class="space-y-6">
+                    <section>
+                        <h3 class="text-xl font-bold mb-3 neon-pink">Research Interests</h3>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Dualities in physics - underlying connections in seemingly unrelated physical systems</li>
+                            <li>Dynamical Open Quantum Systems</li>
+                            <li>Theory of Phase Transitions</li>
+                            <li>Quantum Gravity</li>
+                        </ul>
+                    </section>
+                    
+                    <section>
+                        <h3 class="text-xl font-bold mb-3 neon-pink">Beyond Physics</h3>
+                        <p>I am a musician at heart and I love to sing and play the guitar. I love performing on stage. I am also an amateur guitar mechanic/collector and vinyl collector, but one day hope to have a very unique collection.</p>
+                        <p class="mt-2">Music runs through my genes and I can never see my life without it. Fun Fact: Music makes the deepest (most fundamental) neural pathways in your brain. Ever thought why you remember so many songs?</p>
+                    </section>
+                    
+                    <section>
+                        <h3 class="text-xl font-bold mb-3 neon-pink">Sports & Activities</h3>
+                        <p>I am a sports enthusiast and I think that at any given point in time, in life, one must always be associated with at least one sport. The blend of psychology and the physicality is unparalleled and it helps one grow stronger both mentally and physically.</p>
+                        <p class="mt-2">I love playing and watching everything from Cricket, Football,...,Chess and even E-Sports. I'm a hardcore Cricket fan though and at one point was on the path of pursuing it professionally.</p>
+                    </section>
+                    
+                    <section>
+                        <h3 class="text-xl font-bold mb-3 neon-pink">The Knowmads Podcast</h3>
+                        <p>I am a co-host of a monthly podcast called <a href="#TKP" class="text-cyan-400 hover:underline">The Knowmads Podcast</a> along with my girlfriend Prachi. We invite guests from various fields including but not limited to STEM, philosophy, psychology, cultural arts, music etc.</p>
+                    </section>
+                    
+                    <div class="pt-6">
+                        <a href="contact.html" class="cyber-button inline-flex items-center">
+                            <i data-feather="message-square" class="mr-2"></i> Get in Touch
+                        </a>
+                    </div>
+                </div>
+            </article>
+        </main>
+
+        <custom-footer></custom-footer>
+    </div>
+
+    <script src="components/navbar.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="script.js"></script>
+    <script>
+        feather.replace();
+        VANTA.NET({
+            el: "#vanta-bg",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color: 0x00f0ff,
+            backgroundColor: 0x050510,
+            points: 10.00,
+            maxDistance: 22.00,
+            spacing: 18.00
+        });
+    </script>
+</body>
+</html>
