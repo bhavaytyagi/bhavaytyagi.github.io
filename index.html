@@ -96,45 +96,70 @@
     <script src="script.js"></script>
     <script>
         feather.replace();
-        (function initPingPongVideo() {
+        (function initBackgroundVideo() {
             const video = document.getElementById("bg-video");
             if (!video) return;
 
-            let direction = 1;
-            let lastTs = null;
-            let current = 0;
+            video.muted = true;
+            video.playsInline = true;
+            video.loop = false;
 
-            const step = (ts) => {
-                if (!Number.isFinite(video.duration) || video.duration <= 0) {
-                    requestAnimationFrame(step);
-                    return;
+            let reverseRaf = null;
+            let reversing = false;
+            let lastTs = null;
+
+            const tryPlay = () => {
+                const promise = video.play();
+                if (promise && typeof promise.catch === "function") {
+                    promise.catch(() => {});
                 }
+            };
+
+            const stopReverse = () => {
+                reversing = false;
+                lastTs = null;
+                if (reverseRaf !== null) {
+                    cancelAnimationFrame(reverseRaf);
+                    reverseRaf = null;
+                }
+            };
+
+            const reverseStep = (ts) => {
+                if (!reversing) return;
 
                 if (lastTs === null) lastTs = ts;
                 const dt = Math.min((ts - lastTs) / 1000, 0.05);
                 lastTs = ts;
 
-                current += dt * direction;
-                const duration = video.duration;
-
-                if (current >= duration) {
-                    current = duration;
-                    direction = -1;
-                } else if (current <= 0) {
-                    current = 0;
-                    direction = 1;
+                const nextTime = video.currentTime - dt;
+                if (nextTime <= 0) {
+                    video.currentTime = 0;
+                    stopReverse();
+                    tryPlay();
+                    return;
                 }
 
-                video.currentTime = Math.min(current, Math.max(duration - 0.001, 0));
-                requestAnimationFrame(step);
+                video.currentTime = nextTime;
+                reverseRaf = requestAnimationFrame(reverseStep);
             };
 
-            video.addEventListener("loadedmetadata", () => {
-                video.currentTime = 0;
-                requestAnimationFrame(step);
-            }, { once: true });
+            const startReverse = () => {
+                video.pause();
+                reversing = true;
+                lastTs = null;
+                reverseRaf = requestAnimationFrame(reverseStep);
+            };
 
-            video.load();
+            video.addEventListener("ended", startReverse);
+            video.addEventListener("canplay", tryPlay, { once: true });
+            document.addEventListener("visibilitychange", () => {
+                if (document.hidden) return;
+                if (reversing && reverseRaf === null) {
+                    reverseRaf = requestAnimationFrame(reverseStep);
+                    return;
+                }
+                if (!reversing && video.paused) tryPlay();
+            });
         })();
     </script>
 <!-- <script src="https://huggingface.co/deepsite/deepsite-badge.js"></script> -->
