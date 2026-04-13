@@ -18,9 +18,7 @@
     </style>
 </head>
 <body class="bg-[#050510] text-white font-mono overflow-x-hidden">
-    <video id="bg-video" class="fixed inset-0 z-0 h-full w-full object-cover" autoplay muted playsinline preload="auto" aria-hidden="true">
-        <source src="images/scmove.mp4" type="video/mp4">
-    </video>
+    <div class="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat" style="background-image: url('images/bgms.jpg');" aria-hidden="true"></div>
     <div class="fixed inset-0 z-0 bg-black/40"></div>
     
     <div class="relative z-10 min-h-screen flex flex-col">
@@ -28,11 +26,24 @@
 
         <main class="flex-grow container mx-auto px-4 py-8 md:py-16 flex items-center justify-center">
             <section class="max-w-4xl mx-auto text-center">
-                <div class="glitch-wrapper">
-                    <div class="glitch" data-text="Bhavay Tyagi">Bhavay Tyagi</div>
-                </div>
-                <p class="text-2xl neon-cyan mt-6">अथातो ब्रह्म जिज्ञासा ।</p>
-                <p class="text-xl neon-pink mt-2">(Let us now be curious about the universe)</p>
+                <h1 class="movie-title" aria-label="Bhavay Tyagi">
+                    <span class="movie-title-text" aria-hidden="true">
+                        <span class="movie-letter letter-1">B</span>
+                        <span class="movie-letter letter-2">h</span>
+                        <span class="movie-letter letter-3">a</span>
+                        <span class="movie-letter letter-4">v</span>
+                        <span class="movie-letter letter-5">a</span>
+                        <span class="movie-letter letter-6">y</span>
+                        <span class="movie-space"></span>
+                        <span class="movie-letter letter-7">T</span>
+                        <span class="movie-letter letter-8">y</span>
+                        <span class="movie-letter letter-9">a</span>
+                        <span class="movie-letter letter-10">g</span>
+                        <span class="movie-letter letter-11">i</span>
+                    </span>
+                </h1>
+                <p class="text-2xl text-white mt-6">अथातो ब्रह्म जिज्ञासा ।</p>
+                <p class="text-xl text-white mt-2">(Let us now be curious about the universe)</p>
                 
                 <div class="grid grid-cols-2 md:grid-cols-5 gap-6 mt-16">
                     <a href="about.html" class="cyber-button">
@@ -96,71 +107,6 @@
     <script src="script.js"></script>
     <script>
         feather.replace();
-        (function initBackgroundVideo() {
-            const video = document.getElementById("bg-video");
-            if (!video) return;
-
-            video.muted = true;
-            video.playsInline = true;
-            video.loop = false;
-
-            let reverseRaf = null;
-            let reversing = false;
-            let lastTs = null;
-
-            const tryPlay = () => {
-                const promise = video.play();
-                if (promise && typeof promise.catch === "function") {
-                    promise.catch(() => {});
-                }
-            };
-
-            const stopReverse = () => {
-                reversing = false;
-                lastTs = null;
-                if (reverseRaf !== null) {
-                    cancelAnimationFrame(reverseRaf);
-                    reverseRaf = null;
-                }
-            };
-
-            const reverseStep = (ts) => {
-                if (!reversing) return;
-
-                if (lastTs === null) lastTs = ts;
-                const dt = Math.min((ts - lastTs) / 1000, 0.05);
-                lastTs = ts;
-
-                const nextTime = video.currentTime - dt;
-                if (nextTime <= 0) {
-                    video.currentTime = 0;
-                    stopReverse();
-                    tryPlay();
-                    return;
-                }
-
-                video.currentTime = nextTime;
-                reverseRaf = requestAnimationFrame(reverseStep);
-            };
-
-            const startReverse = () => {
-                video.pause();
-                reversing = true;
-                lastTs = null;
-                reverseRaf = requestAnimationFrame(reverseStep);
-            };
-
-            video.addEventListener("ended", startReverse);
-            video.addEventListener("canplay", tryPlay, { once: true });
-            document.addEventListener("visibilitychange", () => {
-                if (document.hidden) return;
-                if (reversing && reverseRaf === null) {
-                    reverseRaf = requestAnimationFrame(reverseStep);
-                    return;
-                }
-                if (!reversing && video.paused) tryPlay();
-            });
-        })();
     </script>
 <!-- <script src="https://huggingface.co/deepsite/deepsite-badge.js"></script> -->
 </body>

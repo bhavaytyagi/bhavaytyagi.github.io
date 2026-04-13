@@ -10,9 +10,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-[#050510] text-white font-mono overflow-x-hidden">
-    <video id="bg-video" class="fixed inset-0 z-0 h-full w-full object-cover" autoplay muted playsinline preload="auto" aria-hidden="true">
-        <source src="images/scmove.mp4" type="video/mp4">
-    </video>
+    <div class="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat" style="background-image: url('images/bgms.jpg');" aria-hidden="true"></div>
     <div class="fixed inset-0 z-0 bg-black/40"></div>
     
     <div class="relative z-10 min-h-screen flex flex-col">
@@ -70,46 +68,6 @@
     <script src="script.js"></script>
     <script>
         feather.replace();
-        (function initPingPongVideo() {
-            const video = document.getElementById("bg-video");
-            if (!video) return;
-
-            let direction = 1;
-            let lastTs = null;
-            let current = 0;
-
-            const step = (ts) => {
-                if (!Number.isFinite(video.duration) || video.duration <= 0) {
-                    requestAnimationFrame(step);
-                    return;
-                }
-
-                if (lastTs === null) lastTs = ts;
-                const dt = Math.min((ts - lastTs) / 1000, 0.05);
-                lastTs = ts;
-
-                current += dt * direction;
-                const duration = video.duration;
-
-                if (current >= duration) {
-                    current = duration;
-                    direction = -1;
-                } else if (current <= 0) {
-                    current = 0;
-                    direction = 1;
-                }
-
-                video.currentTime = Math.min(current, Math.max(duration - 0.001, 0));
-                requestAnimationFrame(step);
-            };
-
-            video.addEventListener("loadedmetadata", () => {
-                video.currentTime = 0;
-                requestAnimationFrame(step);
-            }, { once: true });
-
-            video.load();
-        })();
     </script>
 </body>
 </html>

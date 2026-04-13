@@ -1,4 +1,38 @@
-@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Space+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=Share+Tech+Mono&family=Space+Mono:wght@400;700&display=swap');
+
+.movie-title {
+    color: #d1cbc1;
+    font-family: 'Dhurandhar', 'Span', 'Cinzel', Georgia, serif;
+    font-size: 2.1rem;
+    font-weight: 900;
+    line-height: 0.95;
+    text-transform: uppercase;
+    text-shadow: 0 3px 12px rgba(0, 0, 0, 0.75);
+}
+
+.movie-title-text {
+    align-items: flex-end;
+    display: inline-flex;
+    gap: 0.015em;
+    justify-content: center;
+    white-space: nowrap;
+}
+
+.movie-letter {
+    display: inline-block;
+    transform-origin: bottom center;
+    transform: scaleY(1);
+}
+
+.movie-space {
+    display: inline-block;
+    width: 0.24em;
+}
+
+.letter-1,
+.letter-11 {
+    transform: translateY(0.08em) scaleY(1.18);
+}
 
 /* Cyberpunk Glitch Effect */
 .glitch-wrapper {
@@ -188,6 +222,18 @@
     .cyber-button {
         padding: 0.75rem 1rem;
         font-size: 0.875rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .movie-title {
+        font-size: 3.25rem;
+    }
+}
+
+@media (min-width: 1100px) {
+    .movie-title {
+        font-size: 4rem;
     }
 }
 
