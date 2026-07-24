@@ -130,24 +130,12 @@
     text-shadow: 0 0 5px var(--metal-silver),
                  0 0 10px var(--metal-silver),
                  0 0 20px var(--metal-silver);
-    animation: flicker-cyan 1.5s infinite alternate;
 }
 
 .neon-pink {
     color: var(--metal-silver);
     text-shadow: 0 0 5px var(--metal-grey),
                  0 0 10px var(--metal-grey);
-}
-
-@keyframes flicker-cyan {
-    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
-        text-shadow: 0 0 5px var(--metal-silver),
-                    0 0 10px var(--metal-silver),
-                    0 0 20px var(--metal-silver);
-    }
-    20%, 24%, 55% {
-        text-shadow: none;
-    }
 }
 
 /* Cyber Button */
