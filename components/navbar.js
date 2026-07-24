@@ -5,7 +5,7 @@ class CustomNavbar extends HTMLElement {
     this.shadowRoot.innerHTML = `
       <style>
         nav {
-          background: rgba(10, 10, 26, 0.8);
+          background: rgba(15, 15, 15, 0.85);
           backdrop-filter: blur(10px);
           padding: 1.5rem;
           display: flex;
@@ -13,19 +13,19 @@ class CustomNavbar extends HTMLElement {
           align-items: center;
           position: relative;
           z-index: 100;
-          border-bottom: 1px solid rgba(0, 240, 255, 0.2);
+          border-bottom: 1px solid rgba(180, 180, 180, 0.25);
         }
-        
+
         .logo {
-          color: var(--primary);
+          color: var(--metal-silver, #d8d8d8);
           font-family: 'Share Tech Mono', monospace;
           font-size: 1.25rem;
           letter-spacing: 2px;
           text-transform: uppercase;
         }
-        
+
         .logo:hover {
-          text-shadow: 0 0 5px var(--primary);
+          text-shadow: 0 0 5px var(--metal-silver, #d8d8d8);
         }
         
         ul {
@@ -47,9 +47,9 @@ class CustomNavbar extends HTMLElement {
         }
         
         a:hover {
-          color: var(--primary);
+          color: var(--metal-silver, #d8d8d8);
         }
-        
+
         a::after {
           content: '';
           position: absolute;
@@ -57,7 +57,7 @@ class CustomNavbar extends HTMLElement {
           left: 0;
           width: 0;
           height: 2px;
-          background: var(--primary);
+          background: var(--metal-silver, #d8d8d8);
           transition: width 0.3s;
         }
         
