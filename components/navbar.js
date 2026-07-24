@@ -1,5 +1,6 @@
 class CustomNavbar extends HTMLElement {
   connectedCallback() {
+    const base = this.getAttribute('base') || '';
     this.attachShadow({ mode: 'open' });
     this.shadowRoot.innerHTML = `
       <style>
@@ -79,11 +80,12 @@ class CustomNavbar extends HTMLElement {
       <nav>
         <div class="logo">Bhavay Tyagi</div>
         <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="research.html">Research</a></li>
-          <li><a href="whatelse.html">What else?</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="${base}index.html">Home</a></li>
+          <li><a href="${base}about.html">About</a></li>
+          <li><a href="${base}research.html">Research</a></li>
+          <li><a href="${base}blog.html">Blog</a></li>
+          <li><a href="${base}whatelse.html">What else?</a></li>
+          <li><a href="${base}contact.html">Contact</a></li>
         </ul>
       </nav>
     `;

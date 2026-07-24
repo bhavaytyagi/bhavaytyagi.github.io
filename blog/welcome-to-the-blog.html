@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to the Blog | Bhavay Tyagi</title>
+    <link rel="icon" type="image/png" href="/images/atom.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body class="bg-[#050510] text-white font-mono overflow-x-hidden">
+    <div id="vanta-bg" class="fixed inset-0 z-0"></div>
+
+    <div class="relative z-10 min-h-screen flex flex-col">
+        <custom-navbar base="../"></custom-navbar>
+
+        <main class="flex-grow container mx-auto px-4 py-16">
+            <article class="max-w-3xl mx-auto bg-black bg-opacity-70 border border-cyan-400 rounded-lg p-8 shadow-lg shadow-cyan-500/20">
+                <a href="../blog.html" class="cyber-button inline-flex items-center mb-8">
+                    <i data-feather="arrow-left" class="mr-2"></i> All Posts
+                </a>
+
+                <h1 class="text-3xl font-bold mb-6 neon-cyan">Welcome to the Blog</h1>
+
+                <div class="space-y-4 leading-relaxed">
+                    <p>This is the first post, mostly here to show how the blog is wired up. Real posts will replace it soon.</p>
+                </div>
+            </article>
+        </main>
+
+        <custom-footer></custom-footer>
+    </div>
+
+    <script src="../components/navbar.js"></script>
+    <script src="../components/footer.js"></script>
+    <script src="../script.js"></script>
+    <script>
+        feather.replace();
+        VANTA.NET({
+            el: "#vanta-bg",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color: 0x00f0ff,
+            backgroundColor: 0x050510,
+            points: 10.00,
+            maxDistance: 22.00,
+            spacing: 18.00
+        });
+    </script>
+</body>
+</html>

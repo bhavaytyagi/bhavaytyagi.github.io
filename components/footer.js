@@ -4,29 +4,29 @@ class CustomFooter extends HTMLElement {
     this.shadowRoot.innerHTML = `
       <style>
         footer {
-          background: rgba(10, 10, 26, 0.8);
+          background: rgba(15, 15, 15, 0.85);
           backdrop-filter: blur(10px);
           color: white;
           padding: 2rem;
           text-align: center;
           margin-top: auto;
-          border-top: 1px solid rgba(0, 240, 255, 0.2);
+          border-top: 1px solid rgba(180, 180, 180, 0.25);
         }
-        
+
         .social-links {
           display: flex;
           justify-content: center;
           gap: 1.5rem;
           margin-bottom: 1.5rem;
         }
-        
+
         .social-links a {
           color: white;
           transition: color 0.3s;
         }
-        
+
         .social-links a:hover {
-          color: var(--primary);
+          color: #d8d8d8;
         }
         
         .copyright {

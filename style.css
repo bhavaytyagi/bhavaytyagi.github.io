@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=Share+Tech+Mono&family=Space+Mono:wght@400;700&display=swap');
 
+:root {
+    /* Grey/black palette sampled from images/bgms.jpg */
+    --metal-black: #141414;
+    --metal-dark: #1e1e1e;
+    --metal-grey: #6b6b6b;
+    --metal-silver: #d8d8d8;
+}
+
 .movie-title {
     color: #d1cbc1;
     font-family: 'Dhurandhar', 'Span', 'Cinzel', Georgia, serif;
@@ -147,23 +155,33 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 1rem 1.5rem;
-    background-color: var(--dark);
+    padding: 0.9rem 1rem;
+    background-color: var(--metal-black);
     color: white;
-    border: 1px solid var(--primary);
+    border: 1px solid var(--metal-grey);
     font-family: 'Space Mono', monospace;
+    font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 1px;
+    text-align: center;
+    overflow-wrap: anywhere;
     position: relative;
     overflow: hidden;
     transition: all 0.3s;
 }
 
+.cyber-button svg {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+}
+
 .cyber-button:hover {
-    color: var(--primary);
-    box-shadow: 0 0 10px var(--primary), 
-                0 0 20px var(--primary), 
-                0 0 40px var(--primary);
+    color: var(--metal-silver);
+    border-color: var(--metal-silver);
+    box-shadow: 0 0 10px rgba(216, 216, 216, 0.4),
+                0 0 20px rgba(216, 216, 216, 0.25),
+                0 0 40px rgba(216, 216, 216, 0.15);
     transform: translateY(-2px);
 }
 
@@ -174,7 +192,7 @@
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.4), transparent);
+    background: linear-gradient(90deg, transparent, rgba(216, 216, 216, 0.35), transparent);
     transition: 0.5s;
 }
 
