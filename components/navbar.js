@@ -78,7 +78,7 @@ class CustomNavbar extends HTMLElement {
         }
       </style>
       <nav>
-        <div class="logo">Bhavay Tyagi</div>
+        <a href="${base}index.html" class="logo">Bhavay Tyagi</a>
         <ul>
           <li><a href="${base}index.html">Home</a></li>
           <li><a href="${base}about.html">About</a></li>
