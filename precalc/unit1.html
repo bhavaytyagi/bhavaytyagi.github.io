@@ -1302,7 +1302,7 @@
 
           <div class="box example">
             <p class="box-label">Worked example — linear</p>
-            <p>\(f(x) = 3x - 7\). &nbsp; \(y = 3x - 7 \;\to\; x = 3y - 7 \;\to\; y = \dfrac{x + 7}{3}\). &nbsp; So \(f^{-1}(x) = \dfrac{x + 7}{3}\), domain all reals.</p>
+            <p>\(f(x) = 3x - 7\). &nbsp; \(y = 3x - 7 \;\to\; x = 3y - 7 \;\to\; y = \dfrac{x + 7}{3}\). &nbsp; So \(f^{-1}(x) = \dfrac{x + 7}{3}\), domain \((-\infty, \infty)\).</p>
           </div>
 
           <div class="box example">
@@ -1310,14 +1310,14 @@
             <p>\(f(x) = \dfrac{x + 2}{x - 5}\).</p>
             \[ x = \frac{y + 2}{y - 5} \;\Rightarrow\; x(y - 5) = y + 2 \;\Rightarrow\; xy - 5x = y + 2 \]
             \[ xy - y = 5x + 2 \;\Rightarrow\; y(x - 1) = 5x + 2 \;\Rightarrow\; y = \frac{5x + 2}{x - 1} \]
-            <p>\(f^{-1}(x) = \dfrac{5x + 2}{x - 1}\), domain \(x \neq 1\) (the value \(1\) is the horizontal asymptote of \(f\) — an output \(f\) never reaches).</p>
+            <p>\(f^{-1}(x) = \dfrac{5x + 2}{x - 1}\), domain \((-\infty, 1) \cup (1, \infty)\) (the value \(1\) is the horizontal asymptote of \(f\) — an output \(f\) never reaches).</p>
           </div>
 
           <div class="box example">
             <p class="box-label">Worked example — needs a domain restriction</p>
             <p>\(f(x) = x^2 - 4\) with domain restricted to \(x \ge 0\).</p>
             \[ x = y^2 - 4 \;\Rightarrow\; y^2 = x + 4 \;\Rightarrow\; y = \pm\sqrt{x + 4} \]
-            <p>The original domain was \(x \ge 0\), so \(f^{-1}\) must output nonnegative values → take the \(+\) root. \(f^{-1}(x) = \sqrt{x + 4}\), domain \(x \ge -4\) (the range of \(f\)).</p>
+            <p>The original domain was \(x \ge 0\), so \(f^{-1}\) must output nonnegative values → take the \(+\) root. \(f^{-1}(x) = \sqrt{x + 4}\), domain \([-4, \infty)\) (the range of \(f\)).</p>
           </div>
 
           <div class="box pitfall">
@@ -1342,10 +1342,10 @@
             <details>
               <summary>Answer key</summary>
               <ol>
-                <li>\(x = \tfrac{y}{4} + 2 \Rightarrow y = 4(x - 2) = 4x - 8\); domain all reals.</li>
-                <li>\(x(y + 3) = 2y - 1 \Rightarrow xy + 3x = 2y - 1 \Rightarrow y(x - 2) = -1 - 3x \Rightarrow y = \dfrac{-3x - 1}{x - 2}\); domain \(x \neq 2\).</li>
-                <li>\(x - 2 = \sqrt{y - 1} \Rightarrow (x - 2)^2 = y - 1 \Rightarrow y = (x - 2)^2 + 1\); domain \(x \ge 2\).</li>
-                <li>\(\sqrt{x} = y + 5 \Rightarrow y = \sqrt{x} - 5\) (positive root, since original \(x \ge -5\) makes outputs \(\ge -5\)); domain \(x \ge 0\).</li>
+                <li>\(x = \tfrac{y}{4} + 2 \Rightarrow y = 4(x - 2) = 4x - 8\); domain \((-\infty, \infty)\).</li>
+                <li>\(x(y + 3) = 2y - 1 \Rightarrow xy + 3x = 2y - 1 \Rightarrow y(x - 2) = -1 - 3x \Rightarrow y = \dfrac{-3x - 1}{x - 2}\); domain \((-\infty, 2) \cup (2, \infty)\).</li>
+                <li>\(x - 2 = \sqrt{y - 1} \Rightarrow (x - 2)^2 = y - 1 \Rightarrow y = (x - 2)^2 + 1\); domain \([2, \infty)\).</li>
+                <li>\(\sqrt{x} = y + 5 \Rightarrow y = \sqrt{x} - 5\) (positive root, since original \(x \ge -5\) makes outputs \(\ge -5\)); domain \([0, \infty)\).</li>
               </ol>
             </details>
             <p class="writeq"><b>Your turn:</b> give a rational function and ask for its inverse plus the excluded value in the inverse's domain.</p>
