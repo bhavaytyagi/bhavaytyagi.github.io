@@ -1,0 +1,1950 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unit 1: Functions</title>
+<meta name="description" content="A full teaching walkthrough of OnRamps Precalculus Unit 1 — all sixteen learning objectives, in order, with worked examples and practice.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600&family=Spectral:wght@500;600;700&display=swap">
+
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+    svg: { fontCache: 'global' },
+    options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] }
+  };
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js" id="MathJax-script" async></script>
+
+<style>
+  /* --- minimal reset (matches the hosted-artifact skeleton) --- */
+  :root { color-scheme: light dark; }
+  html, body { margin: 0; }
+  img { max-width: 100%; }
+  [hidden] { display: none !important; }
+
+  :root {
+    --paper: #eceef2;
+    --surface: #ffffff;
+    --surface-2: #f4f5f8;
+    --ink: #1a2130;
+    --ink-soft: #4c5468;
+    --ink-faint: #7b8398;
+    --rule: #d9dce3;
+    --rule-strong: #c3c8d2;
+    --accent: #a5402a;
+    --accent-soft: #c56b50;
+    --example: #0f6b63;
+    --example-bg: #e7f1ef;
+    --example-rule: #58ac9f;
+    --pitfall: #8a5a11;
+    --pitfall-bg: #f5eddd;
+    --pitfall-rule: #cf9b45;
+    --practice-bg: #e6e9f0;
+    --practice-rule: #9aa3b6;
+    --focus: #2f6fb0;
+    --maxw: 720px;
+
+    --step--1: clamp(0.82rem, 0.79rem + 0.15vw, 0.9rem);
+    --step-0: clamp(1rem, 0.96rem + 0.2vw, 1.09rem);
+    --step-1: clamp(1.18rem, 1.1rem + 0.4vw, 1.42rem);
+    --step-2: clamp(1.5rem, 1.35rem + 0.75vw, 2rem);
+    --step-3: clamp(2rem, 1.7rem + 1.5vw, 3rem);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #12161f;
+      --surface: #1b212d;
+      --surface-2: #222a38;
+      --ink: #e8eaf0;
+      --ink-soft: #aab1c1;
+      --ink-faint: #798093;
+      --rule: #2f3849;
+      --rule-strong: #3d4759;
+      --accent: #e07d61;
+      --accent-soft: #c56b50;
+      --example: #63b8ac;
+      --example-bg: #122824;
+      --example-rule: #3f7d74;
+      --pitfall: #d3a253;
+      --pitfall-bg: #2a2212;
+      --pitfall-rule: #8a6a30;
+      --practice-bg: #1f2634;
+      --practice-rule: #4a5468;
+      --focus: #6aa9e0;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --paper: #12161f;
+    --surface: #1b212d;
+    --surface-2: #222a38;
+    --ink: #e8eaf0;
+    --ink-soft: #aab1c1;
+    --ink-faint: #798093;
+    --rule: #2f3849;
+    --rule-strong: #3d4759;
+    --accent: #e07d61;
+    --accent-soft: #c56b50;
+    --example: #63b8ac;
+    --example-bg: #122824;
+    --example-rule: #3f7d74;
+    --pitfall: #d3a253;
+    --pitfall-bg: #2a2212;
+    --pitfall-rule: #8a6a30;
+    --practice-bg: #1f2634;
+    --practice-rule: #4a5468;
+    --focus: #6aa9e0;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: var(--step-0);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .progress {
+    position: fixed;
+    inset: 0 auto auto 0;
+    height: 3px;
+    width: 0;
+    background: var(--accent);
+    z-index: 50;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .progress { transition: width 0.12s linear; }
+  }
+
+  .shell {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: clamp(2rem, 1rem + 4vw, 4.5rem) clamp(1.1rem, 0.4rem + 3vw, 2.5rem) 5rem;
+  }
+
+  /* ---------- Masthead ---------- */
+  .masthead { border-bottom: 2px solid var(--ink); padding-bottom: 2rem; margin-bottom: 2.5rem; }
+  .eyebrow {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: var(--step--1);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 0.9rem;
+  }
+  h1 {
+    font-family: "Spectral", Georgia, serif;
+    font-weight: 700;
+    font-size: var(--step-3);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+    margin: 0 0 0.8rem;
+  }
+  .standfirst {
+    font-size: var(--step-1);
+    line-height: 1.5;
+    color: var(--ink-soft);
+    max-width: 46ch;
+    margin: 0 0 1.6rem;
+    font-weight: 400;
+  }
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.4rem;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: var(--step--1);
+    color: var(--ink-faint);
+  }
+  .meta b { color: var(--ink-soft); font-weight: 500; }
+
+  /* ---------- Layout ---------- */
+  .layout { display: grid; gap: 2.5rem; grid-template-columns: 1fr; }
+  @media (min-width: 1080px) {
+    .layout { grid-template-columns: 232px minmax(0, var(--maxw)); gap: 3.5rem; justify-content: center; }
+  }
+
+  .rail { display: none; }
+  @media (min-width: 1080px) {
+    .rail {
+      display: block;
+      position: sticky;
+      top: 1.5rem;
+      align-self: start;
+      font-size: var(--step--1);
+      line-height: 1.4;
+      max-height: calc(100vh - 3rem);
+      overflow-y: auto;
+    }
+  }
+  .rail-title {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-faint);
+    margin: 0 0 0.8rem;
+  }
+  .rail ol { list-style: none; margin: 0 0 1.1rem; padding: 0; }
+  .rail .rail-group {
+    font-family: "Spectral", Georgia, serif;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 0.9rem 0 0.35rem;
+    font-size: 0.95rem;
+  }
+  .rail a {
+    display: block;
+    padding: 0.18rem 0;
+    color: var(--ink-soft);
+    text-decoration: none;
+    border-left: 2px solid transparent;
+    padding-left: 0.7rem;
+    margin-left: -0.7rem;
+  }
+  .rail a:hover { color: var(--accent); }
+  .rail a.is-active { color: var(--ink); border-left-color: var(--accent); font-weight: 500; }
+
+  /* ---------- Inline TOC ---------- */
+  .toc-inline {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    padding: 1rem 1.3rem;
+    margin-bottom: 2.5rem;
+  }
+  @media (min-width: 1080px) { .toc-inline { display: none; } }
+  .toc-inline summary {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: var(--step--1);
+    color: var(--accent);
+    cursor: pointer;
+  }
+  .toc-inline ol { margin: 1rem 0 0; padding-left: 1.2rem; }
+  .toc-inline li { margin: 0.3rem 0; }
+  .toc-inline a { color: var(--ink-soft); text-decoration: none; }
+  .toc-inline a:hover { color: var(--accent); text-decoration: underline; }
+  .toc-inline .toc-group { font-weight: 600; color: var(--ink); list-style: none; margin-left: -1.2rem; margin-top: 0.9rem; }
+
+  /* ---------- Clusters ---------- */
+  .cluster { margin-bottom: 3.5rem; scroll-margin-top: 1.5rem; }
+  .cluster-tag {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: var(--step--1);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 0.5rem;
+  }
+  .cluster > h2 {
+    font-family: "Spectral", Georgia, serif;
+    font-weight: 700;
+    font-size: var(--step-2);
+    line-height: 1.1;
+    text-wrap: balance;
+    margin: 0 0 0.6rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--rule-strong);
+  }
+  .cluster-intro { color: var(--ink-soft); margin: 0 0 2rem; max-width: 60ch; }
+
+  /* ---------- Objective ---------- */
+  .obj { margin: 2.6rem 0; scroll-margin-top: 1.5rem; }
+  .obj-tag {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: var(--step--1);
+    letter-spacing: 0.1em;
+    color: var(--ink-faint);
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    margin-bottom: 0.35rem;
+  }
+  .obj-tag .n { color: var(--accent); font-weight: 500; }
+  .obj > h3 {
+    font-family: "Spectral", Georgia, serif;
+    font-weight: 600;
+    font-size: var(--step-1);
+    line-height: 1.2;
+    text-wrap: balance;
+    margin: 0 0 0.5rem;
+  }
+  .obj-source {
+    font-size: var(--step--1);
+    color: var(--ink-faint);
+    border-left: 2px solid var(--rule-strong);
+    padding-left: 0.8rem;
+    margin-bottom: 1.2rem;
+    font-style: italic;
+  }
+
+  .prose > p { margin: 0 0 1rem; }
+  .prose ul, .prose ol { margin: 0 0 1rem; padding-left: 1.3rem; }
+  .prose li { margin: 0.3rem 0; }
+  .prose li::marker { color: var(--ink-faint); }
+  .prose strong { font-weight: 600; }
+  .prose .term { font-weight: 600; color: var(--accent); }
+
+  mjx-container { overflow-x: auto; overflow-y: hidden; max-width: 100%; }
+  mjx-container[display="true"] { margin: 1rem 0; }
+
+  .keyline {
+    background: var(--surface-2);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    padding: 0.9rem 1.1rem;
+    margin: 0 0 1rem;
+    font-size: 0.97em;
+  }
+  .keyline .box-label { color: var(--ink-faint); }
+
+  /* ---------- Boxes ---------- */
+  .box {
+    border-radius: 4px 10px 10px 4px;
+    padding: 1.05rem 1.25rem;
+    margin: 1.3rem 0;
+    font-size: 0.97em;
+  }
+  .box .box-label {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin: 0 0 0.55rem;
+    font-weight: 500;
+  }
+  .box p { margin: 0 0 0.7rem; }
+  .box p:last-child { margin-bottom: 0; }
+  .box ol, .box ul { margin: 0.2rem 0 0.7rem; padding-left: 1.3rem; }
+  .box li { margin: 0.35rem 0; }
+
+  .example {
+    background: var(--example-bg);
+    border-left: 3px solid var(--example-rule);
+  }
+  .example .box-label { color: var(--example); }
+
+  .pitfall {
+    background: var(--pitfall-bg);
+    border-left: 3px solid var(--pitfall-rule);
+  }
+  .pitfall .box-label { color: var(--pitfall); }
+
+  .practice {
+    background: var(--practice-bg);
+    border-left: 3px solid var(--practice-rule);
+  }
+  .practice .box-label { color: var(--ink-soft); }
+  .practice details {
+    margin-top: 0.6rem;
+    border-top: 1px dashed var(--rule-strong);
+    padding-top: 0.6rem;
+  }
+  .practice summary {
+    cursor: pointer;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .practice summary::marker { color: var(--accent); }
+  .practice details[open] summary { margin-bottom: 0.5rem; }
+  .writeq {
+    margin-top: 0.8rem;
+    padding-top: 0.7rem;
+    border-top: 1px dashed var(--rule-strong);
+    font-style: italic;
+    color: var(--ink-soft);
+    font-size: 0.95em;
+  }
+  .writeq b { font-style: normal; font-weight: 600; color: var(--ink); }
+
+  .backtop {
+    display: inline-block;
+    margin-top: 0.8rem;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    text-decoration: none;
+  }
+  .backtop:hover { color: var(--accent); }
+
+  /* ---------- Learning Guide parallel ---------- */
+  .guide-note {
+    margin: 1.4rem 0 0;
+    padding: 0.85rem 1.1rem;
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--accent);
+    border-radius: 4px 8px 8px 4px;
+    font-size: var(--step--1);
+    color: var(--ink-soft);
+    max-width: 62ch;
+  }
+  .guide-note b, .guide-note strong { color: var(--ink); font-weight: 600; }
+
+  .checkpoint {
+    margin: 1.6rem 0 0.4rem;
+    padding: 0.95rem 1.15rem;
+    background: var(--surface);
+    border: 1px solid var(--rule-strong);
+    border-radius: 10px;
+  }
+  .cp-label {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 0.5rem;
+  }
+  .cp-row { margin: 0 0 0.3rem; font-size: 0.95em; color: var(--ink-soft); }
+  .cp-row .cp-rownum { color: var(--ink); font-weight: 600; }
+  .cp-quote {
+    margin: 0 0 0.7rem;
+    font-family: "Spectral", Georgia, serif;
+    font-style: italic;
+    color: var(--ink);
+  }
+  .cp-check {
+    display: flex;
+    gap: 0.55rem;
+    align-items: flex-start;
+    font-size: 0.92em;
+    color: var(--ink-soft);
+    cursor: pointer;
+    line-height: 1.45;
+  }
+  .cp-check input {
+    margin: 0.2rem 0 0;
+    width: 1rem;
+    height: 1rem;
+    accent-color: var(--accent);
+    flex: none;
+  }
+  .checkpoint.is-done {
+    border-color: var(--example-rule);
+    background: var(--example-bg);
+  }
+  .checkpoint.is-done .cp-label { color: var(--example); }
+
+  .rail a.is-done { color: var(--ink); }
+  .rail a.is-done::after { content: " ✓"; color: var(--example); font-weight: 600; }
+
+  /* ---------- Exam checklist ---------- */
+  .examprep {
+    margin-top: 4rem;
+    padding-top: 2.5rem;
+    border-top: 2px solid var(--ink);
+    scroll-margin-top: 1.5rem;
+  }
+  .checklist { list-style: none; margin: 1.5rem 0 0; padding: 0; }
+  .checklist li {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.6rem 1rem;
+    align-items: start;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .checklist .can { font-size: 0.97em; }
+  .checklist .can b {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-weight: 500;
+    color: var(--accent);
+    font-size: 0.8em;
+    margin-right: 0.4rem;
+  }
+  .conf { display: inline-flex; gap: 0.3rem; }
+  .conf button {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    width: 2rem;
+    height: 2rem;
+    border: 1px solid var(--rule-strong);
+    border-radius: 6px;
+    background: var(--surface);
+    color: var(--ink-faint);
+    cursor: pointer;
+    font-size: 0.85rem;
+    line-height: 1;
+  }
+  .conf button:hover { border-color: var(--accent); color: var(--accent); }
+  .conf button[aria-pressed="true"] {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+  }
+  :root[data-theme="dark"] .conf button[aria-pressed="true"] { color: #171c26; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .conf button[aria-pressed="true"] { color: #171c26; }
+  }
+  .conf-key {
+    font-size: var(--step--1);
+    color: var(--ink-faint);
+    margin-top: 1rem;
+  }
+  .goals {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 1.8rem;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: var(--step--1);
+  }
+  .goals span { border: 1px dashed var(--rule-strong); border-radius: 8px; padding: 0.7rem 1rem; color: var(--ink-soft); }
+
+  a { color: var(--accent); }
+  :focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; border-radius: 3px; }
+
+  .foot {
+    margin-top: 3.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule);
+    font-size: var(--step--1);
+    color: var(--ink-faint);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html { scroll-behavior: smooth; }
+  }
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<div class="shell">
+
+  <header class="masthead" id="top">
+    <p class="eyebrow">OnRamps Precalculus &nbsp;·&nbsp; Unit 1</p>
+    <h1>Unit 1: Functions</h1>
+    <p class="standfirst">Every objective the Unit&nbsp;1 Learning Guide lists, taught in order and from the ground up — with worked examples, the mistakes that cost points, and a practice set for each.</p>
+    <div class="meta">
+      <span><b>Objectives:</b> 16</span>
+      <span><b>Themes:</b> 6</span>
+      <span><b>Pairs with:</b> Explorations · Quizzes · Homeworks</span>
+      <span><b>Guide rows covered:</b> <span id="guide-progress">0 / 16</span></span>
+    </div>
+    <p class="guide-note">This module runs <strong>row&#8209;for&#8209;row parallel</strong> to the OnRamps Unit&nbsp;1 Learning Guide. Each objective below closes with a <b>Learning Guide checkpoint</b> — when you reach it, mark that row on your paper guide, write your own exam question for it, and rate your confidence 1&#8211;3.</p>
+  </header>
+
+  <div class="layout">
+
+    <nav class="rail" aria-label="Contents">
+      <p class="rail-title">Contents</p>
+      <p class="rail-group">A · Foundations</p>
+      <ol>
+        <li><a href="#obj-1">01 · What defines a function</a></li>
+        <li><a href="#obj-2">02 · Function notation</a></li>
+      </ol>
+      <p class="rail-group">B · Behavior &amp; meaning</p>
+      <ol>
+        <li><a href="#obj-3">03 · Increasing / decreasing</a></li>
+        <li><a href="#obj-4">04 · Domain &amp; range</a></li>
+        <li><a href="#obj-5">05 · Values in a model</a></li>
+      </ol>
+      <p class="rail-group">C · Composition</p>
+      <ol>
+        <li><a href="#obj-6">06 · Composite &amp; its domain</a></li>
+        <li><a href="#obj-7">07 · Composite at a constant</a></li>
+      </ol>
+      <p class="rail-group">D · Classification</p>
+      <ol>
+        <li><a href="#obj-8">08 · Even/odd · 1-1/onto</a></li>
+      </ol>
+      <p class="rail-group">E · Inverses</p>
+      <ol>
+        <li><a href="#obj-9">09 · When an inverse exists</a></li>
+        <li><a href="#obj-10">10 · Finding an inverse</a></li>
+        <li><a href="#obj-11">11 · f and its inverse</a></li>
+      </ol>
+      <p class="rail-group">F · Rate, patterns, piecewise</p>
+      <ol>
+        <li><a href="#obj-12">12 · Rate of change</a></li>
+        <li><a href="#obj-13">13 · Patterns in data</a></li>
+        <li><a href="#obj-14">14 · Predicting values</a></li>
+        <li><a href="#obj-15">15 · Piecewise from a graph</a></li>
+        <li><a href="#obj-16">16 · Piecewise in context</a></li>
+      </ol>
+      <ol>
+        <li><a href="#examprep">Before the exam</a></li>
+      </ol>
+    </nav>
+
+    <main>
+
+      <details class="toc-inline">
+        <summary>Contents — 16 objectives</summary>
+        <ol>
+          <li class="toc-group">A · Foundations of functions</li>
+          <li><a href="#obj-1">1. What defines a function</a></li>
+          <li><a href="#obj-2">2. Function notation and evaluation</a></li>
+          <li class="toc-group">B · Behavior, domain, and meaning</li>
+          <li><a href="#obj-3">3. Increasing and decreasing intervals</a></li>
+          <li><a href="#obj-4">4. Domain and range</a></li>
+          <li><a href="#obj-5">5. Function and inverse values in a model</a></li>
+          <li class="toc-group">C · Composition of functions</li>
+          <li><a href="#obj-6">6. The composite function and its domain</a></li>
+          <li><a href="#obj-7">7. Evaluating a composite at a constant</a></li>
+          <li class="toc-group">D · Properties and classification</li>
+          <li><a href="#obj-8">8. Even/odd; injective, surjective, bijective</a></li>
+          <li class="toc-group">E · Inverse functions</li>
+          <li><a href="#obj-9">9. Predicting when an inverse exists</a></li>
+          <li><a href="#obj-10">10. Finding an inverse algebraically</a></li>
+          <li><a href="#obj-11">11. The relationship between f and its inverse</a></li>
+          <li class="toc-group">F · Rate of change, patterns, piecewise</li>
+          <li><a href="#obj-12">12. The rate-of-change function in context</a></li>
+          <li><a href="#obj-13">13. Patterns in data → general functions</a></li>
+          <li><a href="#obj-14">14. Using patterns to predict values</a></li>
+          <li><a href="#obj-15">15. Piecewise functions from a graph</a></li>
+          <li><a href="#obj-16">16. Piecewise functions in a real scenario</a></li>
+          <li class="toc-group"><a href="#examprep">Before the Unit 1 exam</a></li>
+        </ol>
+      </details>
+
+      <!-- ============ CLUSTER A ============ -->
+      <section class="cluster" id="cluster-a">
+        <p class="cluster-tag">Theme A</p>
+        <h2>Foundations of functions</h2>
+        <p class="cluster-intro">Before anything else in precalculus, you need a precise answer to two questions: <em>what is a function</em>, and <em>how do we write down what it does</em>. Everything in the rest of the unit is built on these.</p>
+
+        <!-- OBJ 1 -->
+        <article class="obj" id="obj-1">
+          <p class="obj-tag"><span class="n">Objective 01</span> / 16</p>
+          <h3>Use multiple representations to identify functions and justify what defines a function</h3>
+          <p class="obj-source">"Use multiple representations to identify functions and justify what defines a function."</p>
+
+          <div class="prose">
+            <p>A <span class="term">function</span> from a set of inputs (the <strong>domain</strong>) to a set of outputs is a rule that assigns to <strong>each input exactly one output</strong>. That is the entire definition, and the phrase that does the work is "exactly one."</p>
+            <ul>
+              <li>Two different inputs are <em>allowed</em> to share the same output.</li>
+              <li>One input is <em>never</em> allowed to produce two different outputs.</li>
+            </ul>
+
+            <div class="keyline">
+              <p class="box-label">The five representations</p>
+              <p>You should be able to test the definition in every form a function can appear:</p>
+              <ul>
+                <li><strong>Ordered pairs / a set:</strong> \(\{(1,2),(2,4),(3,2)\}\) — check that no first coordinate repeats with a different second coordinate.</li>
+                <li><strong>Table:</strong> scan the input column — no input value may appear twice with different outputs.</li>
+                <li><strong>Mapping diagram:</strong> exactly one arrow must leave each input.</li>
+                <li><strong>Equation:</strong> solve for \(y\). If a single \(x\) can force \(y=\pm(\dots)\), it is not a function of \(x\).</li>
+                <li><strong>Graph:</strong> the <span class="term">Vertical Line Test</span> — every vertical line meets the graph at most once.</li>
+              </ul>
+            </div>
+
+            <p>"Justify what defines a function" means you must <em>say which rule is violated</em>, not just answer yes or no. A complete justification names the input that has two outputs, or states that every input has exactly one.</p>
+          </div>
+
+          <div class="box example">
+            <p class="box-label">Worked example</p>
+            <p>Decide whether each represents \(y\) as a function of \(x\).</p>
+            <ol>
+              <li>\(\{(-2,1),(0,1),(3,1)\}\) — <strong>Function.</strong> Each input \(-2,0,3\) appears once. The output \(1\) repeating is fine.</li>
+              <li>\(\{(1,2),(1,3),(4,5)\}\) — <strong>Not a function.</strong> The input \(1\) is paired with both \(2\) and \(3\).</li>
+              <li>\(x^2 + y^2 = 25\) — Solve: \(y = \pm\sqrt{25-x^2}\). At \(x=0\), \(y = \pm 5\). <strong>Not a function</strong> (its graph, a circle, fails the Vertical Line Test).</li>
+              <li>\(y = |x|\) — every \(x\) gives one \(y\). <strong>Function.</strong></li>
+            </ol>
+          </div>
+
+          <div class="box pitfall">
+            <p class="box-label">Watch out</p>
+            <ul>
+              <li><strong>Repeated outputs are legal; repeated inputs are not.</strong> A horizontal-looking table (all outputs equal) is still a function.</li>
+              <li>A relation that "passes through \((2,5)\) and \((2,-5)\)" is automatically not a function.</li>
+              <li>"It's a function because it has an equation" is not a justification. \(x = y^2\) has an equation and is not a function of \(x\).</li>
+            </ul>
+          </div>
+
+          <div class="box practice">
+            <p class="box-label">Practice</p>
+            <ol>
+              <li>Is \(\{(4,1),(5,2),(4,3)\}\) a function? Justify.</li>
+              <li>Does \(x = y^2 - 1\) define \(y\) as a function of \(x\)? Justify with a specific input.</li>
+              <li>A mapping sends \(a\to 1\), \(b\to 2\), \(c\to 2\). Function? What if we also add \(a\to 3\)?</li>
+              <li>The graph of a horizontal line \(y = -2\): function or not, and why?</li>
+              <li>A table has inputs \(1,2,3,2\) with outputs \(5,7,9,7\). Function?</li>
+            </ol>
+            <details>
+              <summary>Answer key</summary>
+              <ol>
+                <li>Not a function — input \(4\) maps to both \(1\) and \(3\).</li>
+                <li>No — at \(x = 0\), \(y^2 = 1\) so \(y = \pm 1\); the input \(0\) has two outputs.</li>
+                <li>Yes, it is a function (each of \(a,b,c\) has one arrow). Adding \(a\to 3\) breaks it — \(a\) now has two outputs.</li>
+                <li>A function — every vertical line hits it exactly once; every input gives the single output \(-2\).</li>
+                <li>Yes — the input \(2\) appears twice but with the <em>same</em> output \(7\), so no input has two different outputs.</li>
+              </ol>
+            </details>
+            <p class="writeq"><b>Your turn:</b> write an exam question for this objective — e.g. give a four-row table with one repeated input and ask "function or not? justify."</p>
+          </div>
+          <div class="checkpoint">
+            <p class="cp-label">✦ OnRamps Unit 1 Learning Guide — checkpoint</p>
+            <p class="cp-row">You have now covered <b class="cp-rownum"></b> of the 16 rows in the guide table:</p>
+            <p class="cp-quote"></p>
+            <label class="cp-check"><input type="checkbox" class="cp-box"> Mark this row done on my Learning Guide — exam question written, confidence rated 1–3</label>
+          </div>
+          <a class="backtop" href="#top">↑ Contents</a>
+        </article>
+
+        <!-- OBJ 2 -->
+        <article class="obj" id="obj-2">
+          <p class="obj-tag"><span class="n">Objective 02</span> / 16</p>
+          <h3>Apply function notation to evaluate a function at a value or expression</h3>
+          <p class="obj-source">"Apply function notation to evaluate a function at a value or expression."</p>
+
+          <div class="prose">
+            <p>The symbol \(f(x)\) is read "\(f\) of \(x\)" and means <em>the output of the function \(f\) when the input is \(x\)</em>. It is <strong>not</strong> \(f\) multiplied by \(x\). The letter in the parentheses is a placeholder: whatever you put in the parentheses on the left, you put in every slot on the right.</p>
+
+            <p><strong>Evaluating at a value</strong> — substitute a number:</p>
+            <p>If \(f(x) = x^2 - 3x + 1\), then \(f(4) = (4)^2 - 3(4) + 1 = 16 - 12 + 1 = 5\), and \(f(-2) = 4 + 6 + 1 = 11\).</p>
+
+            <p><strong>Evaluating at an expression</strong> — substitute the whole expression, wrapped in parentheses, then simplify:</p>
+            \[ f(a+1) = (a+1)^2 - 3(a+1) + 1 = a^2 + 2a + 1 - 3a - 3 + 1 = a^2 - a - 1 \]
+            \[ f(2x) = (2x)^2 - 3(2x) + 1 = 4x^2 - 6x + 1 \]
+
+            <p>The <span class="term">difference quotient</span> \(\dfrac{f(x+h) - f(x)}{h}\) is the single most important "evaluate at an expression" task in the course — it is the seed of the derivative.</p>
+          </div>
+
+          <div class="box example">
+            <p class="box-label">Worked example — difference quotient</p>
+            <p>For \(f(x) = x^2 - 3x + 1\), simplify \(\dfrac{f(x+h) - f(x)}{h}\).</p>
+            <ol>
+              <li>\(f(x+h) = (x+h)^2 - 3(x+h) + 1 = x^2 + 2xh + h^2 - 3x - 3h + 1\)</li>
+              <li>\(f(x+h) - f(x) = (x^2 + 2xh + h^2 - 3x - 3h + 1) - (x^2 - 3x + 1) = 2xh + h^2 - 3h\)</li>
+              <li>Divide by \(h\): \(\dfrac{h(2x + h - 3)}{h} = 2x + h - 3\)</li>
+            </ol>
+          </div>
+
+          <div class="box pitfall">
+            <p class="box-label">Watch out</p>
+            <ul>
+              <li>\(f(-x)\) means "substitute \(-x\)"; \(-f(x)\) means "negate the output." They are usually different.</li>
+              <li>\(f(x+h) \neq f(x) + h\), and \((x+h)^2 \neq x^2 + h^2\). Expand fully.</li>
+              <li>If \(g(x) = \dfrac{5}{x}\), then \(g(0)\) is <strong>undefined</strong> — write "undefined," not \(0\).</li>
+              <li>Reading from a graph: \(f(0)\) is the \(y\)-intercept; solving \(f(x) = 0\) gives the \(x\)-intercepts. Don't swap them.</li>
+            </ul>
+          </div>
+
+          <div class="box practice">
+            <p class="box-label">Practice</p>
+            <p>Let \(f(x) = 2x^2 + x\) and \(h(x) = \sqrt{x+4}\).</p>
+            <ol>
+              <li>\(f(3)\) and \(f(-1)\)</li>
+              <li>\(f(t)\) and \(f(t-1)\)</li>
+              <li>The difference quotient of \(f\), fully simplified</li>
+              <li>\(h(5)\), \(h(-4)\), and \(h(a^2)\)</li>
+              <li>For \(f\): is \(f(-2)\) equal to \(-f(2)\)?</li>
+            </ol>
+            <details>
+              <summary>Answer key</summary>
+              <ol>
+                <li>\(f(3) = 18 + 3 = 21\); \(f(-1) = 2 - 1 = 1\).</li>
+                <li>\(f(t) = 2t^2 + t\); \(f(t-1) = 2(t-1)^2 + (t-1) = 2t^2 - 4t + 2 + t - 1 = 2t^2 - 3t + 1\).</li>
+                <li>\(f(x+h) = 2x^2 + 4xh + 2h^2 + x + h\); minus \(f(x)\) gives \(4xh + 2h^2 + h\); divide by \(h\): \(4x + 2h + 1\).</li>
+                <li>\(h(5) = 3\); \(h(-4) = 0\); \(h(a^2) = \sqrt{a^2 + 4}\).</li>
+                <li>\(f(-2) = 8 - 2 = 6\); \(-f(2) = -(8 + 2) = -10\). Not equal.</li>
+              </ol>
+            </details>
+            <p class="writeq"><b>Your turn:</b> write a question that forces the parentheses habit — e.g. "given \(f(x)=3x^2-x\), find \(f(x-2)\) and the difference quotient."</p>
+          </div>
+          <div class="checkpoint">
+            <p class="cp-label">✦ OnRamps Unit 1 Learning Guide — checkpoint</p>
+            <p class="cp-row">You have now covered <b class="cp-rownum"></b> of the 16 rows in the guide table:</p>
+            <p class="cp-quote"></p>
+            <label class="cp-check"><input type="checkbox" class="cp-box"> Mark this row done on my Learning Guide — exam question written, confidence rated 1–3</label>
+          </div>
+          <a class="backtop" href="#top">↑ Contents</a>
+        </article>
+      </section>
+
+      <!-- ============ CLUSTER B ============ -->
+      <section class="cluster" id="cluster-b">
+        <p class="cluster-tag">Theme B</p>
+        <h2>Behavior, domain, and meaning</h2>
+        <p class="cluster-intro">Now that a function is defined, we describe it: where it rises and falls, which inputs and outputs are allowed, and what its values <em>mean</em> when the function models something real.</p>
+
+        <!-- OBJ 3 -->
+        <article class="obj" id="obj-3">
+          <p class="obj-tag"><span class="n">Objective 03</span> / 16</p>
+          <h3>Determine increasing and decreasing intervals of various functions</h3>
+          <p class="obj-source">"Determine increasing and decreasing intervals of various functions."</p>
+
+          <div class="prose">
+            <p>Read the graph <strong>left to right</strong>, like reading a sentence.</p>
+            <ul>
+              <li><span class="term">Increasing</span> on an interval: as \(x\) grows, \(y\) grows. Formally, if \(x_1 &lt; x_2\) then \(f(x_1) &lt; f(x_2)\).</li>
+              <li><span class="term">Decreasing</span>: as \(x\) grows, \(y\) falls. If \(x_1 &lt; x_2\) then \(f(x_1) &gt; f(x_2)\).</li>
+              <li><span class="term">Constant</span>: \(y\) does not change.</li>
+            </ul>
+            <p>Report the answer as <strong>intervals of \(x\)</strong>, written with <strong>open</strong> intervals joined by \(\cup\). The turning points themselves are left out — at a peak or valley the function is neither increasing nor decreasing. Where the behavior switches, you have a <strong>local maximum</strong> (increasing → decreasing) or <strong>local minimum</strong> (decreasing → increasing).</p>
+          </div>
+
+          <div class="box example">
+            <p class="box-label">Worked examples</p>
+            <ul>
+              <li>\(f(x) = x^2 - 4x + 1\) has its vertex at \(x = 2\). Decreasing on \((-\infty, 2)\), increasing on \((2, \infty)\).</li>
+              <li>\(f(x) = |x - 1|\): decreasing on \((-\infty, 1)\), increasing on \((1, \infty)\).</li>
+              <li>A curve with a local maximum at \(x = -1\) and a local minimum at \(x = 3\): increasing on \((-\infty, -1) \cup (3, \infty)\), decreasing on \((-1, 3)\).</li>
+              <li>A piecewise graph that rises to \(x = 0\), is flat until \(x = 4\), then falls: increasing on \((-\infty, 0)\), constant on \((0, 4)\), decreasing on \((4, \infty)\).</li>
+            </ul>
+          </div>
+
+          <div class="box pitfall">
+            <p class="box-label">Watch out</p>
+            <ul>
+              <li>Answer with <strong>\(x\)-intervals</strong>, never \(y\)-values and never a single point.</li>
+              <li>Join intervals with \(\cup\) (union), not \(\cap\).</li>
+              <li>"Increasing" describes a <em>direction of travel</em>. A function can be increasing while its values are still negative.</li>
+              <li>A function is not "increasing at \(x = 3\)" — increasing/decreasing are properties of intervals.</li>
+            </ul>
+          </div>
+
+          <div class="box practice">
+            <p class="box-label">Practice</p>
+            <ol>
+              <li>\(g(x) = (x + 3)^2 - 5\): state the increasing and decreasing intervals.</li>
+              <li>A cubic-shaped curve has a local max at \((-2, 6)\) and a local min at \((1, -2)\). Give all intervals.</li>
+              <li>\(f(x) = -x^2 + 6x\): where is it increasing?</li>
+              <li>A graph is a line of slope \(2\) for \(x &lt; 1\), horizontal for \(1 \le x \le 5\), and a line of slope \(-1\) for \(x &gt; 5\). Describe its behavior.</li>
+            </ol>
+            <details>
+              <summary>Answer key</summary>
+              <ol>
+                <li>Vertex at \(x = -3\): decreasing on \((-\infty, -3)\), increasing on \((-3, \infty)\).</li>
+                <li>Increasing on \((-\infty, -2) \cup (1, \infty)\); decreasing on \((-2, 1)\).</li>
+                <li>Vertex at \(x = 3\); opens down, so increasing on \((-\infty, 3)\).</li>
+                <li>Increasing on \((-\infty, 1)\), constant on \((1, 5)\), decreasing on \((5, \infty)\).</li>
+              </ol>
+            </details>
+            <p class="writeq"><b>Your turn:</b> sketch (or describe) a graph with two turning points and ask for all three interval types.</p>
+          </div>
+          <div class="checkpoint">
+            <p class="cp-label">✦ OnRamps Unit 1 Learning Guide — checkpoint</p>
+            <p class="cp-row">You have now covered <b class="cp-rownum"></b> of the 16 rows in the guide table:</p>
+            <p class="cp-quote"></p>
+            <label class="cp-check"><input type="checkbox" class="cp-box"> Mark this row done on my Learning Guide — exam question written, confidence rated 1–3</label>
+          </div>
+          <a class="backtop" href="#top">↑ Contents</a>
+        </article>
+
+        <!-- OBJ 4 -->
+        <article class="obj" id="obj-4">
+          <p class="obj-tag"><span class="n">Objective 04</span> / 16</p>
+          <h3>Identify the domain and range using interval, set, and/or inequality notation</h3>
+          <p class="obj-source">"Identify the domain and range of various functions using interval, set, and/or inequality notation."</p>
+
+          <div class="prose">
+            <p>The <span class="term">domain</span> is every input the function is allowed to take; the <span class="term">range</span> is every output it actually produces.</p>
+
+            <div class="keyline">
+              <p class="box-label">Three notations for the same set</p>
+              <ul>
+                <li><strong>Interval:</strong> \((-\infty, 3\,]\), \((0, 5)\), \([2, \infty)\). A square bracket includes the endpoint; a parenthesis excludes it; \(\infty\) always gets a parenthesis.</li>
+                <li><strong>Set-builder:</strong> \(\{x \mid x \le 3\}\), \(\{x \mid x \neq 0\}\).</li>
+                <li><strong>Inequality:</strong> \(x \le 3\), or \(0 &lt; x &lt; 5\).</li>
+              </ul>
+            </div>
+
+            <p><strong>Finding the domain from a formula</strong> — start with "all real numbers," then remove what breaks the math:</p>
+            <ul>
+              <li><strong>Division by zero:</strong> \(f(x) = \dfrac{1}{x - 2}\) needs \(x \neq 2\): \((-\infty, 2) \cup (2, \infty)\).</li>
+              <li><strong>Even root of a negative:</strong> \(f(x) = \sqrt{x - 5}\) needs \(x - 5 \ge 0\): \([5, \infty)\).</li>
+              <li><strong>Both at once:</strong> \(f(x) = \dfrac{\sqrt{x + 1}}{x - 3}\) needs \(x \ge -1\) <em>and</em> \(x \neq 3\): \([-1, 3) \cup (3, \infty)\).</li>
+            </ul>
+            <p><strong>From a graph:</strong> sweep left-to-right for the domain (the \(x\)-shadow), bottom-to-top for the range (the \(y\)-shadow). Watch open vs. closed dots and arrows that mean "continues forever."</p>
+          </div>
+
+          <div class="box example">
+            <p class="box-label">Worked examples</p>
+            <ul>
+              <li>\(f(x) = x^2\): domain \((-\infty, \infty)\); range \([0, \infty)\) — squares are never negative.</li>
+              <li>\(f(x) = \sqrt{x}\): domain \([0, \infty)\); range \([0, \infty)\).</li>
+              <li>\(f(x) = \dfrac{1}{x}\): domain \((-\infty, 0) \cup (0, \infty)\); range \((-\infty, 0) \cup (0, \infty)\).</li>
+              <li>Top half of the circle \(x^2 + y^2 = 9\): domain \([-3, 3]\); range \([0, 3]\).</li>
+            </ul>
+          </div>
+
+          <div class="box pitfall">
+            <p class="box-label">Watch out</p>
+            <ul>
+              <li>\(\infty\) is never bracketed: write \((2, \infty)\), never \((2, \infty\,]\).</li>
+              <li>Use \(\cup\) to show a gap; a comma inside one interval means something else.</li>
+              <li>Range is usually the harder half — reason from the function's shape (minimum value, asymptote, end behavior), not just the formula.</li>
+              <li>An odd root, e.g. \(\sqrt[3]{x}\), has domain all reals — only <em>even</em> roots restrict.</li>
+            </ul>
+          </div>
+
+          <div class="box practice">
+            <p class="box-label">Practice</p>
+            <p>Give domain and range in interval notation.</p>
+            <ol>
+              <li>\(f(x) = \dfrac{2}{x + 4}\) (domain only)</li>
+              <li>\(f(x) = \sqrt{7 - x}\) (domain only)</li>
+              <li>\(f(x) = (x - 2)^2 + 3\)</li>
+              <li>\(f(x) = -|x| + 5\)</li>
+              <li>\(f(x) = \dfrac{x}{\sqrt{x - 1}}\) (domain only)</li>
+            </ol>
+            <details>
+              <summary>Answer key</summary>
+              <ol>
+                <li>\(x \neq -4\): \((-\infty, -4) \cup (-4, \infty)\).</li>
+                <li>\(7 - x \ge 0 \Rightarrow x \le 7\): \((-\infty, 7\,]\).</li>
+                <li>Domain \((-\infty, \infty)\); minimum value \(3\) at \(x = 2\), opens up, so range \([3, \infty)\).</li>
+                <li>Domain \((-\infty, \infty)\); maximum value \(5\), opens down, so range \((-\infty, 5\,]\).</li>
+                <li>Need \(x - 1 &gt; 0\) (strict, because it's also in a denominator): \((1, \infty)\).</li>
+              </ol>
+            </details>
+            <p class="writeq"><b>Your turn:</b> build one function that combines a square root and a denominator, and ask for the domain in all three notations.</p>
+          </div>
+          <div class="checkpoint">
+            <p class="cp-label">✦ OnRamps Unit 1 Learning Guide — checkpoint</p>
+            <p class="cp-row">You have now covered <b class="cp-rownum"></b> of the 16 rows in the guide table:</p>
+            <p class="cp-quote"></p>
+            <label class="cp-check"><input type="checkbox" class="cp-box"> Mark this row done on my Learning Guide — exam question written, confidence rated 1–3</label>
+          </div>
+          <a class="backtop" href="#top">↑ Contents</a>
+        </article>
+
+        <!-- OBJ 5 -->
+        <article class="obj" id="obj-5">
+          <p class="obj-tag"><span class="n">Objective 05</span> / 16</p>
+          <h3>Determine function values and inverse values, and connect their meaning to a model</h3>
+          <p class="obj-source">"Determine function values and inverse values and connect their meaning with a given scenario or model."</p>
+
+          <div class="prose">
+            <p>When a function models a real situation, an equation is also a sentence. Suppose \(C(t)\) gives the number of subscribers after \(t\) months.</p>
+            <ul>
+              <li>\(C(5) = 800\) reads: <em>"After 5 months there are 800 subscribers."</em> Input = months, output = subscribers.</li>
+              <li>\(C^{-1}(800) = 5\) reads: <em>"It takes 5 months to reach 800 subscribers."</em> Input = subscribers, output = months.</li>
+            </ul>
+            <p>The inverse <strong>swaps the roles</strong> of input and output — and therefore swaps the units. Finding an "inverse value" \(C^{-1}(k)\) means solving the equation \(C(t) = k\) for \(t\); you do not need a formula for \(C^{-1}\).</p>
+          </div>
+
+          <div class="box example">
+            <p class="box-label">Worked example</p>
+            <p>A tank drains so that \(V(t) = 500 - 20t\) liters remain after \(t\) minutes.</p>
+            <ul>
+              <li>\(V(10) = 500 - 200 = 300\): <em>after 10 minutes, 300 L remain.</em></li>
+              <li>\(V^{-1}(400)\): solve \(500 - 20t = 400 \Rightarrow t = 5\). <em>The tank holds 400 L after 5 minutes.</em></li>
+              <li>\(V^{-1}(0)\): solve \(500 - 20t = 0 \Rightarrow t = 25\). <em>The tank is empty at 25 minutes.</em></li>
+            </ul>
+          </div>
+
+          <div class="box pitfall">
+            <p class="box-label">Watch out</p>
+            <ul>
+              <li>\(f^{-1}(a)\) is <strong>not</strong> \(\dfrac{1}{f(a)}\). It is the input that produces the output \(a\).</li>
+              <li>State the answer as a full sentence with the correct nouns and units — "5 minutes," not just "5."</li>
+              <li>Read tables in the right direction: \(f(2010)\) looks up the year in the input column; \(f^{-1}(50000)\) looks up \(50000\) in the output column.</li>
+            </ul>
+          </div>
+
+          <div class="box practice">
+            <p class="box-label">Practice</p>
+            <p>\(H(t) = 3 + 2t\) is the height in cm of a plant \(t\) weeks after planting.</p>
+            <ol>
+              <li>Compute \(H(6)\) and write its meaning.</li>
+              <li>Find \(H^{-1}(15)\) and write its meaning.</li>
+              <li>Interpret \(H^{-1}(3) = 0\).</li>
+              <li>A population table shows \((2015, 4000)\) and \((2020, 6000)\). What do \(P(2020)\) and \(P^{-1}(4000)\) mean?</li>
+            </ol>
+            <details>
+              <summary>Answer key</summary>
+              <ol>
+                <li>\(H(6) = 15\) cm — six weeks after planting the plant is 15 cm tall.</li>
+                <li>\(3 + 2t = 15 \Rightarrow t = 6\) weeks — it takes 6 weeks to reach 15 cm.</li>
+                <li>At \(t = 0\) (planting time) the height was 3 cm.</li>
+                <li>\(P(2020) = 6000\): the population in 2020 was 6000. \(P^{-1}(4000) = 2015\): the population was 4000 in the year 2015.</li>
+              </ol>
+            </details>
+            <p class="writeq"><b>Your turn:</b> give a linear model with units and ask for one function value and one inverse value, each explained in a sentence.</p>
+          </div>
+          <div class="checkpoint">
+            <p class="cp-label">✦ OnRamps Unit 1 Learning Guide — checkpoint</p>
+            <p class="cp-row">You have now covered <b class="cp-rownum"></b> of the 16 rows in the guide table:</p>
+            <p class="cp-quote"></p>
+            <label class="cp-check"><input type="checkbox" class="cp-box"> Mark this row done on my Learning Guide — exam question written, confidence rated 1–3</label>
+          </div>
+          <a class="backtop" href="#top">↑ Contents</a>
+        </article>
+      </section>
+
+      <!-- ============ CLUSTER C ============ -->
+      <section class="cluster" id="cluster-c">
+        <p class="cluster-tag">Theme C</p>
+        <h2>Composition of functions</h2>
+        <p class="cluster-intro">Composition chains two functions so the output of one becomes the input of the next. The new subtlety is the <em>domain</em>: an input must survive both steps.</p>
+
+        <!-- OBJ 6 -->
+        <article class="obj" id="obj-6">
+          <p class="obj-tag"><span class="n">Objective 06</span> / 16</p>
+          <h3>Determine the composite function from a pair of functions, with its domain</h3>
+          <p class="obj-source">"Determine the composite function from a given pair of functions and their associated domain."</p>
+
+          <div class="prose">
+            <p>\((f \circ g)(x) = f\big(g(x)\big)\): apply \(g\) <strong>first</strong>, then feed the result into \(f\). Read the symbol right-to-left. In general \((f \circ g) \neq (g \circ f)\), and neither equals the product \(f \cdot g\).</p>
+
+            <div class="keyline">
+              <p class="box-label">Domain of a composite — two conditions</p>
+              <ol>
+                <li>\(x\) must be in the domain of the <strong>inner</strong> function \(g\).</li>
+                <li>\(g(x)\) must be in the domain of the <strong>outer</strong> function \(f\).</li>
+              </ol>
+              <p>The second condition can add restrictions that <em>disappear</em> when you simplify the formula — so find the domain <strong>before</strong> simplifying.</p>
+            </div>
+          </div>
+
+          <div class="box example">
+            <p class="box-label">Worked example — order and domain</p>
+            <p>\(f(x) = \sqrt{x}\), \(g(x) = x - 3\).</p>
+            <ul>
+              <li>\((f \circ g)(x) = \sqrt{x - 3}\). Need \(x - 3 \ge 0\): domain \([3, \infty)\).</li>
+              <li>\((g \circ f)(x) = \sqrt{x} - 3\). Need \(x \ge 0\): domain \([0, \infty)\). Different function, different domain.</li>
+            </ul>
+          </div>
+
+          <div class="box example">
+            <p class="box-label">Worked example — a hidden restriction</p>
+            <p>\(f(x) = \dfrac{1}{x - 1}\), \(g(x) = \dfrac{1}{x}\).</p>
+            <ol>
+              <li>Inner domain: \(x \neq 0\).</li>
+              <li>\((f \circ g)(x) = \dfrac{1}{\frac{1}{x} - 1} = \dfrac{1}{\frac{1 - x}{x}} = \dfrac{x}{1 - x}\).</li>
+              <li>Also need \(g(x) \neq 1\), i.e. \(\dfrac{1}{x} \neq 1\), so \(x \neq 1\).</li>
+              <li>Domain: \(x \neq 0\) and \(x \neq 1\) → \((-\infty, 0) \cup (0, 1) \cup (1, \infty)\).</li>
+            </ol>
+            <p>The simplified form \(\dfrac{x}{1 - x}\) alone only shows \(x \neq 1\); the \(x \neq 0\) from the inner function must be carried along by hand.</p>
+          </div>
+
+          <div class="box pitfall">
+            <p class="box-label">Watch out</p>
+            <ul>
+              <li>\((f \circ g)(x) = f(g(x))\), not \(g(f(x))\), and not \(f(x)\cdot g(x)\).</li>
+              <li>Wrap \(g(x)\) in parentheses before substituting into \(f\).</li>
+              <li>Restrictions from the inner function stay, even if the algebra "cleans up."</li>
+            </ul>
+          </div>
+
+          <div class="box practice">
+            <p class="box-label">Practice</p>
+            <p>\(f(x) = x^2 + 1\), \(g(x) = 2x - 5\), \(k(x) = \sqrt{x}\).</p>
+            <ol>
+              <li>\((f \circ g)(x)\) and its domain</li>
+              <li>\((g \circ f)(x)\) and its domain</li>
+              <li>\((f \circ k)(x)\) and its domain</li>
+              <li>\((k \circ g)(x)\) and its domain</li>
+            </ol>
+            <details>
+              <summary>Answer key</summary>
+              <ol>
+                <li>\((2x - 5)^2 + 1 = 4x^2 - 20x + 26\); domain \((-\infty, \infty)\).</li>
+                <li>\(2(x^2 + 1) - 5 = 2x^2 - 3\); domain \((-\infty, \infty)\).</li>
+                <li>\((\sqrt{x})^2 + 1 = x + 1\), but the inner \(\sqrt{x}\) needs \(x \ge 0\): domain \([0, \infty)\).</li>
+                <li>\(\sqrt{2x - 5}\); need \(2x - 5 \ge 0\): domain \(\left[\tfrac{5}{2}, \infty\right)\).</li>
+              </ol>
+            </details>
+            <p class="writeq"><b>Your turn:</b> pick an inner function with a domain restriction that cancels in the simplified composite, and ask for the domain.</p>
+          </div>
+          <div class="checkpoint">
+            <p class="cp-label">✦ OnRamps Unit 1 Learning Guide — checkpoint</p>
+            <p class="cp-row">You have now covered <b class="cp-rownum"></b> of the 16 rows in the guide table:</p>
+            <p class="cp-quote"></p>
+            <label class="cp-check"><input type="checkbox" class="cp-box"> Mark this row done on my Learning Guide — exam question written, confidence rated 1–3</label>
+          </div>
+          <a class="backtop" href="#top">↑ Contents</a>
+        </article>
+
+        <!-- OBJ 7 -->
+        <article class="obj" id="obj-7">
+          <p class="obj-tag"><span class="n">Objective 07</span> / 16</p>
+          <h3>Evaluate composite functions at a constant, taking the domain into account</h3>
+          <p class="obj-source">"Evaluate composite functions at a constant, taking the domain into account."</p>
+
+          <div class="prose">
+            <p>To find \((f \circ g)(a)\): compute \(g(a)\), then apply \(f\) to that number. Always check that the intermediate value \(g(a)\) is a <strong>legal input</strong> to \(f\). If it isn't, the answer is <strong>undefined</strong> — and "undefined" is a correct, complete answer.</p>
+            <p>This works from formulas, from tables, or from graphs: for tables, look up \(g(a)\) in \(g\)'s table, then look that value up in \(f\)'s table.</p>
+          </div>
+
+          <div class="box example">
+            <p class="box-label">Worked example — from formulas</p>
+            <p>\(f(x) = \sqrt{x}\), \(g(x) = 5 - x\).</p>
+            <ul>
+              <li>\((f \circ g)(1) = f(g(1)) = f(4) = 2\). ✓</li>
+              <li>\((f \circ g)(9) = f(g(9)) = f(-4) = \sqrt{-4}\) → <strong>undefined</strong>. So \(9\) is not in the domain of \(f \circ g\), even though the first step worked.</li>
+              <li>\((g \circ f)(16) = g(f(16)) = g(4) = 1\). ✓</li>
+            </ul>
+          </div>
+
+          <div class="box example">
+            <p class="box-label">Worked example — from tables</p>
+            <p>\(g\): \(g(0)=2,\; g(1)=5,\; g(2)=3\). &nbsp; \(f\): \(f(2)=7,\; f(3)=-1,\; f(5)=0\).</p>
+            <ul>
+              <li>\((f \circ g)(0) = f(g(0)) = f(2) = 7\).</li>
+              <li>\((f \circ g)(2) = f(g(2)) = f(3) = -1\).</li>
+              <li>\((f \circ g)(1) = f(g(1)) = f(5) = 0\).</li>
+              <li>\((f \circ g)(2)\) would be undefined if \(g(2)\) were, say, \(4\) — because \(f(4)\) is not defined by the table.</li>
+            </ul>
+          </div>
+
+          <div class="box pitfall">
+            <p class="box-label">Watch out</p>
+            <ul>
+              <li>Do the steps in the right order: inner first.</li>
+              <li>Check the middle number against the outer function's domain <em>every time</em>.</li>
+              <li>Don't invent an \(f\)-value that a table or graph doesn't give you.</li>
+            </ul>
+          </div>
+
+          <div class="box practice">
+            <p class="box-label">Practice</p>
+            <p>\(p(x) = x^2 - 9\), \(q(x) = \sqrt{x}\).</p>
+            <ol>
+              <li>\((q \circ p)(5)\)</li>
+              <li>\((q \circ p)(1)\)</li>
+              <li>\((p \circ q)(16)\)</li>
+              <li>Using the tables above, \((g \circ f)(3)\) and \((f \circ f)(2)\).</li>
+            </ol>
+            <details>
+              <summary>Answer key</summary>
+              <ol>
+                <li>\(p(5) = 16\), then \(q(16) = 4\).</li>
+                <li>\(p(1) = -8\), then \(q(-8) = \sqrt{-8}\) → undefined.</li>
+                <li>\(q(16) = 4\), then \(p(4) = 7\).</li>
+                <li>\((g \circ f)(3) = g(f(3)) = g(-1)\) → undefined (no \(g(-1)\) in the table). \((f \circ f)(2) = f(f(2)) = f(7)\) → undefined (no \(f(7)\)).</li>
+              </ol>
+            </details>
+            <p class="writeq"><b>Your turn:</b> write a table pair where exactly one of \((f\circ g)(a)\), \((g\circ f)(a)\) is undefined, and ask the student to find both.</p>
+          </div>
+          <div class="checkpoint">
+            <p class="cp-label">✦ OnRamps Unit 1 Learning Guide — checkpoint</p>
+            <p class="cp-row">You have now covered <b class="cp-rownum"></b> of the 16 rows in the guide table:</p>
+            <p class="cp-quote"></p>
+            <label class="cp-check"><input type="checkbox" class="cp-box"> Mark this row done on my Learning Guide — exam question written, confidence rated 1–3</label>
+          </div>
+          <a class="backtop" href="#top">↑ Contents</a>
+        </article>
+      </section>
+
+      <!-- ============ CLUSTER D ============ -->
+      <section class="cluster" id="cluster-d">
+        <p class="cluster-tag">Theme D</p>
+        <h2>Properties and classification</h2>
+        <p class="cluster-intro">Two independent ways to sort functions: by <em>symmetry</em> (even, odd, neither) and by <em>how the mapping behaves</em> (injective, surjective, bijective). The second one decides whether an inverse can exist.</p>
+
+        <!-- OBJ 8 -->
+        <article class="obj" id="obj-8">
+          <p class="obj-tag"><span class="n">Objective 08</span> / 16</p>
+          <h3>Identify function properties (even, odd, neither) and types (injective, surjective, bijective)</h3>
+          <p class="obj-source">"Identify function properties (even, odd, neither) and types of functions (injective, surjective, bijective) from graphs, mappings, tables, equations, etc."</p>
+
+          <div class="prose">
+            <h4 style="font-family:'Spectral',serif;font-weight:600;margin:0 0 .4rem;">Symmetry: even, odd, or neither</h4>
+            <ul>
+              <li><span class="term">Even:</span> \(f(-x) = f(x)\) for all \(x\). Graph is symmetric across the \(y\)-axis. Examples: \(x^2\), \(|x|\), \(x^4 - 3x^2\).</li>
+              <li><span class="term">Odd:</span> \(f(-x) = -f(x)\) for all \(x\). Graph has \(180^\circ\) rotational symmetry about the origin. Examples: \(x\), \(x^3\), \(\dfrac{1}{x}\).</li>
+              <li><span class="term">Neither:</span> fails both. Most functions are here — e.g. \(f(x) = x^2 + x\).</li>
+            </ul>
+            <p><strong>The test:</strong> compute \(f(-x)\), simplify, and compare it to \(f(x)\) and to \(-f(x)\).</p>
+
+            <h4 style="font-family:'Spectral',serif;font-weight:600;margin:1.2rem 0 .4rem;">Type: injective, surjective, bijective</h4>
+            <p>These describe how the function maps its domain onto a stated <strong>codomain</strong> (the "target" set you're told to use).</p>
+            <ul>
+              <li><span class="term">Injective</span> (one-to-one): different inputs always give different outputs. Graph test: the <strong>Horizontal Line Test</strong> — every horizontal line meets the graph at most once. A strictly increasing or strictly decreasing function is automatically injective.</li>
+              <li><span class="term">Surjective</span> (onto): every element of the codomain is actually hit — the range equals the codomain.</li>
+              <li><span class="term">Bijective</span>: both injective and surjective. Exactly the bijective functions have an inverse function (on that domain and codomain).</li>
+            </ul>
+          </div>
+
+          <div class="box example">
+            <p class="box-label">Worked example — symmetry</p>
+            <ul>
+              <li>\(f(x) = x^4 - 2x^2\): \(f(-x) = x^4 - 2x^2 = f(x)\) → <strong>even</strong>.</li>
+              <li>\(f(x) = x^3 - x\): \(f(-x) = -x^3 + x = -(x^3 - x) = -f(x)\) → <strong>odd</strong>.</li>
+              <li>\(f(x) = x^3 + 1\): \(f(-x) = -x^3 + 1\); \(-f(x) = -x^3 - 1\). Matches neither → <strong>neither</strong>.</li>
+            </ul>
+          </div>
+
+          <div class="box example">
+            <p class="box-label">Worked example — type depends on the codomain</p>
+            <ul>
+              <li>\(f:\mathbb{R}\to\mathbb{R},\; f(x) = x^3\): passes HLT (injective); range is all of \(\mathbb{R}\) (surjective) → <strong>bijective</strong>.</li>
+              <li>\(f:\mathbb{R}\to\mathbb{R},\; f(x) = x^2\): \(f(2) = f(-2)\) (not injective); negatives are never outputs (not surjective) → <strong>neither</strong>.</li>
+              <li>\(f:[0,\infty)\to[0,\infty),\; f(x) = x^2\): now injective <em>and</em> surjective → <strong>bijective</strong>.</li>
+              <li>\(f:\mathbb{R}\to\mathbb{R},\; f(x) = e^{x}\): injective, but never \(\le 0\), so <strong>not</strong> surjective onto \(\mathbb{R}\).</li>
+            </ul>
+          </div>
+
+          <div class="box pitfall">
+            <p class="box-label">Watch out</p>
+            <ul>
+              <li>"Odd function" is not the same as "odd-degree polynomial" — \(x^3 + 1\) has odd degree but is neither.</li>
+              <li>Surjectivity is meaningless without a stated codomain. If you're not told one, you can only discuss injectivity.</li>
+              <li>The Vertical Line Test checks "is it a function"; the <em>Horizontal</em> Line Test checks "is it one-to-one." Don't mix them up.</li>
+              <li>In a mapping diagram: injective = no target has two arrows in; surjective = no target has zero arrows in.</li>
+            </ul>
+          </div>
+
+          <div class="box practice">
+            <p class="box-label">Practice</p>
+            <ol>
+              <li>Classify by symmetry: (a) \(f(x) = 5x^2 - 1\), (b) \(f(x) = x^5 + x^3\), (c) \(f(x) = x^2 + 4x\), (d) \(f(x) = \dfrac{3}{x}\).</li>
+              <li>\(f:\mathbb{R}\to\mathbb{R},\; f(x) = 2x - 7\): injective? surjective? bijective?</li>
+              <li>\(f:\mathbb{R}\to\mathbb{R},\; f(x) = |x|\): which of the three types, if any?</li>
+              <li>A mapping sends \(1\to a,\; 2\to b,\; 3\to a\) with codomain \(\{a, b, c\}\). Injective? Surjective?</li>
+            </ol>
+            <details>
+              <summary>Answer key</summary>
+              <ol>
+                <li>(a) even; (b) odd; (c) neither (\(f(-x) = x^2 - 4x\)); (d) odd.</li>
+                <li>Strictly increasing → injective; range is all of \(\mathbb{R}\) → surjective; therefore bijective.</li>
+                <li>\(|{-3}| = |3|\) → not injective; negatives are never outputs → not surjective onto \(\mathbb{R}\); neither.</li>
+                <li>\(1\) and \(3\) both map to \(a\) → not injective. \(c\) is never hit → not surjective.</li>
+              </ol>
+            </details>
+            <p class="writeq"><b>Your turn:</b> give the <em>same</em> rule \(f(x)=x^2\) with two different codomains and ask how the classification changes.</p>
+          </div>
+          <div class="checkpoint">
+            <p class="cp-label">✦ OnRamps Unit 1 Learning Guide — checkpoint</p>
+            <p class="cp-row">You have now covered <b class="cp-rownum"></b> of the 16 rows in the guide table:</p>
+            <p class="cp-quote"></p>
+            <label class="cp-check"><input type="checkbox" class="cp-box"> Mark this row done on my Learning Guide — exam question written, confidence rated 1–3</label>
+          </div>
+          <a class="backtop" href="#top">↑ Contents</a>
+        </article>
+      </section>
+
+      <!-- ============ CLUSTER E ============ -->
+      <section class="cluster" id="cluster-e">
+        <p class="cluster-tag">Theme E</p>
+        <h2>Inverse functions</h2>
+        <p class="cluster-intro">An inverse runs a function backwards. Three questions, in order: <em>can</em> it be reversed, <em>how</em> do you reverse it, and <em>how are the two related</em> once you have both.</p>
+
+        <!-- OBJ 9 -->
+        <article class="obj" id="obj-9">
+          <p class="obj-tag"><span class="n">Objective 09</span> / 16</p>
+          <h3>Predict when a function will have an inverse</h3>
+          <p class="obj-source">"Predict when a function will have an inverse."</p>
+
+          <div class="prose">
+            <p>A function has an inverse function <strong>if and only if it is one-to-one</strong> (injective) on its domain — no output value is used twice. Equivalent ways to check:</p>
+            <ul>
+              <li>The graph passes the <strong>Horizontal Line Test</strong>.</li>
+              <li>The function is <strong>strictly increasing</strong> or <strong>strictly decreasing</strong> over its whole domain (a common sufficient condition in this course).</li>
+              <li>In a table or mapping, <strong>no output repeats</strong>.</li>
+            </ul>
+            <p>If a function is not one-to-one, you can often <span class="term">restrict the domain</span> to a piece where it <em>is</em> monotonic, and an inverse exists on that piece.</p>
+          </div>
+
+          <div class="box example">
+            <p class="box-label">Worked example</p>
+            <ul>
+              <li>\(f(x) = x^3\): passes HLT → invertible on all of \(\mathbb{R}\).</li>
+              <li>\(f(x) = x^2\): fails HLT (\(f(2) = f(-2)\)) → no inverse. Restrict to \(x \ge 0\) → invertible there.</li>
+              <li>\(f(x) = 2^{x}\): strictly increasing → invertible (its inverse is \(\log_2 x\)).</li>
+              <li>\(f(x) = |x|\): not one-to-one → restrict to \(x \ge 0\) (or \(x \le 0\)).</li>
+              <li>\(f(x) = 7\) (constant): every output is \(7\) → definitely not invertible.</li>
+            </ul>
+          </div>
+
+          <div class="box pitfall">
+            <p class="box-label">Watch out</p>
+            <ul>
+              <li>Passing the <em>Vertical</em> Line Test only means "it's a function." Invertibility needs the <em>Horizontal</em> Line Test.</li>
+              <li>A parabola, \(|x|\), \(x^4\), \(\cos x\), and similar "U-shaped or wavy" graphs are never one-to-one on their full natural domain.</li>
+              <li>When you restrict the domain, say which piece you kept.</li>
+            </ul>
+          </div>
+
+          <div class="box practice">
+            <p class="box-label">Practice</p>
+            <p>State whether each has an inverse on the given domain; if not, give a restriction that works.</p>
+            <ol>
+              <li>\(f(x) = 4x - 1\), domain \(\mathbb{R}\)</li>
+              <li>\(f(x) = (x - 3)^2\), domain \(\mathbb{R}\)</li>
+              <li>\(f(x) = \sqrt{x}\), domain \([0, \infty)\)</li>
+              <li>\(f(x) = x^2 - 6x + 5\), domain \(\mathbb{R}\)</li>
+              <li>A table: \(f(1) = 2,\; f(2) = 5,\; f(3) = 2\)</li>
+            </ol>
+            <details>
+              <summary>Answer key</summary>
+              <ol>
+                <li>Yes — linear with nonzero slope is strictly increasing, so one-to-one.</li>
+                <li>No — vertex at \(x = 3\). Restrict to \(x \ge 3\) (or \(x \le 3\)).</li>
+                <li>Yes — strictly increasing on \([0, \infty)\).</li>
+                <li>No — vertex at \(x = 3\). Restrict to \(x \ge 3\) (or \(x \le 3\)).</li>
+                <li>No — the output \(2\) is produced by both \(1\) and \(3\).</li>
+              </ol>
+            </details>
+            <p class="writeq"><b>Your turn:</b> give a quadratic and ask for the largest domain containing \(x = 0\) on which it is invertible.</p>
+          </div>
+          <div class="checkpoint">
+            <p class="cp-label">✦ OnRamps Unit 1 Learning Guide — checkpoint</p>
+            <p class="cp-row">You have now covered <b class="cp-rownum"></b> of the 16 rows in the guide table:</p>
+            <p class="cp-quote"></p>
+            <label class="cp-check"><input type="checkbox" class="cp-box"> Mark this row done on my Learning Guide — exam question written, confidence rated 1–3</label>
+          </div>
+          <a class="backtop" href="#top">↑ Contents</a>
+        </article>
+
+        <!-- OBJ 10 -->
+        <article class="obj" id="obj-10">
+          <p class="obj-tag"><span class="n">Objective 10</span> / 16</p>
+          <h3>Find an inverse of various functions algebraically, restricting the domain when necessary</h3>
+          <p class="obj-source">"Find an inverse of various functions algebraically, restricting the domain when necessary."</p>
+
+          <div class="prose">
+            <div class="keyline">
+              <p class="box-label">The procedure</p>
+              <ol>
+                <li>Write \(y = f(x)\).</li>
+                <li><strong>Swap</strong> \(x\) and \(y\).</li>
+                <li>Solve for \(y\).</li>
+                <li>Write \(y = f^{-1}(x)\), and state its domain (which equals the <em>range</em> of the original \(f\)).</li>
+              </ol>
+              <p>Swapping first, then solving, keeps the algebra clean.</p>
+            </div>
+          </div>
+
+          <div class="box example">
+            <p class="box-label">Worked example — linear</p>
+            <p>\(f(x) = 3x - 7\). &nbsp; \(y = 3x - 7 \;\to\; x = 3y - 7 \;\to\; y = \dfrac{x + 7}{3}\). &nbsp; So \(f^{-1}(x) = \dfrac{x + 7}{3}\), domain all reals.</p>
+          </div>
+
+          <div class="box example">
+            <p class="box-label">Worked example — rational</p>
+            <p>\(f(x) = \dfrac{x + 2}{x - 5}\).</p>
+            \[ x = \frac{y + 2}{y - 5} \;\Rightarrow\; x(y - 5) = y + 2 \;\Rightarrow\; xy - 5x = y + 2 \]
+            \[ xy - y = 5x + 2 \;\Rightarrow\; y(x - 1) = 5x + 2 \;\Rightarrow\; y = \frac{5x + 2}{x - 1} \]
+            <p>\(f^{-1}(x) = \dfrac{5x + 2}{x - 1}\), domain \(x \neq 1\) (the value \(1\) is the horizontal asymptote of \(f\) — an output \(f\) never reaches).</p>
+          </div>
+
+          <div class="box example">
+            <p class="box-label">Worked example — needs a domain restriction</p>
+            <p>\(f(x) = x^2 - 4\) with domain restricted to \(x \ge 0\).</p>
+            \[ x = y^2 - 4 \;\Rightarrow\; y^2 = x + 4 \;\Rightarrow\; y = \pm\sqrt{x + 4} \]
+            <p>The original domain was \(x \ge 0\), so \(f^{-1}\) must output nonnegative values → take the \(+\) root. \(f^{-1}(x) = \sqrt{x + 4}\), domain \(x \ge -4\) (the range of \(f\)).</p>
+          </div>
+
+          <div class="box pitfall">
+            <p class="box-label">Watch out</p>
+            <ul>
+              <li>\(f^{-1}(x)\) is <strong>not</strong> \(\dfrac{1}{f(x)}\).</li>
+              <li>When a \(\pm\) appears, choose the sign using the original function's domain or range — don't keep both.</li>
+              <li>Always report the domain of \(f^{-1}\). It is the range of \(f\).</li>
+              <li>For a square-root function, the inverse is a <em>restricted</em> parabola, not the whole parabola.</li>
+            </ul>
+          </div>
+
+          <div class="box practice">
+            <p class="box-label">Practice</p>
+            <p>Find \(f^{-1}(x)\) and state its domain.</p>
+            <ol>
+              <li>\(f(x) = \dfrac{x}{4} + 2\)</li>
+              <li>\(f(x) = \dfrac{2x - 1}{x + 3}\)</li>
+              <li>\(f(x) = \sqrt{x - 1} + 2\), domain \(x \ge 1\)</li>
+              <li>\(f(x) = (x + 5)^2\), domain \(x \ge -5\)</li>
+            </ol>
+            <details>
+              <summary>Answer key</summary>
+              <ol>
+                <li>\(x = \tfrac{y}{4} + 2 \Rightarrow y = 4(x - 2) = 4x - 8\); domain all reals.</li>
+                <li>\(x(y + 3) = 2y - 1 \Rightarrow xy + 3x = 2y - 1 \Rightarrow y(x - 2) = -1 - 3x \Rightarrow y = \dfrac{-3x - 1}{x - 2}\); domain \(x \neq 2\).</li>
+                <li>\(x - 2 = \sqrt{y - 1} \Rightarrow (x - 2)^2 = y - 1 \Rightarrow y = (x - 2)^2 + 1\); domain \(x \ge 2\).</li>
+                <li>\(\sqrt{x} = y + 5 \Rightarrow y = \sqrt{x} - 5\) (positive root, since original \(x \ge -5\) makes outputs \(\ge -5\)); domain \(x \ge 0\).</li>
+              </ol>
+            </details>
+            <p class="writeq"><b>Your turn:</b> give a rational function and ask for its inverse plus the excluded value in the inverse's domain.</p>
+          </div>
+          <div class="checkpoint">
+            <p class="cp-label">✦ OnRamps Unit 1 Learning Guide — checkpoint</p>
+            <p class="cp-row">You have now covered <b class="cp-rownum"></b> of the 16 rows in the guide table:</p>
+            <p class="cp-quote"></p>
+            <label class="cp-check"><input type="checkbox" class="cp-box"> Mark this row done on my Learning Guide — exam question written, confidence rated 1–3</label>
+          </div>
+          <a class="backtop" href="#top">↑ Contents</a>
+        </article>
+
+        <!-- OBJ 11 -->
+        <article class="obj" id="obj-11">
+          <p class="obj-tag"><span class="n">Objective 11</span> / 16</p>
+          <h3>Use properties of functions to explain the relationship between a function and its inverse</h3>
+          <p class="obj-source">"Use properties of functions to explain the relationship between a function and its inverse."</p>
+
+          <div class="prose">
+            <div class="keyline">
+              <p class="box-label">What is always true of \(f\) and \(f^{-1}\)</p>
+              <ul>
+                <li><strong>They undo each other:</strong> \(f^{-1}(f(x)) = x\) for every \(x\) in the domain of \(f\), and \(f(f^{-1}(x)) = x\) for every \(x\) in the domain of \(f^{-1}\). This is the definitive test that two functions are inverses.</li>
+                <li><strong>Domain and range swap:</strong> \(\text{domain}(f^{-1}) = \text{range}(f)\) and \(\text{range}(f^{-1}) = \text{domain}(f)\).</li>
+                <li><strong>Graphs are mirror images across \(y = x\):</strong> if \((a, b)\) is on \(f\), then \((b, a)\) is on \(f^{-1}\).</li>
+                <li><strong>Monotonicity is preserved:</strong> if \(f\) is increasing, so is \(f^{-1}\).</li>
+                <li>\(x\)- and \(y\)-intercepts trade places.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="box example">
+            <p class="box-label">Worked example — verify by composition</p>
+            <p>\(f(x) = 3x - 7\), \(f^{-1}(x) = \dfrac{x + 7}{3}\).</p>
+            \[ f^{-1}(f(x)) = \frac{(3x - 7) + 7}{3} = \frac{3x}{3} = x \quad\checkmark \]
+            \[ f(f^{-1}(x)) = 3\!\left(\frac{x + 7}{3}\right) - 7 = (x + 7) - 7 = x \quad\checkmark \]
+            <p>Point check: \(f(4) = 5\) and \(f^{-1}(5) = \dfrac{12}{3} = 4\). The point \((4, 5)\) on \(f\) corresponds to \((5, 4)\) on \(f^{-1}\).</p>
+          </div>
+
+          <div class="box example">
+            <p class="box-label">Worked example — show two functions are NOT inverses</p>
+            <p>\(f(x) = 2x + 3\), \(g(x) = \dfrac{x}{2} - 3\).</p>
+            \[ f(g(x)) = 2\!\left(\frac{x}{2} - 3\right) + 3 = x - 6 + 3 = x - 3 \neq x \]
+            <p>Since one composition fails to return \(x\), they are not inverses. (The correct inverse is \(\dfrac{x - 3}{2}\).)</p>
+          </div>
+
+          <div class="box pitfall">
+            <p class="box-label">Watch out</p>
+            <ul>
+              <li>You need <strong>both</strong> compositions to equal \(x\) on the right domains — checking only one can mislead when domains are restricted.</li>
+              <li>The reflection is across the line \(y = x\), not across the \(x\)-axis or \(y\)-axis.</li>
+              <li>If \(f\) never reaches a value \(c\) (a horizontal asymptote), then \(c\) is excluded from the domain of \(f^{-1}\).</li>
+            </ul>
+          </div>
+
+          <div class="box practice">
+            <p class="box-label">Practice</p>
+            <ol>
+              <li>Verify that \(f(x) = \dfrac{x - 1}{4}\) and \(g(x) = 4x + 1\) are inverses (both compositions).</li>
+              <li>\(f\) is increasing with \(f(0) = -3\) and \(f(2) = 5\). Give two points on \(f^{-1}\).</li>
+              <li>\(f\) has domain \([0, \infty)\) and range \([-1, \infty)\). State the domain and range of \(f^{-1}\).</li>
+              <li>Are \(f(x) = x^2\) (on \(x \ge 0\)) and \(g(x) = \sqrt{x}\) inverses? Check both compositions.</li>
+            </ol>
+            <details>
+              <summary>Answer key</summary>
+              <ol>
+                <li>\(g(f(x)) = 4 \cdot \dfrac{x - 1}{4} + 1 = (x - 1) + 1 = x\); \(f(g(x)) = \dfrac{(4x + 1) - 1}{4} = \dfrac{4x}{4} = x\). Inverses. ✓</li>
+                <li>\((-3, 0)\) and \((5, 2)\) — swap each coordinate pair.</li>
+                <li>Domain of \(f^{-1}\) is \([-1, \infty)\); range of \(f^{-1}\) is \([0, \infty)\).</li>
+                <li>\(g(f(x)) = \sqrt{x^2} = |x| = x\) for \(x \ge 0\); \(f(g(x)) = (\sqrt{x})^2 = x\) for \(x \ge 0\). Yes, inverses on those domains.</li>
+              </ol>
+            </details>
+            <p class="writeq"><b>Your turn:</b> give a pair of functions that pass <em>one</em> composition test but fail the other, and ask whether they're inverses.</p>
+          </div>
+          <div class="checkpoint">
+            <p class="cp-label">✦ OnRamps Unit 1 Learning Guide — checkpoint</p>
+            <p class="cp-row">You have now covered <b class="cp-rownum"></b> of the 16 rows in the guide table:</p>
+            <p class="cp-quote"></p>
+            <label class="cp-check"><input type="checkbox" class="cp-box"> Mark this row done on my Learning Guide — exam question written, confidence rated 1–3</label>
+          </div>
+          <a class="backtop" href="#top">↑ Contents</a>
+        </article>
+      </section>
+
+      <!-- ============ CLUSTER F ============ -->
+      <section class="cluster" id="cluster-f">
+        <p class="cluster-tag">Theme F</p>
+        <h2>Rate of change, patterns, and piecewise models</h2>
+        <p class="cluster-intro">The unit closes by turning functions toward data and the real world: how fast something changes, what pattern a table follows, and how to describe a rule that changes partway through.</p>
+
+        <!-- OBJ 12 -->
+        <article class="obj" id="obj-12">
+          <p class="obj-tag"><span class="n">Objective 12</span> / 16</p>
+          <h3>Connect the rate-of-change function with a given scenario</h3>
+          <p class="obj-source">"Connect the rate of change function with a given scenario (distance/time, bottles, etc.)."</p>
+
+          <div class="prose">
+            <p>The <span class="term">average rate of change</span> of \(f\) on \([a, b]\) is</p>
+            \[ \frac{f(b) - f(a)}{b - a} \]
+            <p>— the slope of the line through \(\big(a, f(a)\big)\) and \(\big(b, f(b)\big)\) (the <em>secant line</em>). Its units are <em>output units per input unit</em>.</p>
+            <ul>
+              <li><strong>Distance vs. time:</strong> the rate of change is speed. Steeper graph = faster; flat = stopped; straight line = constant speed.</li>
+              <li><strong>Filling a bottle at a constant pour:</strong> graph water height vs. time. Where the bottle is <em>narrow</em>, height climbs fast (large rate of change); where it is <em>wide</em>, height climbs slowly. A bottle that bulges in the middle produces an S-shaped height–time curve.</li>
+              <li><strong>The rate-of-change function itself:</strong> as the interval shrinks toward a single point, the average rate approaches the <em>instantaneous</em> rate — a new function telling you how fast \(f\) is changing at each input. It is positive where \(f\) increases, larger where \(f\) is steeper, and zero at a peak or valley. (This is the bridge to calculus.)</li>
+            </ul>
+          </div>
+
+          <div class="box example">
+            <p class="box-label">Worked example</p>
+            <p>\(h(t)\) is water height in cm after \(t\) seconds, with \(h(0) = 0\), \(h(2) = 6\), \(h(5) = 9\).</p>
+            <ul>
+              <li>Average rate on \([0, 2]\): \(\dfrac{6 - 0}{2 - 0} = 3\) cm/s.</li>
+              <li>Average rate on \([2, 5]\): \(\dfrac{9 - 6}{5 - 2} = 1\) cm/s.</li>
+              <li>The level rose faster early, then slowed → the container is wider near the top.</li>
+            </ul>
+            <p>Car example: if \(d(1) = 40\) mi and \(d(3) = 150\) mi, average speed on \([1, 3]\) is \(\dfrac{150 - 40}{3 - 1} = 55\) mph.</p>
+          </div>
+
+          <div class="box pitfall">
+            <p class="box-label">Watch out</p>
+            <ul>
+              <li>Always attach units to a rate of change.</li>
+              <li>Average rate over an interval is not the same as the function's value at one endpoint.</li>
+              <li>Sign matters: positive rate = increasing, negative = decreasing, zero = momentarily level.</li>
+              <li>"Narrow bottle → fast height increase" — many students get this backwards.</li>
+            </ul>
+          </div>
+
+          <div class="box practice">
+            <p class="box-label">Practice</p>
+            <ol>
+              <li>\(f(x) = x^2\). Average rate of change on \([1, 4]\)? On \([-2, 2]\)?</li>
+              <li>A runner's position: \(s(0) = 0\), \(s(4) = 100\), \(s(10) = 100\) (meters). Average speed on \([0,4]\)? On \([4, 10]\)? What happened after \(t = 4\)?</li>
+              <li>A cone (point down) is filled at a constant rate. Does the water height rise faster at the start or near the top? Why?</li>
+              <li>\(P(t)\) doubles each hour. Is its rate-of-change function constant, increasing, or decreasing over time?</li>
+            </ol>
+            <details>
+              <summary>Answer key</summary>
+              <ol>
+                <li>\([1,4]\): \(\dfrac{16 - 1}{3} = 5\). \([-2, 2]\): \(\dfrac{4 - 4}{4} = 0\) (rises and falls symmetrically).</li>
+                <li>\([0,4]\): \(25\) m/s. \([4, 10]\): \(0\) m/s — the runner stopped (position unchanged).</li>
+                <li>Faster at the start: near the point the cone is narrow, so a fixed volume of water raises the level a lot; near the top it is wide, so the level rises slowly.</li>
+                <li>Increasing — each hour the amount added is larger, so the rate of change grows over time.</li>
+              </ol>
+            </details>
+            <p class="writeq"><b>Your turn:</b> give three container cross-sections and ask students to match each to a height–time graph.</p>
+          </div>
+          <div class="checkpoint">
+            <p class="cp-label">✦ OnRamps Unit 1 Learning Guide — checkpoint</p>
+            <p class="cp-row">You have now covered <b class="cp-rownum"></b> of the 16 rows in the guide table:</p>
+            <p class="cp-quote"></p>
+            <label class="cp-check"><input type="checkbox" class="cp-box"> Mark this row done on my Learning Guide — exam question written, confidence rated 1–3</label>
+          </div>
+          <a class="backtop" href="#top">↑ Contents</a>
+        </article>
+
+        <!-- OBJ 13 -->
+        <article class="obj" id="obj-13">
+          <p class="obj-tag"><span class="n">Objective 13</span> / 16</p>
+          <h3>Identify patterns in given sets of data and connect to general functions</h3>
+          <p class="obj-source">"Identify patterns in given sets of data and connect to general functions."</p>
+
+          <div class="prose">
+            <p>With inputs that are <strong>equally spaced</strong> (constant \(\Delta x\)), look at how the outputs change:</p>
+            <div class="keyline">
+              <p class="box-label">Pattern → function family</p>
+              <ul>
+                <li><strong>Constant first differences</strong> (each \(y\) goes up by the same amount) → <span class="term">linear</span>, \(f(x) = mx + b\), with \(m = \dfrac{\text{first difference}}{\Delta x}\).</li>
+                <li><strong>Constant second differences</strong> → <span class="term">quadratic</span>, \(f(x) = ax^2 + bx + c\). With \(\Delta x = 1\), \(a = \dfrac{\text{second difference}}{2}\).</li>
+                <li><strong>Constant ratio</strong> (each \(y\) is a fixed multiple of the one before) → <span class="term">exponential</span>, \(f(x) = a \cdot b^{x}\), with \(b = \) common ratio and \(a = f(0)\).</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="box example">
+            <p class="box-label">Worked example — three tables</p>
+            <p><strong>A.</strong> \(x: 0,1,2,3,4\) &nbsp; \(y: 5, 8, 11, 14, 17\). First differences all \(3\) → linear. Slope \(3\), \(f(0) = 5\) → \(f(x) = 3x + 5\).</p>
+            <p><strong>B.</strong> \(x: 0,1,2,3,4\) &nbsp; \(y: 3, 4, 7, 12, 19\). First differences \(1, 3, 5, 7\) (not constant); second differences \(2, 2, 2\) → quadratic. \(a = \tfrac{2}{2} = 1\). From \(f(0) = 3\), \(c = 3\); from \(f(1) = 4 = 1 + b + 3\), \(b = 0\). So \(f(x) = x^2 + 3\) (check \(f(3) = 12\) ✓).</p>
+            <p><strong>C.</strong> \(x: 0,1,2,3,4\) &nbsp; \(y: 2, 6, 18, 54, 162\). Ratios all \(\times 3\) → exponential. \(a = f(0) = 2\), \(b = 3\) → \(f(x) = 2 \cdot 3^{x}\).</p>
+          </div>
+
+          <div class="box pitfall">
+            <p class="box-label">Watch out</p>
+            <ul>
+              <li>Difference tables only work when inputs are equally spaced — check \(\Delta x\) first.</li>
+              <li>Confirm the pattern across the <em>whole</em> table, not just the first two steps.</li>
+              <li>"Keeps getting bigger" is not enough to call it linear — linear needs a constant <em>difference</em>; exponential has a constant <em>ratio</em>.</li>
+              <li>A negative common ratio (e.g. \(\times(-2)\)) still signals exponential, with alternating signs.</li>
+            </ul>
+          </div>
+
+          <div class="box practice">
+            <p class="box-label">Practice</p>
+            <p>Identify the family and find the rule.</p>
+            <ol>
+              <li>\(x: 0,1,2,3\) &nbsp; \(y: 7, 4, 1, -2\)</li>
+              <li>\(x: 0,1,2,3,4\) &nbsp; \(y: 1, 2, 5, 10, 17\)</li>
+              <li>\(x: 0,1,2,3\) &nbsp; \(y: 100, 50, 25, 12.5\)</li>
+              <li>\(x: 1,2,3,4\) &nbsp; \(y: 3, 12, 27, 48\)</li>
+            </ol>
+            <details>
+              <summary>Answer key</summary>
+              <ol>
+                <li>First differences all \(-3\) → linear: \(f(x) = -3x + 7\).</li>
+                <li>First diffs \(1,3,5,7\); second diffs \(2\) → quadratic. \(a = 1\), \(c = 1\), \(f(1) = 2 = 1 + b + 1 \Rightarrow b = 0\): \(f(x) = x^2 + 1\).</li>
+                <li>Ratio \(\times \tfrac{1}{2}\) → exponential: \(f(x) = 100 \cdot \left(\tfrac{1}{2}\right)^{x}\).</li>
+                <li>\(y = 3x^2\) — second differences constant at \(6\) (note inputs start at \(1\); \(3(1)=3, 3(4)=12, 3(9)=27, 3(16)=48\)).</li>
+              </ol>
+            </details>
+            <p class="writeq"><b>Your turn:</b> give a table that looks linear for the first two rows but turns out quadratic, and ask which family it is.</p>
+          </div>
+          <div class="checkpoint">
+            <p class="cp-label">✦ OnRamps Unit 1 Learning Guide — checkpoint</p>
+            <p class="cp-row">You have now covered <b class="cp-rownum"></b> of the 16 rows in the guide table:</p>
+            <p class="cp-quote"></p>
+            <label class="cp-check"><input type="checkbox" class="cp-box"> Mark this row done on my Learning Guide — exam question written, confidence rated 1–3</label>
+          </div>
+          <a class="backtop" href="#top">↑ Contents</a>
+        </article>
+
+        <!-- OBJ 14 -->
+        <article class="obj" id="obj-14">
+          <p class="obj-tag"><span class="n">Objective 14</span> / 16</p>
+          <h3>Use function patterns to predict values</h3>
+          <p class="obj-source">"Use function patterns to predict values."</p>
+
+          <div class="prose">
+            <p>Once you've named the model (Objective 13), use it to fill gaps <em>inside</em> the data (interpolate) or reach <em>beyond</em> it (extrapolate). You can either plug into the rule, or continue the difference/ratio pattern step by step.</p>
+          </div>
+
+          <div class="box example">
+            <p class="box-label">Worked examples</p>
+            <ul>
+              <li><strong>From a rule:</strong> Table B gave \(f(x) = x^2 + 3\). Then \(f(10) = 103\), and the output at \(x = 7\) is \(52\).</li>
+              <li><strong>Continue a difference pattern:</strong> first differences are a constant \(4\) and the last known point is \((6, 30)\). Next points: \((7, 34)\), \((8, 38)\), \((9, 42)\).</li>
+              <li><strong>Continue a ratio pattern:</strong> constant ratio \(\times 1.5\), last point \((4, 8)\). Next: \((5, 12)\), \((6, 18)\).</li>
+              <li><strong>In context:</strong> bacteria start at \(50\) and double every hour, so \(P(t) = 50 \cdot 2^{t}\). After 6 h: \(P(6) = 3200\). To reach \(1600\): \(50 \cdot 2^{t} = 1600 \Rightarrow 2^{t} = 32 \Rightarrow t = 5\) h.</li>
+            </ul>
+          </div>
+
+          <div class="box pitfall">
+            <p class="box-label">Watch out</p>
+            <ul>
+              <li>Extrapolation <em>assumes</em> the pattern keeps going. In a real scenario, say so.</li>
+              <li>Match the input to how \(x\) is defined — "the year 2030" might be \(x = 20\) if \(x\) counts years since 2010.</li>
+              <li>For exponential models, "10% growth per year" means multiply by \(1.10\), not add \(0.10\).</li>
+            </ul>
+          </div>
+
+          <div class="box practice">
+            <p class="box-label">Practice</p>
+            <ol>
+              <li>A linear table has \(f(0) = 12\) and constant first difference \(-5\) (with \(\Delta x = 1\)). Find \(f(4)\) and \(f(10)\).</li>
+              <li>\(f(x) = 2 \cdot 3^{x}\). Find \(f(5)\); then find \(x\) with \(f(x) = 162\).</li>
+              <li>A quadratic table has second difference \(4\) (\(\Delta x = 1\)), \(f(0) = 1\), \(f(1) = 3\). Find the rule, then \(f(6)\).</li>
+              <li>A town of 8000 grows 5% per year. Population after 3 years? Write the model.</li>
+            </ol>
+            <details>
+              <summary>Answer key</summary>
+              <ol>
+                <li>\(f(x) = 12 - 5x\): \(f(4) = -8\), \(f(10) = -38\).</li>
+                <li>\(f(5) = 2 \cdot 243 = 486\). \(2 \cdot 3^{x} = 162 \Rightarrow 3^{x} = 81 \Rightarrow x = 4\).</li>
+                <li>\(a = \tfrac{4}{2} = 2\), \(c = 1\); \(f(1) = 2 + b + 1 = 3 \Rightarrow b = 0\). \(f(x) = 2x^2 + 1\), so \(f(6) = 73\).</li>
+                <li>\(P(t) = 8000 \cdot 1.05^{t}\); \(P(3) = 8000 \cdot 1.157625 \approx 9261\).</li>
+              </ol>
+            </details>
+            <p class="writeq"><b>Your turn:</b> give an exponential context and ask both a "predict the value" and a "when does it reach ___" question.</p>
+          </div>
+          <div class="checkpoint">
+            <p class="cp-label">✦ OnRamps Unit 1 Learning Guide — checkpoint</p>
+            <p class="cp-row">You have now covered <b class="cp-rownum"></b> of the 16 rows in the guide table:</p>
+            <p class="cp-quote"></p>
+            <label class="cp-check"><input type="checkbox" class="cp-box"> Mark this row done on my Learning Guide — exam question written, confidence rated 1–3</label>
+          </div>
+          <a class="backtop" href="#top">↑ Contents</a>
+        </article>
+
+        <!-- OBJ 15 -->
+        <article class="obj" id="obj-15">
+          <p class="obj-tag"><span class="n">Objective 15</span> / 16</p>
+          <h3>Use piecewise functions to represent a graph</h3>
+          <p class="obj-source">"Use piecewise functions to represent a graph."</p>
+
+          <div class="prose">
+            <p>A <span class="term">piecewise function</span> uses different rules on different parts of the domain:</p>
+            \[ f(x) = \begin{cases} \text{rule}_1, & \text{condition}_1 \\ \text{rule}_2, & \text{condition}_2 \\ \ \vdots \end{cases} \]
+            <div class="keyline">
+              <p class="box-label">Reading a graph into a formula</p>
+              <ol>
+                <li>Split the \(x\)-axis at every corner, jump, or change of shape.</li>
+                <li>For each piece, find that segment's equation (line from slope + a point; parabola from its vertex; etc.).</li>
+                <li>Attach the interval. Decide \(\le\) vs. \(&lt;\) from the dots: filled \(\bullet\) = included, open \(\circ\) = excluded. Every domain value should be covered <strong>exactly once</strong>.</li>
+              </ol>
+            </div>
+            <p>To <strong>evaluate</strong> a piecewise function at \(x = a\), first find which condition \(a\) satisfies, then use only that piece.</p>
+          </div>
+
+          <div class="box example">
+            <p class="box-label">Worked examples</p>
+            <p><strong>Corner at the origin:</strong> the graph is \(y = -x\) for \(x &lt; 0\) and \(y = x^2\) for \(x \ge 0\) (filled dot at the origin on the parabola):</p>
+            \[ f(x) = \begin{cases} -x, & x &lt; 0 \\ x^2, & x \ge 0 \end{cases} \]
+            <p><strong>Jump (step):</strong> height \(1\) on \([0, 2)\) with an open dot at \(x = 2\), then height \(3\) on \([2, 4]\):</p>
+            \[ f(x) = \begin{cases} 1, & 0 \le x &lt; 2 \\ 3, & 2 \le x \le 4 \end{cases} \]
+            <p><strong>Two line pieces:</strong> from \((-3, 0)\) up to \((0, 3)\), then down to \((2, -1)\). Left slope \(= \dfrac{3 - 0}{0 - (-3)} = 1\) through \((0,3)\): \(y = x + 3\). Right slope \(= \dfrac{-1 - 3}{2 - 0} = -2\) through \((0,3)\): \(y = -2x + 3\).</p>
+            \[ f(x) = \begin{cases} x + 3, & -3 \le x \le 0 \\ -2x + 3, & 0 &lt; x \le 2 \end{cases} \]
+          </div>
+
+          <div class="box pitfall">
+            <p class="box-label">Watch out</p>
+            <ul>
+              <li>Conditions must not overlap — if both pieces claim \(x = 2\), you've broken the "one output" rule. Line the inequalities up with the dots.</li>
+              <li>A jump between pieces means the graph is <em>discontinuous</em> there; that's allowed for a piecewise function.</li>
+              <li>Check an endpoint by plugging it into the piece whose condition includes it.</li>
+              <li>Don't leave a gap: every \(x\) in the domain needs exactly one piece.</li>
+            </ul>
+          </div>
+
+          <div class="box practice">
+            <p class="box-label">Practice</p>
+            <ol>
+              <li>Write the piecewise rule: \(y = 2\) (constant) for \(x \le 1\), then the line through \((1, 2)\) and \((3, 6)\) for \(x &gt; 1\).</li>
+              <li>Evaluate that function at \(x = 1\), \(x = 0\), and \(x = 3\).</li>
+              <li>A graph is \(y = -x - 1\) for \(x &lt; -1\), \(y = 0\) for \(-1 \le x \le 1\), and \(y = x - 1\) for \(x &gt; 1\). Write it as a piecewise function. Is it continuous?</li>
+            </ol>
+            <details>
+              <summary>Answer key</summary>
+              <ol>
+                <li>Right piece slope \(= \dfrac{6 - 2}{3 - 1} = 2\), through \((1, 2)\): \(y = 2x\). So \(f(x) = \begin{cases} 2, & x \le 1 \\ 2x, & x &gt; 1 \end{cases}\)</li>
+                <li>\(f(1) = 2\) (first piece); \(f(0) = 2\); \(f(3) = 6\).</li>
+                <li>\(f(x) = \begin{cases} -x - 1, & x &lt; -1 \\ 0, & -1 \le x \le 1 \\ x - 1, & x &gt; 1 \end{cases}\) &nbsp; At \(x = -1\): \(-(-1) - 1 = 0\) matches. At \(x = 1\): \(1 - 1 = 0\) matches. Continuous (this is \(y = |x| - 1\) written piecewise... check: at \(x=-2\), \(-(-2)-1 = 1 = |-2|-1\) ✓).</li>
+              </ol>
+            </details>
+            <p class="writeq"><b>Your turn:</b> draw a graph with one corner and one jump, and ask for the piecewise rule with correct \(\le\)/\(&lt;\).</p>
+          </div>
+          <div class="checkpoint">
+            <p class="cp-label">✦ OnRamps Unit 1 Learning Guide — checkpoint</p>
+            <p class="cp-row">You have now covered <b class="cp-rownum"></b> of the 16 rows in the guide table:</p>
+            <p class="cp-quote"></p>
+            <label class="cp-check"><input type="checkbox" class="cp-box"> Mark this row done on my Learning Guide — exam question written, confidence rated 1–3</label>
+          </div>
+          <a class="backtop" href="#top">↑ Contents</a>
+        </article>
+
+        <!-- OBJ 16 -->
+        <article class="obj" id="obj-16">
+          <p class="obj-tag"><span class="n">Objective 16</span> / 16</p>
+          <h3>Use piecewise functions to represent and interpret a real-world scenario</h3>
+          <p class="obj-source">"Use piecewise functions to represent and interpret a real-world scenario."</p>
+
+          <div class="prose">
+            <p>Many real pricing and physical rules change partway through: tax brackets, shipping tiers, parking rates, phone-plan overages, overtime pay, utility rates. Each is naturally piecewise.</p>
+            <div class="keyline">
+              <p class="box-label">How to build one</p>
+              <ol>
+                <li>Define the input variable and its units.</li>
+                <li>Find the <strong>breakpoints</strong> — the thresholds where the rule changes — and what each one means.</li>
+                <li>Write the rule for each piece (a flat fee is a constant; a per-unit rate is a slope).</li>
+                <li>Fix the boundary: does "40 or more" include exactly 40? Use \(\ge\) or \(&gt;\) deliberately.</li>
+                <li>Interpret: evaluate at points of interest, and note whether the function is continuous at each breakpoint or jumps.</li>
+              </ol>
+            </div>
+          </div>
+
+          <div class="box example">
+            <p class="box-label">Worked example — overtime pay</p>
+            <p>\$18/hour for up to 40 hours, then time-and-a-half (\$27/hour) beyond 40. Let \(h\) be hours worked.</p>
+            \[ P(h) = \begin{cases} 18h, & 0 \le h \le 40 \\ 720 + 27(h - 40), & h &gt; 40 \end{cases} \]
+            <ul>
+              <li>\(P(45) = 720 + 27(5) = \$855\).</li>
+              <li>Continuous at \(h = 40\): \(18(40) = 720\) and \(720 + 27(0) = 720\) agree. The graph bends upward — every hour past 40 is worth more.</li>
+            </ul>
+          </div>
+
+          <div class="box example">
+            <p class="box-label">Worked example — shipping (a jump)</p>
+            <p>\$6 flat shipping for orders under \$50; free for \$50 or more. Let \(x\) be the order total in dollars.</p>
+            \[ S(x) = \begin{cases} 6, & 0 \le x &lt; 50 \\ 0, & x \ge 50 \end{cases} \]
+            <p>\(S(49.99) = \$6\), \(S(50) = \$0\). The function <em>jumps</em> at \(x = 50\) — spending one more cent saves \$6, which is exactly the "add an item to get free shipping" effect.</p>
+          </div>
+
+          <div class="box pitfall">
+            <p class="box-label">Watch out</p>
+            <ul>
+              <li>Say what the input is and in what units before writing anything.</li>
+              <li>Get the boundary inequality right — "\$50 or more" includes \(50\), so use \(\ge\).</li>
+              <li>The second piece often needs a constant that carries the total <em>from</em> the breakpoint (the \(720\) above), not a fresh start from zero.</li>
+              <li>Answer in a sentence with money/units, and say whether it's continuous or jumps if asked to interpret.</li>
+            </ul>
+          </div>
+
+          <div class="box practice">
+            <p class="box-label">Practice</p>
+            <ol>
+              <li>A garage charges \$4 for the first hour or any part of it, then \$2 for each additional hour, with a \$15 daily maximum. Sketch the idea and write \(C(t)\) for \(0 &lt; t \le 3\) hours (whole-hour billing).</li>
+              <li>A phone plan: \$30 for up to 5 GB, then \$10 per additional GB. Write \(B(g)\). Find \(B(3)\) and \(B(8)\).</li>
+              <li>For the overtime function \(P(h)\) above, interpret \(P(40) = 720\) and the change in slope at \(h = 40\).</li>
+              <li>Is the phone-plan function \(B(g)\) continuous at \(g = 5\)? Show it.</li>
+            </ol>
+            <details>
+              <summary>Answer key</summary>
+              <ol>
+                <li>\(C(t) = \begin{cases} 4, & 0 &lt; t \le 1 \\ 6, & 1 &lt; t \le 2 \\ 8, & 2 &lt; t \le 3 \end{cases}\) (each extra started hour adds \$2, up to the \$15 cap which isn't reached in 3 hours).</li>
+                <li>\(B(g) = \begin{cases} 30, & 0 \le g \le 5 \\ 30 + 10(g - 5), & g &gt; 5 \end{cases}\). \(B(3) = \$30\); \(B(8) = 30 + 10(3) = \$60\).</li>
+                <li>\(P(40) = 720\): working exactly 40 hours pays \$720. At \(h = 40\) the pay rate rises from \$18/h to \$27/h, so the graph's slope increases.</li>
+                <li>At \(g = 5\): first piece gives \(30\); second piece gives \(30 + 10(0) = 30\). Equal → continuous.</li>
+              </ol>
+            </details>
+            <p class="writeq"><b>Your turn:</b> write a two-bracket tax scenario and ask for the piecewise rule, one evaluation, and whether it's continuous at the bracket.</p>
+          </div>
+          <div class="checkpoint">
+            <p class="cp-label">✦ OnRamps Unit 1 Learning Guide — checkpoint</p>
+            <p class="cp-row">You have now covered <b class="cp-rownum"></b> of the 16 rows in the guide table:</p>
+            <p class="cp-quote"></p>
+            <label class="cp-check"><input type="checkbox" class="cp-box"> Mark this row done on my Learning Guide — exam question written, confidence rated 1–3</label>
+          </div>
+          <a class="backtop" href="#top">↑ Contents</a>
+        </article>
+      </section>
+
+      <!-- ============ EXAM PREP ============ -->
+      <section class="examprep" id="examprep">
+        <p class="cluster-tag">Wrap-up</p>
+        <h2 style="font-family:'Spectral',serif;font-weight:700;font-size:var(--step-2);margin:0 0 .6rem;">Before the Unit 1 exam</h2>
+        <p style="color:var(--ink-soft);max-width:60ch;">The Learning Guide asks you to do three things with these objectives: write your own exam question for each, rate your confidence <b>1&nbsp;=&nbsp;not confident</b>, <b>2&nbsp;=&nbsp;somewhat</b>, <b>3&nbsp;=&nbsp;absolutely confident</b>, and set a score goal. Use the tracker below — it saves in your browser — then go back and write a question for every row rated 1 or 2.</p>
+
+        <ol class="checklist" id="checklist">
+          <li><span class="can"><b>01</b> I can decide whether a table, graph, mapping, equation, or set of pairs is a function — and justify which rule is met or broken.</span><span class="conf" data-obj="1"></span></li>
+          <li><span class="can"><b>02</b> I can evaluate \(f\) at a number and at an expression, including the difference quotient.</span><span class="conf" data-obj="2"></span></li>
+          <li><span class="can"><b>03</b> I can read increasing, decreasing, and constant intervals off a graph as open \(x\)-intervals.</span><span class="conf" data-obj="3"></span></li>
+          <li><span class="can"><b>04</b> I can give domain and range in interval, set-builder, and inequality notation, and find domain restrictions from a formula.</span><span class="conf" data-obj="4"></span></li>
+          <li><span class="can"><b>05</b> I can compute function values and inverse values in a model and state their meaning with units.</span><span class="conf" data-obj="5"></span></li>
+          <li><span class="can"><b>06</b> I can build \((f \circ g)(x)\) and find its domain using both conditions.</span><span class="conf" data-obj="6"></span></li>
+          <li><span class="can"><b>07</b> I can evaluate a composite at a constant and recognize when the result is undefined.</span><span class="conf" data-obj="7"></span></li>
+          <li><span class="can"><b>08</b> I can classify a function as even/odd/neither and as injective/surjective/bijective for a stated codomain.</span><span class="conf" data-obj="8"></span></li>
+          <li><span class="can"><b>09</b> I can decide whether a function has an inverse and, if not, restrict the domain so it does.</span><span class="conf" data-obj="9"></span></li>
+          <li><span class="can"><b>10</b> I can find \(f^{-1}(x)\) algebraically, choose the correct sign, and state its domain.</span><span class="conf" data-obj="10"></span></li>
+          <li><span class="can"><b>11</b> I can verify an inverse with both compositions and explain the domain/range and graph relationships.</span><span class="conf" data-obj="11"></span></li>
+          <li><span class="can"><b>12</b> I can compute average rate of change with units and connect it to speed or to filling a container.</span><span class="conf" data-obj="12"></span></li>
+          <li><span class="can"><b>13</b> I can use first/second differences and ratios to name a data set as linear, quadratic, or exponential and find its rule.</span><span class="conf" data-obj="13"></span></li>
+          <li><span class="can"><b>14</b> I can use a model to interpolate and extrapolate, including "when does it reach ___" questions.</span><span class="conf" data-obj="14"></span></li>
+          <li><span class="can"><b>15</b> I can translate a graph into a piecewise formula with correct \(\le\) / \(&lt;\) at the breakpoints.</span><span class="conf" data-obj="15"></span></li>
+          <li><span class="can"><b>16</b> I can model a real pricing/pay scenario piecewise, evaluate it, and say whether it is continuous at each breakpoint.</span><span class="conf" data-obj="16"></span></li>
+        </ol>
+
+        <p class="conf-key">Tap 1 / 2 / 3 on each row to record your confidence. Stored only in this browser; tap again to clear.</p>
+
+        <div class="goals">
+          <span>Satisfaction Goal = ______ / 100</span>
+          <span>Pride Goal = ______ / 100</span>
+        </div>
+
+        <p class="foot">Study companion for OnRamps Precalculus, Unit 1. Built around the Unit&nbsp;1 Learning Guide objectives; pair it with the Unit&nbsp;1 Explorations, Quizzes, and Homeworks. Not an official OnRamps document.</p>
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<script>
+  // Scroll progress bar
+  (function () {
+    var bar = document.getElementById('progress');
+    function update() {
+      var h = document.documentElement;
+      var max = h.scrollHeight - h.clientHeight;
+      var pct = max > 0 ? (h.scrollTop || document.body.scrollTop) / max * 100 : 0;
+      bar.style.width = pct + '%';
+    }
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+  })();
+
+  // Rail active-section highlight
+  (function () {
+    var links = Array.prototype.slice.call(document.querySelectorAll('.rail a'));
+    if (!links.length || !('IntersectionObserver' in window)) return;
+    var map = {};
+    links.forEach(function (a) {
+      var id = a.getAttribute('href').slice(1);
+      var el = document.getElementById(id);
+      if (el) map[id] = a;
+    });
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          links.forEach(function (l) { l.classList.remove('is-active'); });
+          var a = map[e.target.id];
+          if (a) a.classList.add('is-active');
+        }
+      });
+    }, { rootMargin: '-10% 0px -80% 0px', threshold: 0 });
+    Object.keys(map).forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) obs.observe(el);
+    });
+  })();
+
+  // Confidence tracker with localStorage
+  (function () {
+    var KEY = 'onramps-precalc-u1-confidence';
+    var store = {};
+    try { store = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { store = {}; }
+
+    function save() {
+      try { localStorage.setItem(KEY, JSON.stringify(store)); } catch (e) { /* private mode: ignore */ }
+    }
+
+    document.querySelectorAll('.conf').forEach(function (group) {
+      var obj = group.getAttribute('data-obj');
+      [1, 2, 3].forEach(function (n) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.textContent = n;
+        b.setAttribute('aria-label', 'Objective ' + obj + ', confidence ' + n);
+        b.setAttribute('aria-pressed', String(store[obj] === n));
+        b.addEventListener('click', function () {
+          if (store[obj] === n) { delete store[obj]; } else { store[obj] = n; }
+          save();
+          Array.prototype.forEach.call(group.children, function (child) {
+            child.setAttribute('aria-pressed', String(store[obj] === parseInt(child.textContent, 10)));
+          });
+        });
+        group.appendChild(b);
+      });
+    });
+  })();
+
+  // Learning Guide row tracker — keeps this module in lock-step with the OnRamps guide table
+  (function () {
+    var KEY = 'onramps-precalc-u1-guide-rows';
+    var TOTAL = 16;
+    var done = {};
+    try { done = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { done = {}; }
+    function save() {
+      try { localStorage.setItem(KEY, JSON.stringify(done)); } catch (e) { /* private mode */ }
+    }
+    var counter = document.getElementById('guide-progress');
+    function refreshCount() {
+      var n = Object.keys(done).filter(function (k) { return done[k]; }).length;
+      if (counter) counter.textContent = n + ' / ' + TOTAL;
+    }
+
+    Array.prototype.forEach.call(document.querySelectorAll('.checkpoint'), function (cp) {
+      var art = cp.closest('.obj');
+      if (!art) return;
+      var num = (art.id.match(/(\d+)/) || [])[1];
+      if (!num) return;
+
+      var src = art.querySelector('.obj-source');
+      var quote = src ? src.textContent.trim() : '';
+      var q = cp.querySelector('.cp-quote');
+      if (q) q.textContent = quote;
+      var rn = cp.querySelector('.cp-rownum');
+      if (rn) rn.textContent = 'row ' + num + ' of 16';
+
+      var railLink = document.querySelector('.rail a[href="#' + art.id + '"]');
+      var box = cp.querySelector('.cp-box');
+
+      function apply() {
+        var on = !!done[num];
+        cp.classList.toggle('is-done', on);
+        if (railLink) railLink.classList.toggle('is-done', on);
+        if (box) box.checked = on;
+      }
+      apply();
+
+      if (box) {
+        box.addEventListener('change', function () {
+          if (box.checked) { done[num] = true; } else { delete done[num]; }
+          save();
+          apply();
+          refreshCount();
+        });
+      }
+    });
+
+    refreshCount();
+  })();
+</script>
+
+</body>
+</html>
