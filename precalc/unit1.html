@@ -572,6 +572,10 @@
         <li><a href="#obj-15">15 · Piecewise from a graph</a></li>
         <li><a href="#obj-16">16 · Piecewise in context</a></li>
       </ol>
+      <p class="rail-group">Practice</p>
+      <ol>
+        <li><a href="#practice-set">Exam-style problems</a></li>
+      </ol>
       <ol>
         <li><a href="#examprep">Before the exam</a></li>
       </ol>
@@ -604,6 +608,7 @@
           <li><a href="#obj-14">14. Using patterns to predict values</a></li>
           <li><a href="#obj-15">15. Piecewise functions from a graph</a></li>
           <li><a href="#obj-16">16. Piecewise functions in a real scenario</a></li>
+          <li class="toc-group"><a href="#practice-set">Exam-style practice problems</a></li>
           <li class="toc-group"><a href="#examprep">Before the Unit 1 exam</a></li>
         </ol>
       </details>
@@ -1758,6 +1763,173 @@
           </div>
           <a class="backtop" href="#top">↑ Contents</a>
         </article>
+      </section>
+
+      <!-- ============ EXAM-STYLE PRACTICE ============ -->
+      <section class="cluster" id="practice-set">
+        <p class="cluster-tag">Practice</p>
+        <h2>Exam-style practice problems</h2>
+        <p class="cluster-intro">Problems in the format of the OnRamps Unit&nbsp;1 quiz, with full solutions. Nothing new here — each one is an application of an objective you have already met. Reveal a solution only after you have committed to an answer.</p>
+
+        <div class="prose">
+          <div class="keyline">
+            <p class="box-label">Which objective each problem leans on</p>
+            <ul>
+              <li><strong>Q1</strong> — is \(y\) a function of \(x\)? &nbsp;→ Objective 1</li>
+              <li><strong>Q3</strong> — domain from a formula &nbsp;→ Objective 4</li>
+              <li><strong>Q4</strong> — the definition of an even function &nbsp;→ Objective 8</li>
+              <li><strong>Q5</strong> — increasing / decreasing intervals &nbsp;→ Objective 3</li>
+              <li><strong>Q6</strong> — restrict a parabola's domain, then invert it &nbsp;→ Objectives 9–10</li>
+              <li><strong>Q7</strong> — even / odd / neither from a graph &nbsp;→ Objective 8</li>
+            </ul>
+          </div>
+
+          <div class="keyline">
+            <p class="box-label">Fast strategies</p>
+            <ul>
+              <li><strong>Function or not, from an equation:</strong> solve for \(y\). A single clean expression is a function; a \(\pm\) (from \(y^2\) or an even root) means one \(x\) gives two \(y\)'s — not a function.</li>
+              <li><strong>Function or not, from a table:</strong> a repeated input only breaks it if its outputs disagree.</li>
+              <li><strong>Domain from a formula:</strong> start with all reals; force even roots \(\ge 0\); forbid denominators \(= 0\); then combine.</li>
+              <li><strong>Even / odd from a graph:</strong> fold across the \(y\)-axis → matches = even; rotate \(180^\circ\) about the origin → matches = odd; otherwise neither. A line with a nonzero \(y\)-intercept is neither.</li>
+              <li><strong>Invertible parabola:</strong> one-to-one only on one side of the vertex. For \(a(x - h)^2 + k\) the vertex is at \(x = h\); restrict to \(x \ge h\) or \(x \le h\).</li>
+              <li><strong>Find \(f^{-1}\):</strong> swap \(x\) and \(y\), solve; when \(\pm\) appears, keep the sign that lands inside the restricted domain.</li>
+            </ul>
+          </div>
+        </div>
+
+        <article class="obj" id="pq1">
+          <p class="obj-tag"><span class="n">Question 1</span> · 18 pts</p>
+          <h3>Select whether each relationship represents \(y\) as a function of \(x\)</h3>
+          <div class="prose">
+            <ol style="list-style-type: lower-alpha">
+              <li>\(5x + 4y = 7\)</li>
+              <li>\(x = y^2 - 16\)</li>
+              <li>\(x^2 + y^2 = 36\)</li>
+              <li>The table &nbsp; \(x:\ -1,\ 2,\ 0,\ 1,\ 2\) &nbsp;&nbsp; \(y:\ 4,\ -2,\ 1,\ 5,\ -2\)</li>
+            </ol>
+          </div>
+          <div class="box practice">
+            <p class="box-label">Solution</p>
+            <details>
+              <summary>Show solution</summary>
+              <ol style="list-style-type: lower-alpha">
+                <li><strong>Function.</strong> Solve for \(y\): \(4y = 7 - 5x \Rightarrow y = \dfrac{7 - 5x}{4}\). Every \(x\) gives exactly one \(y\).</li>
+                <li><strong>Not a function.</strong> \(y^2 = x + 16 \Rightarrow y = \pm\sqrt{x + 16}\). At \(x = 0\), \(y = \pm 4\) — one input, two outputs.</li>
+                <li><strong>Not a function.</strong> \(y = \pm\sqrt{36 - x^2}\): a circle of radius \(6\), which fails the vertical line test (\(x = 0 \Rightarrow y = \pm 6\)).</li>
+                <li><strong>Function.</strong> The input \(2\) appears twice, but both times the output is \(-2\), so no input has two different outputs. (A repeated input is fine when its outputs agree.)</li>
+              </ol>
+            </details>
+          </div>
+        </article>
+
+        <article class="obj" id="pq3">
+          <p class="obj-tag"><span class="n">Question 3</span> · domain matching</p>
+          <h3>Give the domain of each function</h3>
+          <div class="prose">
+            <p>The quiz gave three functions and asked you to match each to its domain. The answer statements were <em>"all real values less than or equal to 5,"</em> <em>"all real values except \(-6\) and \(8\),"</em> and <em>"all real values greater than or equal to 5 except 7."</em> A function of each type:</p>
+            <ol style="list-style-type: lower-alpha">
+              <li>\(g(x) = \sqrt{5 - x}\)</li>
+              <li>\(h(x) = \dfrac{2x}{(x + 6)(x - 8)}\)</li>
+              <li>\(k(x) = \dfrac{\sqrt{x - 5}}{x - 7}\)</li>
+            </ol>
+          </div>
+          <div class="box practice">
+            <p class="box-label">Solution</p>
+            <details>
+              <summary>Show solution</summary>
+              <ol style="list-style-type: lower-alpha">
+                <li>Need \(5 - x \ge 0 \Rightarrow x \le 5\). Domain: <strong>all real values \(\le 5\)</strong> \(= (-\infty, 5\,]\).</li>
+                <li>The denominator is zero at \(x = -6\) and \(x = 8\); nothing else is restricted. Domain: <strong>all reals except \(-6\) and \(8\)</strong> \(= (-\infty, -6) \cup (-6, 8) \cup (8, \infty)\).</li>
+                <li>The square root needs \(x - 5 \ge 0\) (\(x \ge 5\)); the denominator forbids \(x = 7\). Domain: <strong>all real values \(\ge 5\) except \(7\)</strong> \(= [5, 7) \cup (7, \infty)\).</li>
+              </ol>
+            </details>
+          </div>
+        </article>
+
+        <article class="obj" id="pq4">
+          <p class="obj-tag"><span class="n">Question 4</span> · 5 pts</p>
+          <h3>True or false: an even function is a function where \(f(-x) = f(x)\)</h3>
+          <div class="box practice">
+            <p class="box-label">Solution</p>
+            <details>
+              <summary>Show solution</summary>
+              <p><strong>True.</strong> That equation <em>is</em> the definition of an even function — the output is unchanged when the input's sign flips, so the graph is symmetric across the \(y\)-axis. (An <em>odd</em> function is the other one: \(f(-x) = -f(x)\), symmetric about the origin.)</p>
+            </details>
+          </div>
+        </article>
+
+        <article class="obj" id="pq5">
+          <p class="obj-tag"><span class="n">Question 5</span> · 12 pts</p>
+          <h3>Is the graph increasing or decreasing on the given intervals?</h3>
+          <div class="prose">
+            <p>Representative version: a graph rises to a peak at \((-2, 7)\), falls to a valley at \((1, -3)\), then rises again. State where it is increasing and where it is decreasing.</p>
+          </div>
+          <div class="box practice">
+            <p class="box-label">Solution</p>
+            <details>
+              <summary>Show solution</summary>
+              <p>Read left to right — up to the peak, down to the valley, then up again:</p>
+              <ul>
+                <li><strong>Increasing</strong> on \((-\infty, -2) \cup (1, \infty)\).</li>
+                <li><strong>Decreasing</strong> on \((-2, 1)\).</li>
+              </ul>
+              <p>Give \(x\)-intervals as open intervals; the peak and valley belong to neither.</p>
+            </details>
+          </div>
+        </article>
+
+        <article class="obj" id="pq6">
+          <p class="obj-tag"><span class="n">Question 6</span> · 12 pts</p>
+          <h3>For \(f(x) = 3(x + 2)^2 - 4\): restrict the domain to make it invertible, then find \(f^{-1}\)</h3>
+          <div class="prose">
+            <p>Answer choices for \(f^{-1}(x)\):</p>
+            <ol style="list-style-type: upper-alpha">
+              <li>\(\sqrt{\dfrac{x - 4}{3}} - 2\)</li>
+              <li>\(\dfrac{\sqrt{x + 4}}{3} + 2\)</li>
+              <li>\(\dfrac{\sqrt{x - 4}}{3} + 2\)</li>
+              <li>\(\sqrt{\dfrac{x + 4}{3}} - 2\)</li>
+            </ol>
+          </div>
+          <div class="box practice">
+            <p class="box-label">Solution</p>
+            <details>
+              <summary>Show solution</summary>
+              <p><strong>Domain restriction.</strong> The vertex is at \(x = -2\). A parabola is one-to-one only on one side of its vertex, so restrict to \(x \ge -2\) (or \(x \le -2\)). The listed inverse matches the \(x \ge -2\) branch.</p>
+              <p><strong>Invert.</strong> Swap \(x\) and \(y\), then solve:</p>
+              \[ x = 3(y + 2)^2 - 4 \;\Rightarrow\; \frac{x + 4}{3} = (y + 2)^2 \;\Rightarrow\; y + 2 = \pm\sqrt{\frac{x + 4}{3}} \]
+              <p>The restricted domain is \(x \ge -2\), so the outputs of \(f^{-1}\) must be \(\ge -2\): take the \(+\) root.</p>
+              \[ f^{-1}(x) = \sqrt{\frac{x + 4}{3}} - 2 \qquad \textbf{(choice D)} \]
+              <p>Its domain is \([-4, \infty)\), the range of \(f\). Choices B and C put the \(3\) outside the root — it belongs inside, dividing \(x + 4\); choice A uses \(x - 4\) instead of \(x + 4\).</p>
+            </details>
+          </div>
+        </article>
+
+        <article class="obj" id="pq7">
+          <p class="obj-tag"><span class="n">Question 7</span> · 21 pts</p>
+          <h3>Identify each graph as even, odd, or neither</h3>
+          <div class="prose">
+            <p>The quiz shows a series of graphs. Classify by symmetry: <strong>even</strong> = mirror image across the \(y\)-axis; <strong>odd</strong> = unchanged by a \(180^\circ\) turn about the origin; <strong>neither</strong> = no such symmetry.</p>
+          </div>
+          <div class="box practice">
+            <p class="box-label">Solution</p>
+            <details>
+              <summary>Show solution</summary>
+              <ul>
+                <li><strong>Upper semicircle centred at the origin</strong> (e.g. \(y = \sqrt{4 - x^2}\)): folds onto itself across the \(y\)-axis → <strong>even</strong>.</li>
+                <li><strong>Horizontal line \(y = c\)</strong> (\(c \ne 0\)): \(f(-x) = c = f(x)\) → <strong>even</strong>.</li>
+                <li><strong>Cosine-type wave with a peak on the \(y\)-axis:</strong> \(y\)-axis symmetry → <strong>even</strong>.</li>
+                <li><strong>S-shaped cubic through the origin</strong> (e.g. \(y = x^3\)): \(180^\circ\) origin symmetry → <strong>odd</strong>.</li>
+                <li><strong>Sine-type wave through the origin:</strong> origin symmetry → <strong>odd</strong>.</li>
+                <li><strong>Cubic with a local max and local min, point-symmetric about the origin</strong> (e.g. \(y = x^3 - 3x\)): → <strong>odd</strong>.</li>
+                <li><strong>Line with a nonzero \(y\)-intercept</strong> (not through the origin): no symmetry → <strong>neither</strong>.</li>
+                <li><strong>A curve a vertical line crosses more than once</strong> (a sideways or rotated parabola): not a function at all — it fails the vertical line test, so "even / odd" doesn't apply.</li>
+              </ul>
+              <p>Algebra check when you have the formula: compute \(f(-x)\). Equal to \(f(x)\) → even; equal to \(-f(x)\) → odd; neither → neither.</p>
+            </details>
+          </div>
+        </article>
+
+        <a class="backtop" href="#top">↑ Contents</a>
       </section>
 
       <!-- ============ EXAM PREP ============ -->
