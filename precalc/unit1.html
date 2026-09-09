@@ -350,6 +350,7 @@
   .plot-curve-ghost { stroke: var(--ink-faint); stroke-width: 1.5; fill: none; opacity: 0.5; }
   .plot-open { fill: var(--surface); stroke: var(--accent); stroke-width: 2; }
   .plot-curve-2 { stroke: var(--example); stroke-width: 2.25; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+  .bottle { fill: var(--surface-2); stroke: var(--ink-soft); stroke-width: 1.5; stroke-linejoin: round; }
 
   /* ---------- Lecture index ---------- */
   .lecture-tag {
@@ -2148,7 +2149,7 @@
       <section class="cluster" id="practice-piecewise">
         <p class="lecture-tag">Lecture 3 · September 8, 2026</p>
         <h2>Piecewise functions &amp; rates of change</h2>
-        <p class="cluster-intro">Worked solutions to the <em>Discovery Precalculus</em> explorations on piecewise functions (1.5.3) and on rates — distance–time graphs (1.3.1) and filling bottles (1.3.2) — plus a DeltaMath graphing task. These build directly on Objectives 12, 15, and 16.</p>
+        <p class="cluster-intro">Worked solutions to the <em>Discovery Precalculus</em> explorations on piecewise functions (1.5.3) and on rates — distance–time graphs (1.3.1) and filling bottles (1.3.2) — plus a DeltaMath graphing task and two OnRamps quiz questions on identifying function patterns. These build on Objectives 12–16.</p>
 
         <div class="prose">
           <div class="keyline">
@@ -2369,21 +2370,80 @@
           <p class="obj-tag"><span class="n">Exploration 1.3.1</span> · distance–time graphs</p>
           <h3>Describe the motion that produces each distance–time graph</h3>
           <div class="prose">
-            <p>Time is on the horizontal axis, distance from a fixed reference on the vertical axis. The <strong>slope is the velocity</strong>, so the shape of the graph translates directly into a description of the walk.</p>
+            <p>Time is on the horizontal axis, distance from a fixed reference on the vertical axis. The <strong>slope is the velocity</strong>, so the shape of the graph translates directly into a description of the walk. Eight of the textbook's graphs are redrawn below (numbered as in the book).</p>
+          </div>
+          <div class="fig-grid">
+            <figure>
+              <svg viewBox="0 0 190 140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A falling line that meets the time axis, then a rising line — a V shape.">
+                <path class="plot-axis" d="M22,14 V118 H180"/>
+                <polyline class="plot-curve" points="22,30 100,116 178,34"/>
+              </svg>
+              <figcaption>#1</figcaption>
+            </figure>
+            <figure>
+              <svg viewBox="0 0 190 140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A rising line, then a horizontal segment, then a falling line back to the axis.">
+                <path class="plot-axis" d="M22,14 V118 H180"/>
+                <polyline class="plot-curve" points="22,118 58,40 106,40 150,118"/>
+              </svg>
+              <figcaption>#4</figcaption>
+            </figure>
+            <figure>
+              <svg viewBox="0 0 190 140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A rising line to a peak, then a falling line back to the axis — a triangle.">
+                <path class="plot-axis" d="M22,14 V118 H180"/>
+                <polyline class="plot-curve" points="22,118 100,26 178,118"/>
+              </svg>
+              <figcaption>#5</figcaption>
+            </figure>
+            <figure>
+              <svg viewBox="0 0 190 140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="An increasing curve that keeps getting steeper.">
+                <path class="plot-axis" d="M22,14 V118 H180"/>
+                <polyline class="plot-curve" points="22,118 60,112 92,98 118,74 140,44 162,16"/>
+              </svg>
+              <figcaption>#6</figcaption>
+            </figure>
+            <figure>
+              <svg viewBox="0 0 190 140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="An increasing curve that starts steep and flattens toward a horizontal line.">
+                <path class="plot-axis" d="M22,14 V118 H180"/>
+                <polyline class="plot-curve" points="22,118 40,74 62,48 88,32 120,24 160,20 178,19"/>
+              </svg>
+              <figcaption>#7</figcaption>
+            </figure>
+            <figure>
+              <svg viewBox="0 0 190 140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A decreasing curve that starts steep and flattens as it nears the time axis.">
+                <path class="plot-axis" d="M22,14 V118 H180"/>
+                <polyline class="plot-curve" points="22,20 40,58 60,84 84,100 116,110 150,115 178,116"/>
+              </svg>
+              <figcaption>#8</figcaption>
+            </figure>
+            <figure>
+              <svg viewBox="0 0 190 140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A smooth arch rising to a peak and coming back down to the axis.">
+                <path class="plot-axis" d="M22,14 V118 H180"/>
+                <polyline class="plot-curve" points="22,118 44,70 78,32 100,24 122,32 156,70 178,118"/>
+              </svg>
+              <figcaption>#9</figcaption>
+            </figure>
+            <figure>
+              <svg viewBox="0 0 190 140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A staircase of horizontal segments joined by vertical jumps.">
+                <path class="plot-axis" d="M22,14 V118 H180"/>
+                <polyline class="plot-curve" points="26,110 74,110 74,74 122,74 122,42 170,42"/>
+              </svg>
+              <figcaption>#12</figcaption>
+            </figure>
           </div>
           <div class="box practice">
             <p class="box-label">Reading guide &amp; answers</p>
             <details>
               <summary>Show solution</summary>
               <table style="width:100%; border-collapse:collapse; font-size:0.95em;">
-                <tr style="border-bottom:1px solid var(--rule-strong);"><th style="text-align:left; padding:0.35rem 0.5rem 0.35rem 0;">Graph shape</th><th style="text-align:left; padding:0.35rem 0;">Motion</th></tr>
-                <tr style="border-bottom:1px solid var(--rule);"><td style="padding:0.35rem 0.5rem 0.35rem 0;">Straight line, rising</td><td style="padding:0.35rem 0;">Walking away from the detector at a <strong>constant speed</strong>; steeper line = faster.</td></tr>
-                <tr style="border-bottom:1px solid var(--rule);"><td style="padding:0.35rem 0.5rem 0.35rem 0;">Straight line, falling</td><td style="padding:0.35rem 0;">Walking back <strong>toward</strong> the detector at a constant speed.</td></tr>
-                <tr style="border-bottom:1px solid var(--rule);"><td style="padding:0.35rem 0.5rem 0.35rem 0;">Horizontal segment</td><td style="padding:0.35rem 0;">Standing still — the <strong>function is constant</strong> on that interval.</td></tr>
-                <tr style="border-bottom:1px solid var(--rule);"><td style="padding:0.35rem 0.5rem 0.35rem 0;">Curve bending upward (getting steeper)</td><td style="padding:0.35rem 0;">Moving away and <strong>speeding up</strong> — increasing function values at an increasing rate.</td></tr>
-                <tr style="border-bottom:1px solid var(--rule);"><td style="padding:0.35rem 0.5rem 0.35rem 0;">Curve flattening out</td><td style="padding:0.35rem 0;">Moving away but <strong>slowing down</strong> — increasing function values at a decreasing rate.</td></tr>
-                <tr style="border-bottom:1px solid var(--rule);"><td style="padding:0.35rem 0.5rem 0.35rem 0;">Up, then a peak, then down (∩)</td><td style="padding:0.35rem 0;">Walk away, pause/turn at the farthest point, walk back.</td></tr>
-                <tr><td style="padding:0.35rem 0.5rem 0.35rem 0;">A vertical piece, or the graph doubling back over a time value</td><td style="padding:0.35rem 0;"><strong>Not a function</strong> — two distances at one instant is physically impossible, so no walk produces it.</td></tr>
+                <tr style="border-bottom:1px solid var(--rule-strong);"><th style="text-align:left; padding:0.35rem 0.5rem 0.35rem 0;">Graph</th><th style="text-align:left; padding:0.35rem 0;">Motion</th></tr>
+                <tr style="border-bottom:1px solid var(--rule);"><td style="padding:0.35rem 0.5rem 0.35rem 0;"><strong>#1</strong> — falling line then rising line</td><td style="padding:0.35rem 0;">Walk <strong>toward</strong> the detector at a constant speed, then <strong>away</strong> at a constant speed.</td></tr>
+                <tr style="border-bottom:1px solid var(--rule);"><td style="padding:0.35rem 0.5rem 0.35rem 0;"><strong>#4</strong> — up, flat, down</td><td style="padding:0.35rem 0;">Walk away at a constant speed, <strong>stand still</strong> (function constant), then walk back at a constant speed.</td></tr>
+                <tr style="border-bottom:1px solid var(--rule);"><td style="padding:0.35rem 0.5rem 0.35rem 0;"><strong>#5</strong> — triangle (up to a peak, then down)</td><td style="padding:0.35rem 0;">Walk away at a constant speed, turn around at the far point, walk back at a constant speed.</td></tr>
+                <tr style="border-bottom:1px solid var(--rule);"><td style="padding:0.35rem 0.5rem 0.35rem 0;"><strong>#6</strong> — curve getting steeper</td><td style="padding:0.35rem 0;">Walk away and <strong>speed up</strong> — increasing distance at an increasing rate.</td></tr>
+                <tr style="border-bottom:1px solid var(--rule);"><td style="padding:0.35rem 0.5rem 0.35rem 0;"><strong>#7</strong> — curve flattening toward a horizontal</td><td style="padding:0.35rem 0;">Walk away but <strong>slow down</strong>, easing to a stop — increasing distance at a decreasing rate.</td></tr>
+                <tr style="border-bottom:1px solid var(--rule);"><td style="padding:0.35rem 0.5rem 0.35rem 0;"><strong>#8</strong> — decreasing curve flattening near the axis</td><td style="padding:0.35rem 0;">Walk <strong>toward</strong> the detector, slowing down as you get close.</td></tr>
+                <tr style="border-bottom:1px solid var(--rule);"><td style="padding:0.35rem 0.5rem 0.35rem 0;"><strong>#9</strong> — smooth arch (∩)</td><td style="padding:0.35rem 0;">Walk away — speeding up then slowing — pause at the farthest point, then walk back the same way. A smooth version of #5.</td></tr>
+                <tr><td style="padding:0.35rem 0.5rem 0.35rem 0;"><strong>#12</strong> — staircase with vertical jumps</td><td style="padding:0.35rem 0;"><strong>Not a function.</strong> A vertical piece means two distances at one instant — physically impossible, so no walk produces it.</td></tr>
               </table>
               <p>A full write-up names each interval, the direction of travel, whether the speed is constant / faster / slower, and any interval where the walker is stopped.</p>
             </details>
@@ -2394,22 +2454,132 @@
           <p class="obj-tag"><span class="n">Exploration 1.3.2</span> · bottles, rates &amp; graphs</p>
           <h3>Sketch height vs. volume as each bottle is filled at a steady rate</h3>
           <div class="prose">
-            <p>Pour in liquid at a constant rate and plot the <strong>height</strong> of the liquid against the <strong>volume</strong> added. Where the bottle is <strong>narrow</strong>, a little volume raises the level a lot → the graph is <strong>steep</strong>. Where the bottle is <strong>wide</strong>, the level barely moves → the graph is <strong>shallow</strong>.</p>
+            <p>Pour in liquid at a constant rate and plot the <strong>height</strong> \(h\) of the liquid against the <strong>volume</strong> \(v\) added. Where the bottle is <strong>narrow</strong>, a little volume raises the level a lot → the graph is <strong>steep</strong>. Where the bottle is <strong>wide</strong>, the level barely moves → the graph is <strong>shallow</strong>. The five bottles and their graphs:</p>
           </div>
+          <figure class="fig" style="max-width:600px;">
+            <svg viewBox="0 0 620 312" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Five bottles with their height-versus-volume graphs. a, sphere: an S-curve, steep then shallow then steep. b, cylinder: a straight line. c, hourglass: shallow, then steep through the pinch, then shallow. d, stepped: straight segments meeting at corners. e, funnel wide at top: a concave-down curve, steep then flattening.">
+              <circle class="bottle" cx="62" cy="76" r="33"/>
+              <path class="bottle" d="M55,16 h14 v28 h-14 z"/>
+              <path class="bottle" d="M162,20 V124 H210 V20"/>
+              <path class="bottle" d="M284,14 C284,50 305,60 305,69 C305,78 284,88 284,124 L336,124 C336,88 315,78 315,69 C315,60 336,50 336,14 Z"/>
+              <path class="bottle" d="M424,14 V46 H410 V86 H424 V124 H444 V86 H458 V46 H444 V14 Z"/>
+              <path class="bottle" d="M530,16 L556,120 A2.5,2.5 0 0 0 560,120 L586,16"/>
+
+              <path class="plot-axis" d="M16,286 H116 M16,286 V148"/>
+              <path class="plot-axis" d="M140,286 H240 M140,286 V148"/>
+              <path class="plot-axis" d="M264,286 H364 M264,286 V148"/>
+              <path class="plot-axis" d="M388,286 H488 M388,286 V148"/>
+              <path class="plot-axis" d="M512,286 H612 M512,286 V148"/>
+
+              <polyline class="plot-curve" points="16,286 22,250 30,232 44,220 60,214 76,206 90,186 102,162 108,154"/>
+              <polyline class="plot-curve" points="140,286 234,156"/>
+              <polyline class="plot-curve" points="264,286 276,278 286,270 298,242 312,206 324,190 338,180 358,168"/>
+              <polyline class="plot-curve" points="388,286 404,240 426,228 446,178 464,168 482,150"/>
+              <polyline class="plot-curve" points="512,286 520,224 532,192 550,170 572,158 592,152 606,150"/>
+
+              <text class="plot-label" x="10" y="150">h</text>
+              <text class="plot-label" x="118" y="292">v</text>
+              <text class="plot-label" x="62" y="308" text-anchor="middle">a · sphere</text>
+              <text class="plot-label" x="186" y="308" text-anchor="middle">b · cylinder</text>
+              <text class="plot-label" x="310" y="308" text-anchor="middle">c · hourglass</text>
+              <text class="plot-label" x="434" y="308" text-anchor="middle">d · stepped</text>
+              <text class="plot-label" x="558" y="308" text-anchor="middle">e · funnel</text>
+            </svg>
+          </figure>
           <div class="box practice">
             <p class="box-label">Reading guide &amp; answers</p>
             <details>
               <summary>Show solution</summary>
               <table style="width:100%; border-collapse:collapse; font-size:0.95em;">
-                <tr style="border-bottom:1px solid var(--rule-strong);"><th style="text-align:left; padding:0.35rem 0.5rem 0.35rem 0;">Bottle shape</th><th style="text-align:left; padding:0.35rem 0;">Height–volume graph</th></tr>
-                <tr style="border-bottom:1px solid var(--rule);"><td style="padding:0.35rem 0.5rem 0.35rem 0;">Straight-sided cylinder (constant width)</td><td style="padding:0.35rem 0;">A straight line — constant rate.</td></tr>
-                <tr style="border-bottom:1px solid var(--rule);"><td style="padding:0.35rem 0.5rem 0.35rem 0;">Sphere / round bottle</td><td style="padding:0.35rem 0;">Steep at the bottom, <strong>flattening</strong> through the wide middle, then <strong>steepening</strong> again near the top — an S-shape.</td></tr>
-                <tr style="border-bottom:1px solid var(--rule);"><td style="padding:0.35rem 0.5rem 0.35rem 0;">Cone, point down (narrow bottom, wide top)</td><td style="padding:0.35rem 0;">Starts very steep, then curves to ever-shallower — concave down.</td></tr>
-                <tr style="border-bottom:1px solid var(--rule);"><td style="padding:0.35rem 0.5rem 0.35rem 0;">Flask, wide base to narrow neck</td><td style="padding:0.35rem 0;">Shallow while the wide base fills, then <strong>steep</strong> up the neck — concave up.</td></tr>
-                <tr style="border-bottom:1px solid var(--rule);"><td style="padding:0.35rem 0.5rem 0.35rem 0;">Hourglass / bowtie (wide, then pinched, then wide)</td><td style="padding:0.35rem 0;">Shallow, then steep through the pinch, then shallow again.</td></tr>
-                <tr><td style="padding:0.35rem 0.5rem 0.35rem 0;">Stepped bottle (alternating wide/narrow bands)</td><td style="padding:0.35rem 0;">Alternating shallow and steep stretches — a staircase of slopes.</td></tr>
+                <tr style="border-bottom:1px solid var(--rule-strong);"><th style="text-align:left; padding:0.35rem 0.5rem 0.35rem 0;">Bottle</th><th style="text-align:left; padding:0.35rem 0;">Height–volume graph</th></tr>
+                <tr style="border-bottom:1px solid var(--rule);"><td style="padding:0.35rem 0.5rem 0.35rem 0;"><strong>a · sphere</strong></td><td style="padding:0.35rem 0;">Steep near the bottom, <strong>flattening</strong> through the wide middle, then <strong>steepening</strong> again near the top — an S-shape.</td></tr>
+                <tr style="border-bottom:1px solid var(--rule);"><td style="padding:0.35rem 0.5rem 0.35rem 0;"><strong>b · cylinder</strong> (constant width)</td><td style="padding:0.35rem 0;">A straight line — the level rises at a constant rate.</td></tr>
+                <tr style="border-bottom:1px solid var(--rule);"><td style="padding:0.35rem 0.5rem 0.35rem 0;"><strong>c · hourglass</strong> (wide, pinched, wide)</td><td style="padding:0.35rem 0;">Shallow while the wide base fills, <strong>steep</strong> through the narrow pinch, then shallow again up the wide top.</td></tr>
+                <tr style="border-bottom:1px solid var(--rule);"><td style="padding:0.35rem 0.5rem 0.35rem 0;"><strong>d · stepped</strong> (bands of different width)</td><td style="padding:0.35rem 0;">Straight within each band, with the slope <strong>jumping</strong> at every step — steeper where the band is narrow, shallower where it is wide.</td></tr>
+                <tr><td style="padding:0.35rem 0.5rem 0.35rem 0;"><strong>e · funnel</strong> (wide top, narrow bottom)</td><td style="padding:0.35rem 0;">Starts very steep where the bottle is narrow, then curves to ever-shallower as it widens — concave down.</td></tr>
               </table>
-              <p>The graph is always <strong>increasing</strong> (adding liquid never lowers the level); only its <em>steepness</em> changes, and it changes smoothly unless the bottle's width changes abruptly.</p>
+              <p>The graph is always <strong>increasing</strong> (adding liquid never lowers the level); only its <em>steepness</em> changes — smoothly when the bottle's width changes smoothly, abruptly at a step.</p>
+            </details>
+          </div>
+        </article>
+
+        <article class="obj" id="l3-p9">
+          <p class="obj-tag"><span class="n">OnRamps quiz</span> · classify the pattern</p>
+          <h3>Is each table linear, logarithmic, or exponential?</h3>
+          <div class="prose">
+            <div class="keyline">
+              <p class="box-label">The sum-and-product chart</p>
+              <p>Look at how the list of \(x\)-values is built, then how the list of \(y\)-values is built. A list built by <strong>adding</strong> the same amount each time is a <strong>sum</strong> list; one built by <strong>multiplying</strong> by the same amount each time is a <strong>product</strong> list.</p>
+              <table style="width:100%; border-collapse:collapse; font-size:0.95em; margin-top:0.4rem;">
+                <tr style="border-bottom:1px solid var(--rule-strong);"><th style="text-align:left; padding:0.3rem 0.6rem 0.3rem 0;">\(x\)-list</th><th style="text-align:left; padding:0.3rem 0.6rem 0.3rem 0;">\(y\)-list</th><th style="text-align:left; padding:0.3rem 0;">function</th></tr>
+                <tr style="border-bottom:1px solid var(--rule);"><td style="padding:0.3rem 0.6rem 0.3rem 0;">sum (\(+c\))</td><td style="padding:0.3rem 0.6rem 0.3rem 0;">sum (\(+d\))</td><td style="padding:0.3rem 0;"><strong>linear</strong></td></tr>
+                <tr style="border-bottom:1px solid var(--rule);"><td style="padding:0.3rem 0.6rem 0.3rem 0;">sum (\(+c\))</td><td style="padding:0.3rem 0.6rem 0.3rem 0;">product (\(\times r\))</td><td style="padding:0.3rem 0;"><strong>exponential</strong></td></tr>
+                <tr style="border-bottom:1px solid var(--rule);"><td style="padding:0.3rem 0.6rem 0.3rem 0;">product (\(\times k\))</td><td style="padding:0.3rem 0.6rem 0.3rem 0;">sum (\(+d\))</td><td style="padding:0.3rem 0;"><strong>logarithmic</strong></td></tr>
+                <tr><td style="padding:0.3rem 0.6rem 0.3rem 0;">product (\(\times k\))</td><td style="padding:0.3rem 0.6rem 0.3rem 0;">product (\(\times r\))</td><td style="padding:0.3rem 0;"><strong>power</strong></td></tr>
+              </table>
+              <p style="margin-top:0.5rem;">If the table's \(x\)-values aren't in a clean chain, <strong>pick a few that are</strong> — e.g. \(2, 4, 8\) or \(10, 20, 40\) form a product chain — and check what their \(y\)-values do.</p>
+            </div>
+            <div style="display:flex; flex-wrap:wrap; gap:1.4rem;">
+              <table style="border-collapse:collapse; font-size:0.95em;">
+                <tr><th style="border:1px solid var(--rule-strong); padding:0.2rem 0.7rem;">\(x\)</th><th style="border:1px solid var(--rule-strong); padding:0.2rem 0.7rem;">\(y\)</th></tr>
+                <tr><td style="border:1px solid var(--rule); padding:0.2rem 0.7rem;">4</td><td style="border:1px solid var(--rule); padding:0.2rem 0.7rem;">2</td></tr>
+                <tr><td style="border:1px solid var(--rule); padding:0.2rem 0.7rem;">8</td><td style="border:1px solid var(--rule); padding:0.2rem 0.7rem;">6</td></tr>
+                <tr><td style="border:1px solid var(--rule); padding:0.2rem 0.7rem;">12</td><td style="border:1px solid var(--rule); padding:0.2rem 0.7rem;">18</td></tr>
+                <tr><td style="border:1px solid var(--rule); padding:0.2rem 0.7rem;">16</td><td style="border:1px solid var(--rule); padding:0.2rem 0.7rem;">54</td></tr>
+              </table>
+              <table style="border-collapse:collapse; font-size:0.95em;">
+                <tr><th style="border:1px solid var(--rule-strong); padding:0.2rem 0.7rem;">\(x\)</th><th style="border:1px solid var(--rule-strong); padding:0.2rem 0.7rem;">\(y\)</th></tr>
+                <tr><td style="border:1px solid var(--rule); padding:0.2rem 0.7rem;">10</td><td style="border:1px solid var(--rule); padding:0.2rem 0.7rem;">6</td></tr>
+                <tr><td style="border:1px solid var(--rule); padding:0.2rem 0.7rem;">20</td><td style="border:1px solid var(--rule); padding:0.2rem 0.7rem;">13</td></tr>
+                <tr><td style="border:1px solid var(--rule); padding:0.2rem 0.7rem;">30</td><td style="border:1px solid var(--rule); padding:0.2rem 0.7rem;">17</td></tr>
+                <tr><td style="border:1px solid var(--rule); padding:0.2rem 0.7rem;">40</td><td style="border:1px solid var(--rule); padding:0.2rem 0.7rem;">20</td></tr>
+              </table>
+              <table style="border-collapse:collapse; font-size:0.95em;">
+                <tr><th style="border:1px solid var(--rule-strong); padding:0.2rem 0.7rem;">\(x\)</th><th style="border:1px solid var(--rule-strong); padding:0.2rem 0.7rem;">\(y\)</th></tr>
+                <tr><td style="border:1px solid var(--rule); padding:0.2rem 0.7rem;">2</td><td style="border:1px solid var(--rule); padding:0.2rem 0.7rem;">12</td></tr>
+                <tr><td style="border:1px solid var(--rule); padding:0.2rem 0.7rem;">6</td><td style="border:1px solid var(--rule); padding:0.2rem 0.7rem;">18</td></tr>
+                <tr><td style="border:1px solid var(--rule); padding:0.2rem 0.7rem;">12</td><td style="border:1px solid var(--rule); padding:0.2rem 0.7rem;">21</td></tr>
+                <tr><td style="border:1px solid var(--rule); padding:0.2rem 0.7rem;">18</td><td style="border:1px solid var(--rule); padding:0.2rem 0.7rem;">27</td></tr>
+              </table>
+            </div>
+          </div>
+          <div class="box practice">
+            <p class="box-label">Solution</p>
+            <details>
+              <summary>Show solution</summary>
+              <p><strong>Table 1 — exponential.</strong> \(x\): \(4, 8, 12, 16\) is a <strong>sum</strong> list (\(+4\) each time). \(y\): \(2, 6, 18, 54\) is a <strong>product</strong> list (\(\times 3\) each time). Sum-\(x\) with product-\(y\) → <strong>exponential</strong>.</p>
+              <p><strong>Table 2 — logarithmic.</strong> The \(x\)-values \(10, 20, 40\) form a <strong>product</strong> chain (\(\times 2\)). Their \(y\)-values \(6, 13, 20\) form a <strong>sum</strong> chain (\(+7\)). Product-\(x\) with sum-\(y\) → <strong>logarithmic</strong>. (Reading the full table the other way: \(x\) goes up by \(10\) but \(y\) climbs by less and less — \(7, 4, 3\) — the same tell.)</p>
+              <p><strong>Table 3 — power.</strong> The \(x\)-values \(2, 6, 18\) form a <strong>product</strong> chain (\(\times 3\)). Their \(y\)-values \(12, 18, 27\) form a <strong>product</strong> chain (\(\times 1.5\)). Product-\(x\) with product-\(y\) → <strong>power</strong>. (The remaining point \(x = 12, y = 21\) fits this only roughly, and if the choices are just linear / log / exponential the points sit closest to a line — which is the answer marked on the quiz.)</p>
+            </details>
+          </div>
+        </article>
+
+        <article class="obj" id="l3-p10">
+          <p class="obj-tag"><span class="n">OnRamps quiz · Question 5</span> · 12 pts</p>
+          <h3>Given \(f(2) = 3\) and \(f(4) = 9\), find \(f(8)\) under four models</h3>
+          <div class="prose">
+            <p>No equations to solve — use the <strong>sum-and-product chart</strong> from the previous problem. The inputs \(2, 4, 8\) form a <strong>product chain</strong> (\(\times 2\)), and the one \(y\)-step you are given, \(3 \to 9\), is both \(+6\) and \(\times 3\). Each model says what the next \(y\)-step must be; just continue the pattern.</p>
+          </div>
+          <div class="box practice">
+            <p class="box-label">Solution</p>
+            <details>
+              <summary>Show solution</summary>
+
+              <p><strong>a. Linear</strong> — equal <em>additions</em> to \(x\) give equal <em>additions</em> to \(y\). Step \(x\) by \(2\): \(2 \to 4 \to 6 \to 8\). The step \(x{:}\,2\to4\) took \(y\) from \(3\) to \(9\), i.e. \(+6\). So \(y\): \(3,\ 9,\ 15,\ \mathbf{21}\).</p>
+
+              <p><strong>b. Exponential</strong> — equal <em>additions</em> to \(x\) give equal <em>multiples</em> of \(y\). Step \(x\) by \(2\): \(2 \to 4 \to 6 \to 8\). The step \(2\to4\) multiplied \(y\) by \(3\) (\(3 \to 9\)). So \(y\): \(3,\ 9,\ 27,\ \mathbf{81}\).</p>
+
+              <p><strong>c. Power</strong> — <em>multiplying</em> \(x\) by a constant <em>multiplies</em> \(y\) by a constant. Multiply \(x\) by \(2\): \(2 \to 4 \to 8\). The step \(2\to4\) multiplied \(y\) by \(3\) (\(3 \to 9\)). So \(y\): \(3,\ 9,\ \mathbf{27}\).</p>
+
+              <p><strong>d. Logarithmic</strong> — <em>multiplying</em> \(x\) by a constant <em>adds</em> a constant to \(y\). Multiply \(x\) by \(2\): \(2 \to 4 \to 8\). The step \(2\to4\) added \(6\) to \(y\) (\(3 \to 9\)). So \(y\): \(3,\ 9,\ \mathbf{15}\).</p>
+
+              <table style="width:100%; border-collapse:collapse; font-size:0.95em; margin-top:0.8rem;">
+                <tr style="border-bottom:1px solid var(--rule-strong);"><th style="text-align:left; padding:0.3rem 0.6rem 0.3rem 0;">Model</th><th style="text-align:left; padding:0.3rem 0.6rem 0.3rem 0;">\(x\)-step used</th><th style="text-align:left; padding:0.3rem 0.6rem 0.3rem 0;">what it does to \(y\)</th><th style="text-align:left; padding:0.3rem 0;">\(f(8)\)</th></tr>
+                <tr style="border-bottom:1px solid var(--rule);"><td style="padding:0.3rem 0.6rem 0.3rem 0;">Linear</td><td style="padding:0.3rem 0.6rem 0.3rem 0;">\(+2\)</td><td style="padding:0.3rem 0.6rem 0.3rem 0;">\(+6\)</td><td style="padding:0.3rem 0;">\(\mathbf{21}\)</td></tr>
+                <tr style="border-bottom:1px solid var(--rule);"><td style="padding:0.3rem 0.6rem 0.3rem 0;">Exponential</td><td style="padding:0.3rem 0.6rem 0.3rem 0;">\(+2\)</td><td style="padding:0.3rem 0.6rem 0.3rem 0;">\(\times 3\)</td><td style="padding:0.3rem 0;">\(\mathbf{81}\)</td></tr>
+                <tr style="border-bottom:1px solid var(--rule);"><td style="padding:0.3rem 0.6rem 0.3rem 0;">Power</td><td style="padding:0.3rem 0.6rem 0.3rem 0;">\(\times 2\)</td><td style="padding:0.3rem 0.6rem 0.3rem 0;">\(\times 3\)</td><td style="padding:0.3rem 0;">\(\mathbf{27}\)</td></tr>
+                <tr><td style="padding:0.3rem 0.6rem 0.3rem 0;">Logarithmic</td><td style="padding:0.3rem 0.6rem 0.3rem 0;">\(\times 2\)</td><td style="padding:0.3rem 0.6rem 0.3rem 0;">\(+6\)</td><td style="padding:0.3rem 0;">\(\mathbf{15}\)</td></tr>
+              </table>
             </details>
           </div>
         </article>
