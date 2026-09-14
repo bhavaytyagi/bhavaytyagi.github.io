@@ -124,18 +124,14 @@
     100% { clip: rect(24px, 9999px, 10px, 0); }
 }
 
-/* Neon Effects */
+/* Heading colours. The neon glow (text-shadow) was removed because it made
+   headings hard to read; the class names are kept so existing markup still works. */
 .neon-cyan {
     color: var(--metal-silver);
-    text-shadow: 0 0 5px var(--metal-silver),
-                 0 0 10px var(--metal-silver),
-                 0 0 20px var(--metal-silver);
 }
 
 .neon-pink {
     color: var(--metal-silver);
-    text-shadow: 0 0 5px var(--metal-grey),
-                 0 0 10px var(--metal-grey);
 }
 
 /* Cyber Button */
