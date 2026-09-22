@@ -3,13 +3,19 @@
 
   To write a new post:
   1. Duplicate this file into blog/ with a slug name, e.g. blog/my-new-post.html
-  2. Replace the TITLE placeholders and the paragraph inside <article>.
-  3. Add a link to it from ../blog.html:
+  2. Replace the TITLE placeholders, the YYYY-MM/Month YYYY date, and the
+     paragraph inside <article>.
+  3. Append (don't prepend) a new <li> at the bottom of the <ol> in
+     ../blog.html, so post numbers stay stable as new ones are added:
        <li class="border-b border-[#6b6b6b]/20 pb-4">
          <a href="blog/my-new-post.html" class="text-xl font-bold hover:text-[#d8d8d8] transition-colors">
            My New Post
          </a>
+         <p class="text-sm text-[#6b6b6b] mt-1 ml-6"><time datetime="YYYY-MM">Month YYYY</time></p>
        </li>
+  4. Once there are enough posts to group, this is also where categories
+     (e.g. physics / meta / music) could be added, similar to Tao's and
+     Scott Aaronson's blogs.
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -36,7 +42,8 @@
                     <i data-feather="arrow-left" class="mr-2"></i> All Posts
                 </a>
 
-                <h1 class="text-3xl font-bold mb-6 neon-cyan">TITLE</h1>
+                <h1 class="text-3xl font-bold mb-2 neon-cyan">TITLE</h1>
+                <p class="text-sm text-[#6b6b6b] mb-6"><time datetime="YYYY-MM">Month YYYY</time></p>
 
                 <div class="space-y-4 leading-relaxed">
                     <p>CONTENT GOES HERE.</p>
