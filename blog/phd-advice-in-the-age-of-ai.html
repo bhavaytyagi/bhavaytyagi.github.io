@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhD Advice in the Age of AI | Bhavay Tyagi</title>
+    <link rel="icon" type="image/png" href="/images/atom.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body class="bg-[#050510] text-white font-mono overflow-x-hidden">
+    <div id="vanta-bg" class="fixed inset-0 z-0"></div>
+
+    <div class="relative z-10 min-h-screen flex flex-col">
+        <custom-navbar base="../"></custom-navbar>
+
+        <main class="flex-grow container mx-auto px-4 py-16">
+            <article class="max-w-3xl mx-auto bg-black bg-opacity-70 border border-[#6b6b6b] rounded-lg p-8 shadow-lg shadow-[#6b6b6b]/20">
+                <a href="../blog.html" class="cyber-button inline-flex items-center mb-8">
+                    <i data-feather="arrow-left" class="mr-2"></i> All Posts
+                </a>
+
+                <h1 class="text-3xl font-bold mb-6 neon-cyan">PhD Advice in the Age of AI</h1>
+
+                <div class="space-y-4 leading-relaxed">
+                    <p>This is a very important question, and one I find myself thinking about for long periods of time as a senior PhD scholar. And I think this is true no matter where you're living or pursuing your PhD, especially in the theoretical sciences.</p>
+
+                    <p>My advice would be two-part:</p>
+
+                    <p><strong>a. Stay abreast.</strong> What I mean by that is: in this time of rapid change, staying informed can be quite challenging and overwhelming, but it is extremely important if you want to navigate the journey ahead of you. Some practical ways of doing so are to read articles coming out of the frontier labs and follow people who are actively thinking about how AI is changing science and academia. Two particularly useful blogs, in my opinion, are <a href="https://terrytao.wordpress.com/" target="_blank" class="text-[#d8d8d8] hover:underline">Tao's blog</a> and <a href="https://scottaaronson.blog/" target="_blank" class="text-[#d8d8d8] hover:underline">Scott Aaronson's blog</a> (especially now that they're featuring guest posts). They often capture important discussions happening within the community and contain a lot of useful information.</p>
+
+                    <p><strong>b. I think the interest of the academic community will increasingly shift from simple correctness (whatever that means) toward what <a href="https://www.3blue1brown.com/" target="_blank" class="text-[#d8d8d8] hover:underline">Grant Sanderson</a> calls "motivated explanations."</strong> With these incredible AI tools at our disposal&mdash;tools that effectively EQUALIZE and DEMOCRATIZE access to technical capabilities&mdash;understanding (sometimes called "digesting") and effective communication can easily take a back seat. But I think this is exactly the kind of thing that will survive the AI tsunami.</p>
+
+                    <p>Making yourself, and therefore the wider community, genuinely understand something&mdash;making an idea feel natural and inevitable rather than merely correct&mdash;is the kind of skill that will remain valuable. Coming up with better ideas, better questions, and better proposals that not only ground your research but always connect it to a bigger picture will become increasingly important.</p>
+
+                    <p>So, if you're a new PhD student, the most important decision after choosing your advisor would be to work on a problem that genuinely makes you excited and motivated. A problem that encourages cross-talk and forces you and your collaborators out of the comfortable silos you're in. A problem whose end goals <strong>and</strong> daily goals excite you.</p>
+
+                    <p>And as you make progress, learn skills that allow you to communicate your ideas well&mdash;videos, lectures, notes, songs? Whatever works. I would recommend taking a more holistic approach toward research: not just learning how to produce results, but how to understand them deeply, place them in a bigger picture, and communicate why they matter.</p>
+
+                    <p>Finally, the landscape is changing <strong>as we speak</strong>. So I would treat all of this as near-term advice, not some timeless prescription for how to do a PhD. What makes sense today may need to be updated surprisingly quickly as these tools, and the scientific community's relationship with them, continue to evolve.</p>
+                </div>
+            </article>
+        </main>
+
+        <custom-footer></custom-footer>
+    </div>
+
+    <script src="../components/navbar.js"></script>
+    <script src="../components/footer.js"></script>
+    <script src="../script.js"></script>
+    <script>
+        feather.replace();
+        VANTA.NET({
+            el: "#vanta-bg",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color: 0xd8d8d8,
+            backgroundColor: 0x141414,
+            points: 10.00,
+            maxDistance: 22.00,
+            spacing: 18.00
+        });
+    </script>
+</body>
+</html>
