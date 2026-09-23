@@ -22,7 +22,7 @@
                 <h2 class="text-3xl font-bold mb-8 neon-cyan">Blog</h2>
 
                 <!-- Add new posts by appending a new <li> at the bottom, in the order they were written, so numbers stay stable. Duplicate blog/_template.html to start one. -->
-                <ol class="space-y-4 list-decimal list-inside marker:text-[#6b6b6b]">
+                <ol class="space-y-4 list-decimal list-inside marker:text-[#6b6b6b] mb-10">
                     <li class="border-b border-[#6b6b6b]/20 pb-4">
                         <a href="blog/phd-advice-in-the-age-of-ai.html" class="text-xl font-bold hover:text-[#d8d8d8] transition-colors">
                             PhD Advice in the Age of AI
@@ -30,6 +30,16 @@
                         <p class="text-sm text-[#6b6b6b] mt-1 ml-6"><time datetime="2026-09">September 2026</time></p>
                     </li>
                 </ol>
+
+                <!-- Top 3 posts on X by likes. Always stays below the post list above, regardless of post count. To refresh: pick new posts and swap the status URLs below. -->
+                <section>
+                    <h3 class="text-xl font-bold mb-4 neon-pink">Top Posts on X</h3>
+                    <div class="grid md:grid-cols-3 gap-4">
+                        <blockquote class="twitter-tweet" data-theme="dark"><a href="https://twitter.com/bhavaytyagi/status/2091750794336854433"></a></blockquote>
+                        <blockquote class="twitter-tweet" data-theme="dark"><a href="https://twitter.com/bhavaytyagi/status/1987753242994810967"></a></blockquote>
+                        <blockquote class="twitter-tweet" data-theme="dark"><a href="https://twitter.com/bhavaytyagi/status/2052903927767498992"></a></blockquote>
+                    </div>
+                </section>
             </article>
         </main>
 
@@ -39,6 +49,7 @@
     <script src="components/navbar.js"></script>
     <script src="components/footer.js"></script>
     <script src="script.js"></script>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     <script>
         feather.replace();
         VANTA.NET({
