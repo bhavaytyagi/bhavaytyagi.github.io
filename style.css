@@ -239,8 +239,11 @@
     }
 }
 
-/* Ensure Vanta background stays behind content and does not block interactions */
+/* Ensure Vanta background stays behind content and does not block interactions.
+   Opacity is reduced so the network animation stays subtle and doesn't compete
+   with foreground text. */
 #vanta-bg {
     z-index: -1; /* sit behind the main content */
     pointer-events: none; /* don't intercept clicks */
+    opacity: 0.35;
 }
