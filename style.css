@@ -245,5 +245,5 @@
 #vanta-bg {
     z-index: -1; /* sit behind the main content */
     pointer-events: none; /* don't intercept clicks */
-    opacity: 0.35;
+    opacity: 0.18;
 }
