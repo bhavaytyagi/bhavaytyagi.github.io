@@ -118,6 +118,12 @@ class CustomComments extends HTMLElement {
           color: var(--metal-grey, #6b6b6b);
         }
 
+        .hint code {
+          font-size: 0.85rem;
+          letter-spacing: 0.5px;
+          color: var(--metal-silver, #d8d8d8);
+        }
+
         .website-field {
           position: absolute;
           left: -9999px;
@@ -164,7 +170,7 @@ class CustomComments extends HTMLElement {
           <textarea id="body" name="body" required maxlength="5000"></textarea>
         </div>
         <input class="website-field" type="text" name="website" tabindex="-1" autocomplete="off">
-        <p class="hint">Wrap math in double dollar signs, e.g. $$E = mc^2$$.</p>
+        <p class="hint">Wrap math in double dollar signs, e.g. <code>$$E = mc^2$$</code>.</p>
         <button type="submit">Post Comment</button>
       </form>
     `;
