@@ -3,22 +3,24 @@
 
   To write a new post:
   1. Duplicate this file into blog/ with a slug name, e.g. blog/my-new-post.html
-  2. Replace the TITLE placeholders, the YYYY-MM/Month YYYY date, and the
-     paragraph inside <article>.
-  3. Prepend (don't append) a new <li> at the top of the <ol> in
-     ../blog.html, so the list stays reverse-chronological (newest first).
-     The excerpt should be the post's own opening sentence(s), verbatim,
-     ending in an ellipsis — not a summary written separately:
+  2. Replace the TITLE placeholders, the YYYY-MM-DD/Month D, YYYY date (use
+     the exact publish date, not just the month), and the paragraph inside
+     <article>.
+  3. Add a new <li> to ../blog.html — see the grouping/numbering comment
+     there for prepending into the current month's group vs. starting a
+     new month group + Timeline sidebar entry. The excerpt should be the
+     post's own opening sentence(s), verbatim, ending in an ellipsis — not
+     a summary written separately:
        <li class="border-b border-[#6b6b6b]/20 pb-4">
          <a href="blog/my-new-post.html" class="text-xl font-bold hover:text-[#d8d8d8] transition-colors">
            My New Post
          </a>
-         <p class="text-sm text-[#6b6b6b] mt-1 ml-6"><time datetime="YYYY-MM">Month YYYY</time></p>
+         <p class="text-sm text-[#6b6b6b] mt-1 ml-6"><time datetime="YYYY-MM-DD">Month D, YYYY</time></p>
          <p class="text-white/80 mt-2 ml-6 line-clamp-3">Opening sentence(s) of the post, verbatim&hellip;</p>
        </li>
-  4. Once there are enough posts to group, this is also where categories
-     (e.g. physics / meta / music) could be added, similar to Tao's and
-     Scott Aaronson's blogs.
+  4. Once there are enough posts to group, categories (e.g. physics / meta
+     / music) could also be added, similar to Tao's and Scott Aaronson's
+     blogs.
   5. Set <custom-comments post-slug="..."> below to the same slug as the
      filename (without .html) — it's the key comments are stored under.
 -->
@@ -48,7 +50,7 @@
                 </a>
 
                 <h1 class="text-3xl font-bold mb-2 neon-cyan">TITLE</h1>
-                <p class="text-sm text-[#6b6b6b] mb-6"><time datetime="YYYY-MM">Month YYYY</time></p>
+                <p class="text-sm text-[#6b6b6b] mb-6"><time datetime="YYYY-MM-DD">Month D, YYYY</time></p>
 
                 <div class="space-y-4 leading-relaxed">
                     <p>CONTENT GOES HERE.</p>

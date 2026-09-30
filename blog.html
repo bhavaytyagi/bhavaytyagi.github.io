@@ -18,30 +18,59 @@
         <custom-navbar></custom-navbar>
 
         <main class="flex-grow container mx-auto px-4 py-16">
-            <article class="max-w-4xl mx-auto bg-black bg-opacity-70 border border-[#6b6b6b] rounded-lg p-8 shadow-lg shadow-[#6b6b6b]/20">
-                <h2 class="text-3xl font-bold mb-8 neon-cyan">Blog</h2>
+            <div class="max-w-6xl mx-auto flex flex-col md:flex-row gap-8 items-start">
+                <article class="flex-1 w-full bg-black bg-opacity-70 border border-[#6b6b6b] rounded-lg p-8 shadow-lg shadow-[#6b6b6b]/20">
+                    <h2 class="text-3xl font-bold mb-8 neon-cyan">Blog</h2>
 
-                <!-- Add new posts by prepending a new <li> at the top, so the list stays reverse-chronological (newest first). Duplicate blog/_template.html to start one. Excerpt should be the post's own opening sentence(s), verbatim, ending in an ellipsis. -->
-                <ol class="space-y-4 list-decimal list-inside marker:text-[#6b6b6b]">
-                    <li class="border-b border-[#6b6b6b]/20 pb-4">
-                        <a href="blog/can-ai-solve-the-unsolvable.html" class="text-xl font-bold hover:text-[#d8d8d8] transition-colors">
-                            Can AI Solve the Unsolvable: The Future of Discovery
-                        </a>
-                        <p class="text-sm text-[#6b6b6b] mt-1 ml-6"><time datetime="2026-09">September 2026</time></p>
-                        <p class="text-white/80 mt-2 ml-6 line-clamp-3">On October 27th, 2026, I'm giving a public lecture on some of the recent advances in AI, hosted by After 5 Society Houston&hellip;</p>
-                    </li>
-                    <li class="border-b border-[#6b6b6b]/20 pb-4">
-                        <a href="blog/phd-advice-in-the-age-of-ai.html" class="text-xl font-bold hover:text-[#d8d8d8] transition-colors">
-                            PhD Advice in the Age of AI
-                        </a>
-                        <p class="text-sm text-[#6b6b6b] mt-1 ml-6"><time datetime="2026-09">September 2026</time></p>
-                        <p class="text-white/80 mt-2 ml-6 line-clamp-3">I received a lot of comments from students asking the same question, so I decided this should be my first blog post. This is a very important question, and one I find myself thinking about for long periods of time as a senior PhD scholar&hellip;</p>
-                    </li>
-                </ol>
-            </article>
+                    <!--
+                      Posts are grouped by month, newest month first. Each group is an
+                      <h3 id="archive-YYYY-MM"> followed by its own <ol>, so the Timeline
+                      sidebar can link straight to it.
+
+                      New post, same month as the topmost group: prepend a new <li> to
+                      the top of that group's <ol>. Duplicate blog/_template.html to
+                      start the post itself, and give it an exact date (YYYY-MM-DD), not
+                      just a month. The excerpt should be the post's own opening
+                      sentence(s), verbatim, ending in an ellipsis.
+
+                      New post, new month: add a new <h3 id="archive-YYYY-MM">Month
+                      YYYY</h3> + <ol> above the existing groups, and give that <ol a
+                      start="N" attribute equal to 1 + the total number of posts in
+                      every group above it, so numbering stays continuous across
+                      months. Also prepend a matching <li><a
+                      href="#archive-YYYY-MM">Month YYYY</a></li> to the Timeline
+                      sidebar's list, newest month first.
+                    -->
+                    <h3 id="archive-2026-09" class="text-sm uppercase tracking-widest text-[#6b6b6b] mb-4">September 2026</h3>
+                    <ol class="space-y-4 list-decimal list-inside marker:text-[#6b6b6b]">
+                        <li class="border-b border-[#6b6b6b]/20 pb-4">
+                            <a href="blog/can-ai-solve-the-unsolvable.html" class="text-xl font-bold hover:text-[#d8d8d8] transition-colors">
+                                Can AI Solve the Unsolvable: The Future of Discovery
+                            </a>
+                            <p class="text-sm text-[#6b6b6b] mt-1 ml-6"><time datetime="2026-09-29">September 29, 2026</time></p>
+                            <p class="text-white/80 mt-2 ml-6 line-clamp-3">On October 27th, 2026, I'm giving a public lecture on some of the recent advances in AI, hosted by After 5 Society Houston&hellip;</p>
+                        </li>
+                        <li class="border-b border-[#6b6b6b]/20 pb-4">
+                            <a href="blog/phd-advice-in-the-age-of-ai.html" class="text-xl font-bold hover:text-[#d8d8d8] transition-colors">
+                                PhD Advice in the Age of AI
+                            </a>
+                            <p class="text-sm text-[#6b6b6b] mt-1 ml-6"><time datetime="2026-09-22">September 22, 2026</time></p>
+                            <p class="text-white/80 mt-2 ml-6 line-clamp-3">I received a lot of comments from students asking the same question, so I decided this should be my first blog post. This is a very important question, and one I find myself thinking about for long periods of time as a senior PhD scholar&hellip;</p>
+                        </li>
+                    </ol>
+                </article>
+
+                <!-- Timeline sidebar, inspired by the "Archives" widget on Scott Aaronson's blog. Newest month first. -->
+                <aside class="w-full md:w-56 md:flex-shrink-0 bg-black bg-opacity-70 border border-[#6b6b6b] rounded-lg p-6 shadow-lg shadow-[#6b6b6b]/20 md:sticky md:top-8">
+                    <h3 class="text-lg font-bold mb-4 neon-pink">Timeline</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#archive-2026-09" class="hover:text-[#d8d8d8] transition-colors">September 2026</a></li>
+                    </ul>
+                </aside>
+            </div>
 
             <!-- Its own box, always below the Blog box above regardless of post count. -->
-            <section class="max-w-4xl mx-auto bg-black bg-opacity-70 border border-[#6b6b6b] rounded-lg p-8 shadow-lg shadow-[#6b6b6b]/20 mt-8">
+            <section class="max-w-6xl mx-auto bg-black bg-opacity-70 border border-[#6b6b6b] rounded-lg p-8 shadow-lg shadow-[#6b6b6b]/20 mt-8">
                 <h3 class="text-xl font-bold mb-4 neon-pink">Latest Posts on X</h3>
                 <!-- X-POSTS:START — updated manually. Say "update X posts" in a session to have Claude swap these two status URLs for the latest ones. -->
                 <div class="grid md:grid-cols-2 gap-4">
