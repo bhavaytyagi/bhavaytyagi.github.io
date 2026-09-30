@@ -19,6 +19,8 @@
   4. Once there are enough posts to group, this is also where categories
      (e.g. physics / meta / music) could be added, similar to Tao's and
      Scott Aaronson's blogs.
+  5. Set <custom-comments post-slug="..."> below to the same slug as the
+     filename (without .html) — it's the key comments are stored under.
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -53,6 +55,7 @@
                 </div>
 
                 <custom-share></custom-share>
+                <custom-comments post-slug="my-new-post"></custom-comments>
             </article>
         </main>
 
@@ -62,6 +65,7 @@
     <script src="../components/navbar.js"></script>
     <script src="../components/footer.js"></script>
     <script src="../components/share.js"></script>
+    <script src="../components/comments.js"></script>
     <script src="../script.js"></script>
     <script>
         feather.replace();
