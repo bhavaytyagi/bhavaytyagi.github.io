@@ -23,9 +23,24 @@
                     <h2 class="text-3xl font-bold mb-8 neon-cyan">Blog</h2>
 
                     <!--
-                      Posts are grouped by month, newest month first. Each group is an
-                      <h3 id="archive-YYYY-MM"> followed by its own <ol>, so the Timeline
-                      sidebar can link straight to it.
+                      The box only ever shows ONE month's worth of posts at a time — the
+                      current month, by default. A small script at the bottom of this
+                      file decides which, at load time, based on the visitor's clock:
+
+                        - If a <section class="month-group" id="archive-YYYY-MM"> exists
+                          for the current month, it's shown (every post in it, however
+                          many) and #current-month-empty stays hidden.
+                        - If not (the current month hasn't had a post yet), the box shows
+                          the "No blog posts yet in this month." message, a break line,
+                          then falls back to showing the single most recent month-group
+                          that does exist (i.e. the topmost one in the DOM).
+                        - Clicking a month in the Timeline sidebar always shows that
+                          month's group directly, overriding the above.
+
+                      Posts are grouped by month, newest month first. Each group is a
+                      <section class="month-group" id="archive-YYYY-MM"> wrapping an
+                      <h3> + <ol>, so the Timeline sidebar can link straight to it, and
+                      the script above can show/hide whole groups.
 
                       New post, same month as the topmost group: prepend a new <li> to
                       the top of that group's <ol>. Duplicate blog/_template.html to
@@ -33,38 +48,47 @@
                       just a month. The excerpt should be the post's own opening
                       sentence(s), verbatim, ending in an ellipsis.
 
-                      New post, new month: add a new <h3 id="archive-YYYY-MM">Month
-                      YYYY</h3> + <ol> above the existing groups, and give that <ol a
-                      start="N" attribute equal to 1 + the total number of posts in
-                      every group above it, so numbering stays continuous across
-                      months. Also prepend a matching <li><a
-                      href="#archive-YYYY-MM">Month YYYY</a></li> to the Timeline
-                      sidebar's list, newest month first.
+                      New post, new month: add a new <section class="month-group"
+                      id="archive-YYYY-MM"> above the existing groups (with its own <h3>
+                      + <ol>), and give that <ol> a start="N" attribute equal to 1 + the
+                      total number of posts in every group above it, so numbering stays
+                      continuous across months. Also prepend a matching <li><a
+                      class="timeline-link" href="#archive-YYYY-MM">Month YYYY</a></li>
+                      to the Timeline sidebar's list, newest month first — this is what
+                      keeps every past month reachable even when the main box is only
+                      showing the current (or, if empty, the most recent) month.
                     -->
-                    <h3 id="archive-2026-09" class="text-sm uppercase tracking-widest text-[#6b6b6b] mb-4">September 2026</h3>
-                    <ol class="space-y-4 list-decimal list-inside marker:text-[#6b6b6b]">
-                        <li class="border-b border-[#6b6b6b]/20 pb-4">
-                            <a href="blog/can-ai-solve-the-unsolvable.html" class="text-xl font-bold hover:text-[#d8d8d8] transition-colors">
-                                Can AI Solve the Unsolvable: The Future of Discovery
-                            </a>
-                            <p class="text-sm text-[#6b6b6b] mt-1 ml-6"><time datetime="2026-09-29">September 29, 2026</time></p>
-                            <p class="text-white/80 mt-2 ml-6 line-clamp-3">On October 27th, 2026, I'm giving a public lecture on some of the recent advances in AI, hosted by After 5 Society Houston&hellip;</p>
-                        </li>
-                        <li class="border-b border-[#6b6b6b]/20 pb-4">
-                            <a href="blog/phd-advice-in-the-age-of-ai.html" class="text-xl font-bold hover:text-[#d8d8d8] transition-colors">
-                                PhD Advice in the Age of AI
-                            </a>
-                            <p class="text-sm text-[#6b6b6b] mt-1 ml-6"><time datetime="2026-09-22">September 22, 2026</time></p>
-                            <p class="text-white/80 mt-2 ml-6 line-clamp-3">I received a lot of comments from students asking the same question, so I decided this should be my first blog post. This is a very important question, and one I find myself thinking about for long periods of time as a senior PhD scholar&hellip;</p>
-                        </li>
-                    </ol>
+                    <div id="current-month-empty" class="hidden">
+                        <p class="text-white/70 mb-6">No blog posts yet in this month.</p>
+                        <hr class="border-t border-[#6b6b6b]/30 mb-6">
+                    </div>
+
+                    <section class="month-group" id="archive-2026-09">
+                        <h3 class="text-sm uppercase tracking-widest text-[#6b6b6b] mb-4">September 2026</h3>
+                        <ol class="space-y-4 list-decimal list-inside marker:text-[#6b6b6b]">
+                            <li class="border-b border-[#6b6b6b]/20 pb-4">
+                                <a href="blog/can-ai-solve-the-unsolvable.html" class="text-xl font-bold hover:text-[#d8d8d8] transition-colors">
+                                    Can AI Solve the Unsolvable: The Future of Discovery
+                                </a>
+                                <p class="text-sm text-[#6b6b6b] mt-1 ml-6"><time datetime="2026-09-29">September 29, 2026</time></p>
+                                <p class="text-white/80 mt-2 ml-6 line-clamp-3">On October 27th, 2026, I'm giving a public lecture on some of the recent advances in AI, hosted by After 5 Society Houston&hellip;</p>
+                            </li>
+                            <li class="border-b border-[#6b6b6b]/20 pb-4">
+                                <a href="blog/phd-advice-in-the-age-of-ai.html" class="text-xl font-bold hover:text-[#d8d8d8] transition-colors">
+                                    PhD Advice in the Age of AI
+                                </a>
+                                <p class="text-sm text-[#6b6b6b] mt-1 ml-6"><time datetime="2026-09-22">September 22, 2026</time></p>
+                                <p class="text-white/80 mt-2 ml-6 line-clamp-3">I received a lot of comments from students asking the same question, so I decided this should be my first blog post. This is a very important question, and one I find myself thinking about for long periods of time as a senior PhD scholar&hellip;</p>
+                            </li>
+                        </ol>
+                    </section>
                 </article>
 
-                <!-- Timeline sidebar, inspired by the "Archives" widget on Scott Aaronson's blog. Newest month first. -->
+                <!-- Timeline sidebar, inspired by the "Archives" widget on Scott Aaronson's blog. Newest month first. Always lists every month that has posts, even ones not currently shown in the main box. -->
                 <aside class="w-full md:w-56 md:flex-shrink-0 bg-black bg-opacity-70 border border-[#6b6b6b] rounded-lg p-6 shadow-lg shadow-[#6b6b6b]/20 md:sticky md:top-8">
                     <h3 class="text-lg font-bold mb-4 neon-pink">Timeline</h3>
                     <ul class="space-y-2 text-sm">
-                        <li><a href="#archive-2026-09" class="hover:text-[#d8d8d8] transition-colors">September 2026</a></li>
+                        <li><a href="#archive-2026-09" class="timeline-link hover:text-[#d8d8d8] transition-colors">September 2026</a></li>
                     </ul>
                 </aside>
             </div>
@@ -74,8 +98,8 @@
                 <h3 class="text-xl font-bold mb-4 neon-pink">Latest Posts on X</h3>
                 <!-- X-POSTS:START — updated manually. Say "update X posts" in a session to have Claude swap these two status URLs for the latest ones. -->
                 <div class="grid md:grid-cols-2 gap-4">
-                    <blockquote class="twitter-tweet" data-theme="dark"><a href="https://twitter.com/bhavaytyagi/status/2104810165593927690"></a></blockquote>
-                    <blockquote class="twitter-tweet" data-theme="dark"><a href="https://twitter.com/bhavaytyagi/status/2104785962845003899"></a></blockquote>
+                    <blockquote class="twitter-tweet" data-theme="dark"><a href="https://twitter.com/bhavaytyagi/status/2105358565582217512"></a></blockquote>
+                    <blockquote class="twitter-tweet" data-theme="dark"><a href="https://twitter.com/bhavaytyagi/status/2105345870862463361"></a></blockquote>
                 </div>
                 <!-- X-POSTS:END -->
             </section>
@@ -89,6 +113,48 @@
     <script src="script.js"></script>
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     <script>
+        // Show only the current month's post group by default; fall back to the
+        // most recent month with posts (plus an empty-state message) if the
+        // current month has none yet. See the HTML comment above the first
+        // .month-group for the full convention.
+        (function () {
+            const groups = document.querySelectorAll('.month-group');
+            if (!groups.length) return;
+
+            const emptyState = document.getElementById('current-month-empty');
+
+            function showGroup(id) {
+                groups.forEach((g) => g.classList.toggle('hidden', g.id !== id));
+            }
+
+            function showCurrentOrFallback() {
+                const now = new Date();
+                const currentId = `archive-${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`;
+                const currentGroup = document.getElementById(currentId);
+
+                if (currentGroup) {
+                    emptyState.classList.add('hidden');
+                    showGroup(currentId);
+                } else {
+                    emptyState.classList.remove('hidden');
+                    groups.forEach((g) => g.classList.add('hidden'));
+                    groups[0].classList.remove('hidden');
+                }
+            }
+
+            showCurrentOrFallback();
+
+            document.querySelectorAll('.timeline-link').forEach((link) => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const id = link.getAttribute('href').slice(1);
+                    emptyState.classList.add('hidden');
+                    showGroup(id);
+                    document.getElementById(id).scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
+            });
+        })();
+
         feather.replace();
         VANTA.NET({
             el: "#vanta-bg",

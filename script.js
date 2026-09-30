@@ -1,7 +1,7 @@
 // Shared scripts across all pages
 document.addEventListener('DOMContentLoaded', () => {
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    // Smooth scrolling for anchor links (blog.html's Timeline links handle their own scrolling)
+    document.querySelectorAll('a[href^="#"]:not(.timeline-link)').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
             document.querySelector(this.getAttribute('href')).scrollIntoView({
