@@ -48,11 +48,15 @@
                       just a month. The excerpt should be the post's own opening
                       sentence(s), verbatim, ending in an ellipsis.
 
+                      Numbering: every <li> starts with a <p> reading "BlogPost #N",
+                      where N counts posts in the order they were written (oldest = 1),
+                      so the newest post carries the highest number and N is the total
+                      written so far. A new post is always N = (current total) + 1; no
+                      existing labels ever change.
+
                       New post, new month: add a new <section class="month-group"
                       id="archive-YYYY-MM"> above the existing groups (with its own <h3>
-                      + <ol>), and give that <ol> a start="N" attribute equal to 1 + the
-                      total number of posts in every group above it, so numbering stays
-                      continuous across months. Also prepend a matching <li><a
+                      + <ol class="space-y-4 list-none">). Also prepend a matching <li><a
                       class="timeline-link" href="#archive-YYYY-MM">Month YYYY</a></li>
                       to the Timeline sidebar's list, newest month first — this is what
                       keeps every past month reachable even when the main box is only
@@ -65,33 +69,36 @@
 
                     <section class="month-group" id="archive-2026-10">
                         <h3 class="text-sm uppercase tracking-widest text-[#6b6b6b] mb-4">October 2026</h3>
-                        <ol class="space-y-4 list-decimal list-inside marker:text-[#6b6b6b]">
+                        <ol class="space-y-4 list-none">
                             <li class="border-b border-[#6b6b6b]/20 pb-4">
+                                <p class="text-sm tracking-wide text-[#6b6b6b] mb-1">BlogPost #3</p>
                                 <a href="blog/nobel-prize-physics-2026-icecube.html" class="text-xl font-bold hover:text-[#d8d8d8] transition-colors">
                                     The 2026 Nobel Prize in Physics: Turning Antarctic Ice into a Telescope
                                 </a>
-                                <p class="text-sm text-[#6b6b6b] mt-1 ml-6"><time datetime="2026-10-07">October 7, 2026</time></p>
-                                <p class="text-white/80 mt-2 ml-6 line-clamp-3">&ldquo;I have done a terrible thing. I have postulated a particle that cannot be detected.&rdquo; Wolfgang Pauli reportedly said this in 1930, when he proposed the neutrino&hellip;</p>
+                                <p class="text-sm text-[#6b6b6b] mt-1"><time datetime="2026-10-07">October 7, 2026</time></p>
+                                <p class="text-white/80 mt-2 line-clamp-3">&ldquo;I have done a terrible thing. I have postulated a particle that cannot be detected.&rdquo; Wolfgang Pauli reportedly said this in 1930, when he proposed the neutrino&hellip;</p>
                             </li>
                         </ol>
                     </section>
 
                     <section class="month-group" id="archive-2026-09">
                         <h3 class="text-sm uppercase tracking-widest text-[#6b6b6b] mb-4">September 2026</h3>
-                        <ol start="2" class="space-y-4 list-decimal list-inside marker:text-[#6b6b6b]">
+                        <ol class="space-y-4 list-none">
                             <li class="border-b border-[#6b6b6b]/20 pb-4">
+                                <p class="text-sm tracking-wide text-[#6b6b6b] mb-1">BlogPost #2</p>
                                 <a href="blog/can-ai-solve-the-unsolvable.html" class="text-xl font-bold hover:text-[#d8d8d8] transition-colors">
                                     Can AI Solve the Unsolvable: The Future of Discovery
                                 </a>
-                                <p class="text-sm text-[#6b6b6b] mt-1 ml-6"><time datetime="2026-09-29">September 29, 2026</time></p>
-                                <p class="text-white/80 mt-2 ml-6 line-clamp-3">On October 27th, 2026, I'm giving a public lecture on some of the recent advances in AI, hosted by After 5 Society Houston&hellip;</p>
+                                <p class="text-sm text-[#6b6b6b] mt-1"><time datetime="2026-09-29">September 29, 2026</time></p>
+                                <p class="text-white/80 mt-2 line-clamp-3">On October 27th, 2026, I'm giving a public lecture on some of the recent advances in AI, hosted by After 5 Society Houston&hellip;</p>
                             </li>
                             <li class="border-b border-[#6b6b6b]/20 pb-4">
+                                <p class="text-sm tracking-wide text-[#6b6b6b] mb-1">BlogPost #1</p>
                                 <a href="blog/phd-advice-in-the-age-of-ai.html" class="text-xl font-bold hover:text-[#d8d8d8] transition-colors">
                                     PhD Advice in the Age of AI
                                 </a>
-                                <p class="text-sm text-[#6b6b6b] mt-1 ml-6"><time datetime="2026-09-22">September 22, 2026</time></p>
-                                <p class="text-white/80 mt-2 ml-6 line-clamp-3">I received a lot of comments from students asking the same question, so I decided this should be my first blog post. This is a very important question, and one I find myself thinking about for long periods of time as a senior PhD scholar&hellip;</p>
+                                <p class="text-sm text-[#6b6b6b] mt-1"><time datetime="2026-09-22">September 22, 2026</time></p>
+                                <p class="text-white/80 mt-2 line-clamp-3">I received a lot of comments from students asking the same question, so I decided this should be my first blog post. This is a very important question, and one I find myself thinking about for long periods of time as a senior PhD scholar&hellip;</p>
                             </li>
                         </ol>
                     </section>
